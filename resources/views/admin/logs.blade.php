@@ -3,13 +3,13 @@
 @section('content')
     <div class="row mt-4">
         <div class="col-lg-12">
-            <div class="card col-11 m-lg-5 m-md-3 m-sm-2 m-2 ">
+            <div class="card col-11 m-lg-5 m-md-3 m-sm-2 m-2 " style="border-radius: 20px;">
                 <!-- Card header -->
                 <div class="card-header pb-0 col-12">
                     <div class="d-lg-flex">
-                        <div>
-                            <h5 class="mb-0">Last login</h5>
-                        </div>
+
+                            <h4 class="mb-0 my-3 fw-bold">Last login</h4>
+
 
                     </div>
                 </div>

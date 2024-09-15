@@ -18,10 +18,10 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <div class="card-header">
-                        <a href="{{ route('admin.agent.create') }}" class="btn btn-primary float-right" style="width: 80px;">Create</a>
+                    <div class="d-flex justify-content-end mb-3">
+                        <a href="{{ route('admin.agent.create') }}" class="btn btn-success " style="width: 100px;"><i class="fas fa-plus text-white  mr-2"></i>Create</a>
                     </div>
-                    <div class="card">
+                    <div class="card "  style="border-radius: 20px;">
                         <div class="card-header">
                             <h3>Agent Lists</h3>
                         </div>
@@ -99,27 +99,27 @@
                                                         <a href="{{ route('admin.agent.getCashIn', $user->id) }}"
                                                             data-bs-toggle="tooltip"
                                                             data-bs-original-title="Deposit To Agent"
-                                                            class="btn btn-info btn-sm">
-                                                            <i class="fas fa-plus text-white me-1"></i>Deposit
+                                                            class="btn btn-success btn-sm">
+                                                            <i class="fas fa-plus text-white mr-1"></i>Deposit
                                                         </a>
                                                         <a href="{{ route('admin.agent.getCashOut', $user->id) }}"
                                                             data-bs-toggle="tooltip"
                                                             data-bs-original-title="WithDraw To Agent"
-                                                            class="btn btn-info btn-sm">
-                                                            <i class="fas fa-minus text-white me-1"></i>
+                                                            class="btn btn-danger btn-sm">
+                                                            <i class="fas fa-minus text-white mr-1"></i>
                                                             Withdrawl
                                                         </a>
                                                         <a href="{{ route('admin.logs', $user->id) }}"
                                                             data-bs-toggle="tooltip" data-bs-original-title="Agent logs"
                                                             class="btn btn-info btn-sm">
-                                                            <i class="fas fa-right-left text-white me-1"></i>
+                                                            <i class="fas fa-right-left text-white mr-1"></i>
                                                             Logs
                                                         </a>
                                                         <a href="{{ route('admin.transferLogDetail', $user->id) }}"
                                                             data-bs-toggle="tooltip" data-bs-original-title="Reports"
-                                                            class="btn btn-info btn-sm">
-                                                            <i class="fas fa-right-left text-white me-1"></i>
-                                                            transferLogs
+                                                            class="btn btn-warning btn-sm">
+                                                            <i class="fa-solid fa-money-bill-transfer"></i>
+                                                            Transfer Logs
                                                         </a>
 
 

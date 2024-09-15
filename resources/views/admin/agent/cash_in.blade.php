@@ -4,12 +4,12 @@
     <div class="row justify-content-center ">
         <div class="col-lg-12">
             <div class=" mt-2">
-                <div class="d-flex justify-content-end col-11 m-lg-3 m-md-3 m-sm-3 m-3">
-                    <a href="{{ route('admin.agent.index') }}" class="btn btn-success " style="width: 100px;">
-                        <i class="fas fa-arrow-left" style="font-size: 16px;"></i> Back
+                <div class="d-flex justify-content-end col-lg-8 col-md-8 col-sm-10 col-10  offset-lg-2 offset-md-2 offset-sm-1 offset-1 pb-3 pt-3">
+                    <a href="{{ route('admin.agent.index') }}" class="btn btn-danger" style="width: 100px;font-size: 16px;">
+                        <i class="fas fa-arrow-left" ></i> Back
                     </a>
                 </div>
-                <div class="card col-11 offset-1 m-lg-3 m-md-3 m-sm-3 m-3 ">
+                <div class="card col-lg-8 col-md-8 col-sm-10 col-10  offset-lg-2 offset-md-2 offset-sm-1 offset-1 " style="border-radius: 20px;">
                     <div class="card-header ">
                         <h3 class="ms-3 my-3 fw-bold">Agent Information </h3>
                     </div>
@@ -40,7 +40,7 @@
 
     <div class="row mt-4">
         <div class="col-lg-12">
-            <div class="card col-11 m-lg-3 m-md-3 m-sm-3 m-3 ">
+            <div class="card col-lg-8 col-md-8 col-sm-10 col-10  offset-lg-2 offset-md-2 offset-sm-1 offset-1 " style="border-radius: 20px;">
                 <!-- Card header -->
                 <div class="card-header pb-0">
                     <div class="d-lg-flex my-3">
@@ -106,7 +106,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="input-group input-group-outline is-valid mb-3 d-flex justify-content-end" >
-                                    <button type="submit" class="btn btn-primary" style="width: 100px;">Confirm</button>
+                                    <button type="submit" class="btn btn-success" style="width: 100px;">Confirm</button>
                                 </div>
                             </div>
                         </div>

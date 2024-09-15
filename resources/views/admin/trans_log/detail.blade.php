@@ -3,7 +3,7 @@
 @section('content')
     <div class="row mt-4">
         <div class="col-12">
-            <div class="card col-11 m-lg-5 m-md-5 m-sm-3 m-3">
+            <div class="card col-11 m-lg-5 m-md-5 m-sm-3 m-3 pb-3" style="border-radius: 20px;">
                 <!-- Card header -->
                 <div class="card-header pb-0">
                     <div class="d-lg-flex">

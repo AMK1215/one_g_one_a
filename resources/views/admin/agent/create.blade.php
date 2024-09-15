@@ -19,14 +19,14 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <div class="card col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1">
-                <div class="card-header">
+            <div class="card col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1" style="border-radius: 20px;">
+                <div class="card-header mt-2">
                     <div class="card-title col-12">
                            <h3 class="d-inline">
                                 Create Agent
                            </h3>
-                            <a href="{{ route('admin.agent.index') }}" class="btn btn-success d-inline float-right">
-                                <i class="fas fa-arrow-left" style="font-size: 16px;"></i> Back
+                            <a href="{{ route('admin.agent.index') }}" class="btn btn-danger d-inline float-right">
+                                <i class="fas fa-arrow-left mr-2" ></i> Back
                             </a>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                     @csrf
                     <div class="card-body mt-2">
                         <div class="row">
-                            <div class="col-lg-12 offset-lg-0 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1">
+                            <div class="col-lg-12 offset-lg-0 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1 ">
                                 <div class="form-group">
                                     <label for="title">Agent ID <span class="text-danger">*</span></label>
                                     <input type="text" name="user_name" class="form-control" value="{{ $agent_name }}"
@@ -89,18 +89,18 @@
                                         <span class="text-danger d-block">*{{ $message }}</span>
                                     @enderror
                                 </div>
-
+                                <div class=" d-flex justify-content-end" >
+                                    <div class="form-group">
+                                        <button class="btn btn-danger"  type="button" id="resetFormButton">Cancel</button>
+                                        <button type="submit" class="btn btn-success" type="button">Submit</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                     </div>
 
-                        <div class="card-footer d-flex justify-content-end ">
-                            <div class="form-group">
-                                <button class="btn btn-info"  type="button" id="resetFormButton">Cancel</button>
-                                <button type="submit" class="btn btn-primary " type="button">Submit</button>
-                            </div>
-                        </div>
+
 
 
                 </form>
