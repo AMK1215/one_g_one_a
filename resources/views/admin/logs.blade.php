@@ -2,19 +2,18 @@
 
 @section('content')
     <div class="row mt-4">
-        <div class="col-12">
-            <div class="card">
+        <div class="col-lg-12">
+            <div class="card col-11 m-lg-5 m-md-3 m-sm-2 m-2 ">
                 <!-- Card header -->
-                <div class="card-header pb-0">
+                <div class="card-header pb-0 col-12">
                     <div class="d-lg-flex">
                         <div>
                             <h5 class="mb-0">Last login</h5>
-
                         </div>
 
                     </div>
                 </div>
-                <div class="table-responsive">
+                <div class="table-responsive ">
                     <table id="mytable" class="table table-bordered table-hover">
                         <thead class="thead-light">
                             <th>#</th>

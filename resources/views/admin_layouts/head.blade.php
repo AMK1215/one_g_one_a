@@ -9,7 +9,8 @@
   <title>
    Bossi  Slot
   </title>
-  <!--     Fonts and icons     -->
+
+ <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
   <!-- Nucleo Icons -->
   <link href="{{ asset('admin_app/assets/css/nucleo-icons.css')}}" rel="stylesheet" />

@@ -3,12 +3,12 @@
 @section('content')
     <div class="row mt-4">
         <div class="col-12">
-            <div class="card">
+            <div class="card col-11 m-lg-5 m-md-5 m-sm-3 m-3">
                 <!-- Card header -->
                 <div class="card-header pb-0">
                     <div class="d-lg-flex">
                         <div>
-                            <h5 class="mb-0">Transfer Log Detail</h5>
+                            <h3 class="mb-0 my-3 fw-bold">Transfer Log Detail</h3>
 
                         </div>
                     </div>

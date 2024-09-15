@@ -3,11 +3,11 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
+                {{-- <div class="col-sm-6">
                     <h1>Create Agent</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
+                </div> --}}
+                <div class="col-12">
+                    <ol class="breadcrumb  float-right">
                         <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                         <li class="breadcrumb-item active">create Agent</li>
                     </ol>
@@ -19,22 +19,23 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <div class="card">
+            <div class="card col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1">
                 <div class="card-header">
-                    <h3 class="card-title">
-                        <span>
-                            <a href="{{ route('admin.agent.index') }}" class="btn btn-success">
-                                <i class="fas fa-arrow-left" style="font-size: 20px;"></i> Back
+                    <div class="card-title col-12">
+                           <h3 class="d-inline">
+                                Create Agent
+                           </h3>
+                            <a href="{{ route('admin.agent.index') }}" class="btn btn-success d-inline float-right">
+                                <i class="fas fa-arrow-left" style="font-size: 16px;"></i> Back
                             </a>
-                        </span>
-                    </h3>
+                    </div>
                 </div>
                 <form role="form" method="POST" class="text-start" action="{{ route('admin.agent.store') }}"
                     enctype="multipart/form-data">
                     @csrf
                     <div class="card-body mt-2">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-lg-12 offset-lg-0 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1">
                                 <div class="form-group">
                                     <label for="title">Agent ID <span class="text-danger">*</span></label>
                                     <input type="text" name="user_name" class="form-control" value="{{ $agent_name }}"
@@ -80,10 +81,6 @@
                                     <span
                                         class="badge badge-sm bg-gradient-success">{{ auth()->user()->balanceFloat }}</span>
                                 </div>
-
-                            </div>
-                            <div class="col-md-6">
-
                                 <div class="form-group">
                                     <label for="title">Amount</label>
                                     <input type="text" name="amount" class="form-control" value="{{ old('amount') }}"
@@ -97,13 +94,15 @@
                         </div>
 
                     </div>
-                    <div class="card-footer">
-                        <div class="form-group">
-                            <button class="btn btn-info" type="button" id="resetFormButton">Cancel</button>
 
-                            <button type="submit" class="btn btn-primary" type="button">Submit</button>
+                        <div class="card-footer d-flex justify-content-end ">
+                            <div class="form-group">
+                                <button class="btn btn-info"  type="button" id="resetFormButton">Cancel</button>
+                                <button type="submit" class="btn btn-primary " type="button">Submit</button>
+                            </div>
                         </div>
-                    </div>
+
+
                 </form>
             </div>
 

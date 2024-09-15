@@ -3,10 +3,7 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Agent Lists</h1>
-                </div>
-                <div class="col-sm-6">
+                <div class="col-12">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                         <li class="breadcrumb-item active">Agent List</li>
@@ -22,9 +19,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card-header">
-                        <a href="{{ route('admin.agent.create') }}" class="btn btn-primary">Create</a>
+                        <a href="{{ route('admin.agent.create') }}" class="btn btn-primary float-right" style="width: 80px;">Create</a>
                     </div>
                     <div class="card">
+                        <div class="card-header">
+                            <h3>Agent Lists</h3>
+                        </div>
                         <div class="card-body">
                             <table id="mytable" class="table table-bordered table-hover">
                                 <thead>
@@ -100,14 +100,14 @@
                                                             data-bs-toggle="tooltip"
                                                             data-bs-original-title="Deposit To Agent"
                                                             class="btn btn-info btn-sm">
-                                                            <i class="fas fa-plus text-white me-1"></i>Dep
+                                                            <i class="fas fa-plus text-white me-1"></i>Deposit
                                                         </a>
                                                         <a href="{{ route('admin.agent.getCashOut', $user->id) }}"
                                                             data-bs-toggle="tooltip"
                                                             data-bs-original-title="WithDraw To Agent"
                                                             class="btn btn-info btn-sm">
                                                             <i class="fas fa-minus text-white me-1"></i>
-                                                            WDL
+                                                            Withdrawl
                                                         </a>
                                                         <a href="{{ route('admin.logs', $user->id) }}"
                                                             data-bs-toggle="tooltip" data-bs-original-title="Agent logs"

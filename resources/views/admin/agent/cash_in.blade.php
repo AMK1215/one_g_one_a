@@ -1,16 +1,18 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="row justify-content-center">
+    <div class="row justify-content-center ">
         <div class="col-lg-12">
             <div class=" mt-2">
-                <div class="d-flex justify-content-between">
-                    <a class="btn btn-icon btn-2 btn-primary" href="{{ route('admin.agent.index') }}">
-                        <span class="btn-inner--icon mt-1"><i class="material-icons">arrow_back</i>Back</span>
+                <div class="d-flex justify-content-end col-11 m-lg-3 m-md-3 m-sm-3 m-3">
+                    <a href="{{ route('admin.agent.index') }}" class="btn btn-success " style="width: 100px;">
+                        <i class="fas fa-arrow-left" style="font-size: 16px;"></i> Back
                     </a>
                 </div>
-                <div class="card">
-                    <h4 class="ms-3">Agent Information </h4>
+                <div class="card col-11 offset-1 m-lg-3 m-md-3 m-sm-3 m-3 ">
+                    <div class="card-header ">
+                        <h3 class="ms-3 my-3 fw-bold">Agent Information </h3>
+                    </div>
                     <div class="table-responsive">
                         <table class="table align-items-center mb-0">
                             <tbody>
@@ -34,16 +36,16 @@
             </div>
         </div>
         {{-- kzt --}}
-
     </div>
+
     <div class="row mt-4">
         <div class="col-lg-12">
-            <div class="card">
+            <div class="card col-11 m-lg-3 m-md-3 m-sm-3 m-3 ">
                 <!-- Card header -->
                 <div class="card-header pb-0">
-                    <div class="d-lg-flex">
+                    <div class="d-lg-flex my-3">
                         <div>
-                            <h5 class="mb-0">Deposit</h5>
+                            <h3 class="mb-0 fw-bold">Deposit</h3>
                         </div>
                         <div class="ms-auto my-auto mt-lg-0 mt-4">
                             <div class="ms-auto my-auto">
@@ -57,9 +59,9 @@
                     <form action="{{ route('admin.agent.makeCashIn', $agent->id) }}" method="POST">
                         @csrf
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="input-group input-group-outline is-valid my-3">
-                                    <label class="form-label">Name</label>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <label class="form-label">Name</label>
+                                <div class="input-group input-group-outline is-valid mb-3">
                                     <input type="text" class="form-control" name="name" value="{{ $agent->name }}"
                                         readonly>
 
@@ -68,12 +70,11 @@
                                     <span class="d-block text-danger">*{{ $message }}</span>
                                 @enderror
                             </div>
-                            <div class="col-md-6">
-                                <div class="input-group input-group-outline is-valid my-3">
-                                    <label class="form-label">Current Balance</label>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <label class="form-label">Current Balance</label>
+                                <div class="input-group input-group-outline is-valid mb-3">
                                     <input type="text" class="form-control" name="blance"
                                         value="{{ $agent->balanceFloat }}" readonly>
-
                                 </div>
                                 @error('phone')
                                     <span class="d-block text-danger">*{{ $message }}</span>
@@ -82,31 +83,30 @@
                         </div>
                         <input type="hidden" name="from_user_id" value="{{ Auth::id() }}">
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="input-group input-group-outline is-valid my-3">
-                                    <label class="form-label">Amount</label>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <label class="form-label">Amount</label>
+                                <div class="input-group input-group-outline is-valid mb-3">
                                     <input type="text" class="form-control" name="amount" required>
+                                    @error('amount')
+                                        <span class="d-block text-danger">*{{ $message }}</span>
+                                    @enderror
                                 </div>
-                                @error('amount')
-                                    <span class="d-block text-danger">*{{ $message }}</span>
-                                @enderror
                             </div>
-                            <div class="col-md-6">
-                                <div class="input-group input-group-outline is-valid my-3">
-                                    <label class="form-label">Addition Note (optional)</label>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <label class="form-label ">Addition Note (optional)</label>
+                                <div class="input-group input-group-outline is-valid mb-3">
                                     <input type="text" class="form-control" name="note">
-
+                                    @error('note')
+                                        <span class="d-block text-danger">*{{ $message }}</span>
+                                    @enderror
                                 </div>
-                                @error('note')
-                                    <span class="d-block text-danger">*{{ $message }}</span>
-                                @enderror
                             </div>
                         </div>
                         {{-- submit button --}}
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="input-group input-group-outline is-valid my-3">
-                                    <button type="submit" class="btn btn-primary">Confirm</button>
+                            <div class="col-12">
+                                <div class="input-group input-group-outline is-valid mb-3 d-flex justify-content-end" >
+                                    <button type="submit" class="btn btn-primary" style="width: 100px;">Confirm</button>
                                 </div>
                             </div>
                         </div>

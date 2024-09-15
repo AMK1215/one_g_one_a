@@ -3,10 +3,8 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Edit Agent</h1>
-                </div>
-                <div class="col-sm-6">
+
+                <div class="col-12 float-right">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                         <li class="breadcrumb-item active">Edit Agent</li>
@@ -19,15 +17,17 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <div class="card">
+            <div class="card col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1">
                 <div class="card-header">
-                    <h3 class="card-title">
-                        <span>
-                            <a href="{{ route('admin.agent.index') }}" class="btn btn-success">
+                    <div class="card-title col-12">
+                            <h3 class="d-inline">
+                                Edit Agent
+                            </h3>
+                            <a href="{{ route('admin.agent.index') }}" class="btn btn-success d-inline float-right">
                                 <i class="fas fa-arrow-left" style="font-size: 20px;"></i> Back
                             </a>
-                        </span>
-                    </h3>
+
+                        </div>
                 </div>
                 <div class="card-body">
 
@@ -35,6 +35,7 @@
                         action="{{ route('admin.agent.update', $agent->id) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
+                     <div class="col-lg-12 offset-lg-0 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1">
                         <div class="form-group">
                             <label for="title">Agent Id <span class="text-danger">*</span></label>
                             <input type="text" name="user_name" class="form-control" value="{{ $agent->user_name }}"
@@ -58,8 +59,9 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary" type="button">Update</button>
+                            <button type="submit" class="btn btn-primary float-right" type="button">Update</button>
                         </div>
+                     </div>
                     </form>
                 </div>
             </div>
