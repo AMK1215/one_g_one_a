@@ -19,8 +19,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="d-flex justify-content-end mb-3">
-                        <a href="{{ route('admin.player.index') }}" class="btn btn-success " style="width: 100px;"><i
-                                class="fas fa-plus text-white  mr-2"></i>Back</a>
+                        <a href="{{ route('admin.player.index') }}" class="btn btn-danger " style="width: 100px;"><i
+                                class="fas fa-arrow-left text-white  mr-2"></i>Back</a>
                     </div>
                     <div class="card " style="border-radius: 20px;">
                         <div class="card-header">
@@ -34,27 +34,27 @@
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="input-group input-group-static my-3">
-                                                    <label>From</label>
+                                                    <label class="mt-2 mr-2">From</label>
                                                     <input type="date" class="form-control" id="fromDate"
                                                         name="fromDate">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="input-group input-group-static my-3">
-                                                    <label>To</label>
+                                                    <label class="mt-2 mr-2">To</label>
                                                     <input type="date" class="form-control" id="toDate"
                                                         name="toDate">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="input-group input-group-static my-3">
-                                                    <label>Player</label>
+                                                    <label class="mt-2 mr-2">Player</label>
                                                     <input type="text" class="form-control" id="player_name"
                                                         name="player_name" value="{{ Request::query('player_name') }}">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
-                                                <button class="btn btn-sm btn-primary" id="search">Search</button>
+                                                <button class="btn btn-sm btn-primary mt-3 pt-2"  id="search">Search</button>
                                             </div>
 
                                     </form>

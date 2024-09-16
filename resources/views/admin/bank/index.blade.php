@@ -19,8 +19,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="d-flex justify-content-end mb-3">
-                        <a href="{{ route('admin.bank.create') }}" class="btn btn-success " style="width: 100px;"><i
-                                class="fas fa-plus text-white  mr-2"></i>New Bank Account Create</a>
+                        <a href="{{ route('admin.bank.create') }}" class="btn btn-success "><i
+                                class="fas fa-plus text-white  mr-2"></i>Create</a>
                     </div>
                     <div class="card " style="border-radius: 20px;">
                         <div class="card-header">
@@ -46,16 +46,15 @@
                                             <td>{{ $bank->paymentType->name }}</td>
                                             <td>
                                                 <a href="{{ route('admin.bank.edit', $bank->id) }}" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Edit Bank"><i
-                                                        class="material-icons-round text-secondary position-relative text-lg">mode_edit</i></a>
+                                                    data-bs-original-title="Edit Bank" ><i class="material-icons-round text-secondary position-relative text-lg mr-2"  >mode_edit</i></a>
                                                 <form class="d-inline" action="{{ route('admin.bank.destroy', $bank->id) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="transparent-btn" data-bs-toggle="tooltip"
+                                                    <button type="submit" class=" btn btn-transparent" data-bs-toggle="tooltip"
                                                         data-bs-original-title="Delete Bank">
                                                         <i
-                                                            class="material-icons text-secondary position-relative text-lg">delete</i>
+                                                            class="material-icons text-danger position-relative  text-lg  ">delete</i>
                                                     </button>
                                                 </form>
                                             </td>

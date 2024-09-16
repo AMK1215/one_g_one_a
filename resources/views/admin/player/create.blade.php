@@ -24,66 +24,69 @@
                 <div class="card-header mt-2">
                     <div class="card-title col-12">
                         <h3 class="d-inline">
-                            Create New Player
+                            Create Player
                         </h3>
                         <a href="{{ route('admin.player.index') }}" class="btn btn-danger d-inline float-right">
                             <i class="fas fa-arrow-left mr-2"></i> Back
                         </a>
                     </div>
                 </div>
-                <form role="form" method="POST" class="text-start" action="{{ route('admin.player.store') }}">
-                    @csrf
-                    <div class="form-group">
-                        <label for="title">Player ID <span class="text-danger">*</span></label>
-                        <input type="text" name="user_name" class="form-control" value="{{ $player_name }}" readonly>
-                        @error('name')
-                            <span class="text-danger d-block">*{{ $message }}</span>
-                        @enderror
-                    </div>
+                
 
-                    <div class="form-group">
-                        <label for="title">Name <span class="text-danger">*</span></label>
-                        <input type="text" name="name" class="form-control" value="{{ old('name') }}"
-                            placeholder="Enter Name">
-                        @error('name')
-                            <span class="text-danger d-block">*{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="title">Password <span class="text-danger">*</span></label>
-                        <input type="text" name="password" class="form-control" value="{{ old('password') }}"
-                            placeholder="Enter Password">
-                        @error('password')
-                            <span class="text-danger d-block">*{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="title">Phone No<span class="text-danger">*</span></label>
-                        <input type="text" name="phone" class="form-control" value="{{ old('phone') }}"
-                            placeholder="Enter Phone Number">
-                        @error('phone')
-                            <span class="text-danger d-block">*{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <p>Max Balance : </p>
-                        <span class="badge badge-sm bg-gradient-success">{{ auth()->user()->balanceFloat }}</span>
-                    </div>
-                    <div class="form-group">
-                        <label for="title">Amount</label>
-                        <input type="text" name="amount" class="form-control" value="{{ old('amount') }}"
-                            placeholder="0.00">
-                        @error('amount')
-                            <span class="text-danger d-block">*{{ $message }}</span>
-                        @enderror
-                    </div>
+                <div class="card-body col-lg-12 offset-lg-0 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1 ">
+                    <form role="form" method="POST" class="text-start" action="{{ route('admin.player.store') }}">
+                        @csrf
+                        <div class="form-group">
+                            <label for="title">Player ID <span class="text-danger">*</span></label>
+                            <input type="text" name="user_name" class="form-control" value="{{ $player_name }}" readonly>
+                            @error('name')
+                                <span class="text-danger d-block">*{{ $message }}</span>
+                            @enderror
+                        </div>
 
-                    <div class="form-group">
-                        <button class="btn btn-info" type="button" id="resetFormButton">Reset</button>
+                        <div class="form-group">
+                            <label for="title">Name <span class="text-danger">*</span></label>
+                            <input type="text" name="name" class="form-control" value="{{ old('name') }}"
+                                placeholder="Enter Name">
+                            @error('name')
+                                <span class="text-danger d-block">*{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Password <span class="text-danger">*</span></label>
+                            <input type="text" name="password" class="form-control" value="{{ old('password') }}"
+                                placeholder="Enter Password">
+                            @error('password')
+                                <span class="text-danger d-block">*{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Phone No<span class="text-danger">*</span></label>
+                            <input type="text" name="phone" class="form-control" value="{{ old('phone') }}"
+                                placeholder="Enter Phone Number">
+                            @error('phone')
+                                <span class="text-danger d-block">*{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <p>Max Balance : </p>
+                            <span class="badge badge-sm bg-gradient-success">{{ auth()->user()->balanceFloat }}</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Amount</label>
+                            <input type="text" name="amount" class="form-control" value="{{ old('amount') }}"
+                                placeholder="0.00">
+                            @error('amount')
+                                <span class="text-danger d-block">*{{ $message }}</span>
+                            @enderror
+                        </div>
 
-                        <button type="submit" class="btn btn-primary" type="button">Submit</button>
-                    </div>
-                </form>
+                        <div class="form-group float-right">
+                            <button class="btn btn-danger" type="button" id="resetFormButton">Reset</button>
+                            <button type="submit" class="btn btn-success" type="button">Submit</button>
+                        </div>
+                    </form>
+                </div>
             </div>
 
         </div>

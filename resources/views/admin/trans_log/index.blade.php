@@ -19,8 +19,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="d-flex justify-content-end mb-3">
-                        <a href="{{ route('home') }}" class="btn btn-success " style="width: 100px;"><i
-                                class="fas fa-plus text-white  mr-2"></i>back</a>
+                        <a href="{{ route('home') }}" class="btn btn-danger " style="width: 100px;"><i
+                                class="fas fa-arrow-left text-white  mr-2"></i>back</a>
                     </div>
                     <div class="card " style="border-radius: 20px;">
                         <div class="card-header">

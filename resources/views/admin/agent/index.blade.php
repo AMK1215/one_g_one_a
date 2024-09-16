@@ -99,13 +99,13 @@
                                                         <a href="{{ route('admin.agent.getCashIn', $user->id) }}"
                                                             data-bs-toggle="tooltip"
                                                             data-bs-original-title="Deposit To Agent"
-                                                            class="btn btn-success btn-sm">
+                                                            class="btn btn-info btn-sm">
                                                             <i class="fas fa-plus text-white mr-1"></i>Deposit
                                                         </a>
                                                         <a href="{{ route('admin.agent.getCashOut', $user->id) }}"
                                                             data-bs-toggle="tooltip"
                                                             data-bs-original-title="WithDraw To Agent"
-                                                            class="btn btn-danger btn-sm">
+                                                            class="btn btn-info btn-sm">
                                                             <i class="fas fa-minus text-white mr-1"></i>
                                                             Withdrawl
                                                         </a>
@@ -117,7 +117,7 @@
                                                         </a>
                                                         <a href="{{ route('admin.transferLogDetail', $user->id) }}"
                                                             data-bs-toggle="tooltip" data-bs-original-title="Reports"
-                                                            class="btn btn-warning btn-sm">
+                                                            class="btn btn-info btn-sm">
                                                             <i class="fa-solid fa-money-bill-transfer"></i>
                                                             Transfer Logs
                                                         </a>
