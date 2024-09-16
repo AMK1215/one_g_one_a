@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>1G1 | Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -139,6 +141,16 @@
                                 </a>
                             </li>
                         @endcan
+                        @can('admin_access')
+                            <li class="nav-item">
+                                <a href="{{ url('admin/players-list') }}" class="nav-link">
+                                    <i class="fas fa-users"></i>
+                                    <p>
+                                        Player List
+                                    </p>
+                                </a>
+                            </li>
+                        @endcan
                         @can('player_index')
                             <li class="nav-item">
                                 <a href="{{ route('admin.player.index') }}" class="nav-link">
@@ -151,12 +163,12 @@
                         @endcan
                         @can('deposit')
                             <li class="nav-item">
-                                <a href="{{ route('admin.deposit.index') }}" class="nav-link">
+                                {{-- <a href="{{ route('admin.deposit.index') }}" class="nav-link">
                                     <i class="fas fa-exchange-alt"></i>
                                     <p>
                                         Deposit Request
                                     </p>
-                                </a>
+                                </a> --}}
                             </li>
                         @endcan
                         @can('withdraw')

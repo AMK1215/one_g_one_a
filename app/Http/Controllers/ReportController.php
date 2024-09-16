@@ -108,22 +108,41 @@ class ReportController extends Controller
     //     return view('report.detail', compact('report', 'player'));
     // }
 
-    public function view($user_name)
-    {
-        $reports = $this->makeJoinTable()->select(
-            'users.user_name',
-            'users.id as user_id',
-            'products.name as product_name',
-            'products.code as product_code',
-            DB::raw('SUM(reports.bet_amount) as total_bet_amount'),
-            DB::raw('SUM(reports.valid_bet_amount) as total_valid_bet_amount'),
-            DB::raw('SUM(reports.payout_amount) as total_payout_amount'))
-            ->groupBy('users.user_name', 'product_name', 'product_code')
-            ->where('reports.member_name', $user_name)
-            ->get();
+    // public function view($user_name)
+    // {
+    //     $reports = $this->makeJoinTable()->select(
+    //         'users.user_name',
+    //         'users.id as user_id',
+    //         'products.name as product_name',
+    //         'products.code as product_code',
+    //         DB::raw('SUM(reports.bet_amount) as total_bet_amount'),
+    //         DB::raw('SUM(reports.valid_bet_amount) as total_valid_bet_amount'),
+    //         DB::raw('SUM(reports.payout_amount) as total_payout_amount'))
+    //         ->groupBy('users.user_name', 'product_name', 'product_code')
+    //         ->where('reports.member_name', $user_name)
+    //         ->get();
 
-        return view('report.view', compact('reports'));
-    }
+    //     return view('report.view', compact('reports'));
+    // }
+
+    public function view($user_name)
+{
+    $reports = $this->makeJoinTable()->select(
+        'users.user_name',
+        'users.id as user_id', // Include this in the GROUP BY clause
+        'products.name as product_name',
+        'products.code as product_code', // Include this in the GROUP BY clause
+        DB::raw('SUM(reports.bet_amount) as total_bet_amount'),
+        DB::raw('SUM(reports.valid_bet_amount) as total_valid_bet_amount'),
+        DB::raw('SUM(reports.payout_amount) as total_payout_amount'))
+        ->groupBy('users.user_name', 'users.id', 'products.name', 'products.code') // Ensure all fields in SELECT are here
+        ->where('reports.member_name', $user_name)
+        ->get();
+
+    return view('report.view', compact('reports'));
+}
+
+
 
     // amk
     private function makeJoinTable()
