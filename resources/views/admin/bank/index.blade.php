@@ -1,111 +1,80 @@
-@extends('admin_layouts.app')
-@section('styles')
-    <style>
-        .transparent-btn {
-            background: none;
-            border: none;
-            padding: 0;
-            outline: none;
-            cursor: pointer;
-            box-shadow: none;
-            appearance: none;
-            /* For some browsers */
-        }
-    </style>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.min.css">
-@endsection
+@extends('layouts.master')
 @section('content')
-    <div class="row mt-4">
-        <div class="col-12">
-            <div class="card">
-                <!-- Card header -->
-                <div class="card-header pb-0">
-                    <div class="d-lg-flex">
-                        <div>
-                            <h5 class="mb-0">Bank Account List</h5>
-
-                        </div>
-                        <div class="ms-auto my-auto mt-lg-0 mt-4">
-                            <div class="ms-auto my-auto">
-                                <a href="{{ route('admin.bank.create') }}" class="btn bg-gradient-primary btn-sm mb-0">+&nbsp; New Bank Account</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="table-responsive">
-                    <table class="table table-flush" id="banners-search">
-                        <thead class="thead-light">
-                        <tr>
-                            <th>#</th>
-                            <th>Account Name</th>
-                            <th>Account Number</th>
-                            <th>Payment Type</th>
-                            <th>Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($banks as $bank)
-                            <tr>
-                                <td class="text-sm font-weight-normal">{{ $loop->iteration }}</td>
-                                <td>{{ $bank->account_name }}</td>
-                                <td>{{ $bank->account_number }}</td>
-                                <td>{{ $bank->paymentType->name }}</td>
-                                <td>
-                                    <a href="{{ route('admin.bank.edit', $bank->id) }}" data-bs-toggle="tooltip" data-bs-original-title="Edit Bank"><i class="material-icons-round text-secondary position-relative text-lg">mode_edit</i></a>
-                                    <form class="d-inline" action="{{ route('admin.bank.destroy', $bank->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="transparent-btn" data-bs-toggle="tooltip" data-bs-original-title="Delete Bank">
-                                            <i class="material-icons text-secondary position-relative text-lg">delete</i>
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-12">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+                        <li class="breadcrumb-item active">Bank List</li>
+                    </ol>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex justify-content-end mb-3">
+                        <a href="{{ route('admin.bank.create') }}" class="btn btn-success " style="width: 100px;"><i
+                                class="fas fa-plus text-white  mr-2"></i>New Bank Account Create</a>
+                    </div>
+                    <div class="card " style="border-radius: 20px;">
+                        <div class="card-header">
+                            <h3>Bank Account Lists</h3>
+                        </div>
+                        <div class="card-body">
+                            <table id="mytable" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Account Name</th>
+                                        <th>Account Number</th>
+                                        <th>Payment Type</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($banks as $bank)
+                                        <tr>
+                                            <td class="text-sm font-weight-normal">{{ $loop->iteration }}</td>
+                                            <td>{{ $bank->account_name }}</td>
+                                            <td>{{ $bank->account_number }}</td>
+                                            <td>{{ $bank->paymentType->name }}</td>
+                                            <td>
+                                                <a href="{{ route('admin.bank.edit', $bank->id) }}" data-bs-toggle="tooltip"
+                                                    data-bs-original-title="Edit Bank"><i
+                                                        class="material-icons-round text-secondary position-relative text-lg">mode_edit</i></a>
+                                                <form class="d-inline" action="{{ route('admin.bank.destroy', $bank->id) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="transparent-btn" data-bs-toggle="tooltip"
+                                                        data-bs-original-title="Delete Bank">
+                                                        <i
+                                                            class="material-icons text-secondary position-relative text-lg">delete</i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection
+
 @section('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js"></script>
-
-    <script src="{{ asset('admin_app/assets/js/plugins/datatables.js') }}"></script>
-    <script>
-        if (document.getElementById('banners-search')) {
-            const dataTableSearch = new simpleDatatables.DataTable("#banners-search", {
-                searchable: true,
-                fixedHeight: false,
-                perPage: 7
-            });
-
-            document.querySelectorAll(".export").forEach(function(el) {
-                el.addEventListener("click", function(e) {
-                    var type = el.dataset.type;
-
-                    var data = {
-                        type: type,
-                        filename: "material-" + type,
-                    };
-
-                    if (type === "csv") {
-                        data.columnDelimiter = "|";
-                    }
-
-                    dataTableSearch.export(data);
-                });
-            });
-        };
-    </script>
-    <script>
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-        var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
-        })
-    </script>
     <script>
         $(document).ready(function() {
             $('.transparent-btn').on('click', function(e) {
@@ -127,18 +96,16 @@
             });
         });
     </script>
-    @if(session()->has('success'))
+    @if (session()->has('success'))
         <script>
             Swal.fire({
                 icon: 'success',
                 title: '{{ session('
-    success ') }}',
+                                    success ') }}',
                 showConfirmButton: false,
                 background: 'hsl(230, 40%, 10%)',
                 timer: 1500
             })
         </script>
     @endif
-
-
 @endsection

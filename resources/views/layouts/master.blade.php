@@ -161,34 +161,37 @@
                                 </a>
                             </li>
                         @endcan
+
                         @can('deposit')
                             <li class="nav-item">
-                                {{-- <a href="{{ route('admin.deposit.index') }}" class="nav-link">
-                                    <i class="fas fa-exchange-alt"></i>
-                                    <p>
-                                        Deposit Request
-                                    </p>
-                                </a> --}}
-                            </li>
-                        @endcan
-                        @can('withdraw')
-                            <li class="nav-item">
-                                {{-- <a href="{{route('admin.withdraw.index')}}" class="nav-link">
-                                    <i class="fas fa-exchange-alt"></i>
-                                    <p>
-                                        Withdraw Request
-                                    </p>
-                                </a> --}}
+                                <a class="nav-link text-white " href="{{ route('admin.transferLog') }}">
+                                    <span class="sidenav-mini-icon"> <i class="fas fa-right-left"></i> </span>
+                                    <span class="sidenav-normal  ms-2  ps-1">Transfer Log</span>
+                                </a>
                             </li>
                         @endcan
                         @can('bank')
                             <li class="nav-item">
-                                {{-- <a href="{{route('admin.bank.index')}}" class="nav-link">
-                                    <i class="fas fa-money-check"></i>
-                                    <p>
-                                        Bank Account
-                                    </p>
-                                </a> --}}
+                                <a class="nav-link text-white " href="{{ route('admin.bank.index') }}">
+                                    <span class="sidenav-mini-icon"> <i class="fas fa-right-left"></i> </span>
+                                    <span class="sidenav-normal  ms-2  ps-1">Bank Account</span>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('deposit')
+                            <li class="nav-item">
+                                <a class="nav-link text-white " href="{{ route('admin.agent.deposit') }}">
+                                    <span class="sidenav-mini-icon"> <i class="fas fa-right-left"></i> </span>
+                                    <span class="sidenav-normal  ms-2  ps-1">Deposit Request</span>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('withdraw')
+                            <li class="nav-item">
+                                <a class="nav-link text-white " href="{{ route('admin.agent.withdraw') }}">
+                                    <span class="sidenav-mini-icon"> <i class="fas fa-right-left"></i> </span>
+                                    <span class="sidenav-normal  ms-2  ps-1">WithDraw Request</span>
+                                </a>
                             </li>
                         @endcan
                         @can('promotion')
