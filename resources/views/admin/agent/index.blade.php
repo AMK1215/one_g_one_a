@@ -3,7 +3,10 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-12">
+                <div class="col-sm-6">
+                    <h1>Agent List</h1>
+                </div>
+                <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                         <li class="breadcrumb-item active">Agent List</li>
@@ -12,7 +15,6 @@
             </div>
         </div>
     </section>
-
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -21,10 +23,7 @@
                     <div class="d-flex justify-content-end mb-3">
                         <a href="{{ route('admin.agent.create') }}" class="btn btn-success " style="width: 100px;"><i class="fas fa-plus text-white  mr-2"></i>Create</a>
                     </div>
-                    <div class="card "  style="border-radius: 20px;">
-                        <div class="card-header">
-                            <h3>Agent Lists</h3>
-                        </div>
+                    <div class="card">
                         <div class="card-body">
                             <table id="mytable" class="table table-bordered table-hover">
                                 <thead>
@@ -91,7 +90,7 @@
                                                         </a>
                                                         <a class="me-1" href="{{ route('admin.agent.edit', $user->id) }}"
                                                             data-bs-toggle="tooltip" data-bs-original-title="Edit Agent">
-                                                            <i class="fas fa-pen-to-square text-info"
+                                                            <i class="fas fa-edit text-info"
                                                                 style="font-size: 20px;"></i>
                                                         </a>
                                                     </td>

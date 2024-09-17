@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\UserType;
 use Carbon\Carbon;
 use Exception;
 use App\Models\User;
@@ -40,23 +41,29 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $isAdmin = $user->hasRole('Admin');
-        $getUserCounts = $this->getUserCounts($isAdmin, $user);
-        $agent_count = $getUserCounts('Agent');
-        $player_count = $getUserCounts('Player');
-        $totalDeposit = $this->getTotalDeposit();
-        $totalWithdraw = $this->getTotalWithdraw();
-        $todayDeposit = $this->getTodayDeposit();
-        $todayWithdraw = $this->getTodayWithdraw();
+        $role = $user->roles->pluck('title');
+
+        $agent_count = User::where('type', UserType::Agent)->when($role[0] != 'Admin', function ($query) use ($user) {
+            $query->where('agent_id', $user->id);
+        })->count();
+
+        $player_count = User::where('type', UserType::Player)
+            ->when($role[0] === 'Master', function ($query) use ($user) {
+                $agentIds = User::where('type', UserType::Agent)
+                    ->where('agent_id', $user->id)
+                    ->pluck('id');
+
+                return $query->whereIn('agent_id', $agentIds);
+            })->when($role[0] === 'Agent', function ($query) use ($user) {
+                return $query->where('agent_id', $user->id);
+            })
+            ->count();
 
         return view('admin.dashboard', compact(
             'agent_count',
             'player_count',
             'user',
-            'totalDeposit',
-            'totalWithdraw',
-            'todayDeposit',
-            'todayWithdraw'
+            'role'
         ));
     }
 

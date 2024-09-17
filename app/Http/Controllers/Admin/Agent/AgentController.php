@@ -170,28 +170,23 @@ class AgentController extends Controller
         return view('admin.agent.cash_out', compact('agent'));
     }
 
-    public function makeCashIn(TransferLogRequest $request, $id): RedirectResponse
+    public function makeCashIn(Request $request, $id): RedirectResponse
     {
         if (! Gate::allows('make_transfer')) {
             abort(403);
         }
 
         try {
-            $inputs = $request->validated();
             $agent = User::findOrFail($id);
             $admin = Auth::user();
-            $cashIn = $inputs['amount'];
-            if ($cashIn > $admin->balanceFloat) {
+            if ($request->amount > $admin->balanceFloat) {
                 throw new \Exception('You do not have enough balance to transfer!');
             }
 
-            // Transfer money
-            app(WalletService::class)->transfer($admin, $agent, $request->validated('amount'), TransactionName::CreditTransfer, ['note' => $request->note]);
+            app(WalletService::class)->transfer($admin, $agent, $request->amount, TransactionName::CreditTransfer, ['note' => $request->note]);
 
-            return redirect()->back()->with('success', 'Money fill request submitted successfully!');
+            return redirect()->route('admin.agent.index')->with('success', 'Money fill request submitted successfully!');
         } catch (Exception $e) {
-
-            session()->flash('error', $e->getMessage());
 
             return redirect()->back()->with('error', $e->getMessage());
         }
