@@ -71,7 +71,7 @@ tail -f /var/www/html/ttt_mm_sl_a/storage/logs/laravel.log
 
 crontab -e
 
-* * * * * cd /var/www/ttt_mm_sl_a && php artisan schedule:run >> /dev/null 2>&1
+* * * * * cd /var/www/html/pro9_a && php artisan schedule:run >> /dev/null 2>&1
 
 
 php artisan make:migration add_agent_link_to_users_table --table=users
@@ -86,3 +86,11 @@ sudo systemctl restart nginx
 cd /var/www/html/ttt_mm_sl_a/storage/framework/cache/data
 sudo rm -rf /var/www/html/ttt_mm_sl_a/storage/framework/cache/data/*
 ls -l /var/www/html/ttt_mm_sl_a/storage/framework/cache/data
+
+
+
+SEAMLESS_OPERATOR_CODE=E822
+SEAMLESS_PASSWORD=pass@word1
+SEAMLESS_SECRET_KEY=bsWs4A
+SEAMLESS_API_URL=https://prodmd.9977997.com
+PROVIDER_INITIAL_BALANCE=43645
