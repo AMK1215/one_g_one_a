@@ -3,11 +3,9 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Change Password</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
+
+                <div class="col-12">
+                    <ol class="breadcrumb float-right">
                         <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                         <li class="breadcrumb-item active">Change Password</li>
                     </ol>
@@ -19,35 +17,39 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">
-                        <span>
-                            <a href="{{ route('admin.player.index') }}" class="btn btn-success">
-                                <i class="fas fa-arrow-left" style="font-size: 20px;"></i> Back
-                            </a>
-                        </span>
-                    </h3>
-                </div>
-                <form role="form" method="POST" class="text-start"
-                    action="{{ route('admin.player.makeChangePassword', $player->id) }}">
-                    @csrf
-                    <div class="custom-form-group">
-                        <label for="title">New Password <span class="text-danger">*</span></label>
-                        <input type="text" name="password" class="form-control">
-                        @error('password')
-                            <span class="text-danger d-block">*{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="custom-form-group">
-                        <label for="title">Confirm Password <span class="text-danger">*</span></label>
-                        <input type="text" name="password_confirmation" class="form-control">
-                    </div>
+            <div class="card col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1" style="border-radius: 20px;">
+                <div class="card-header ">
+                    <div class="card-title  col-12 my-3">
+                        <h4 class="d-inline">Change Password</h4>
+                        <a href="{{ route('admin.player.index') }}" class="btn btn-danger float-right">
+                             <i class="fas fa-arrow-left" ></i> Back
+                        </a>
 
-                    <div class="custom-form-group">
-                        <button type="submit" class="btn btn-primary" type="button">Confirm</button>
                     </div>
-                </form>
+                </div>
+
+                <div class="card-body">
+                    <form role="form" method="POST" class="text-start"
+                    action="{{ route('admin.player.makeChangePassword', $player->id) }}">
+                        @csrf
+                        <div class="custom-form-group mb-3">
+                            <label for="title">New Password <span class="text-danger">*</span></label>
+                            <input type="text" name="password" class="form-control">
+                            @error('password')
+                                <span class="text-danger d-block">*{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="custom-form-group mb-3">
+                            <label for="title">Confirm Password <span class="text-danger">*</span></label>
+                            <input type="text" name="password_confirmation" class="form-control">
+                        </div>
+
+                        <div class="custom-form-group float-right">
+                            <button type="submit" class="btn btn-success" type="button">Confirm</button>
+                        </div>
+                 </form>
+                </div>
+
             </div>
         </div>
     </section>

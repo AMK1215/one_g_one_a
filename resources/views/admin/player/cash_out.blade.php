@@ -63,56 +63,53 @@
                     <form action="{{ route('admin.player.makeCashOut', $player->id) }}" method="POST">
                         @csrf
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="input-group input-group-outline is-valid my-3">
-                                    <label class="form-label">Player Name</label>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <label class="form-label">Player Name</label>
+                                <div class="input-group input-group-outline is-valid mb-3">
                                     <input type="text" class="form-control" name="name"
                                         value="{{ $player->name ?? '' }}" readonly>
-
+                                    @error('name')
+                                        <span class="d-block text-danger">*{{ $message }}</span>
+                                    @enderror
                                 </div>
-                                @error('name')
-                                    <span class="d-block text-danger">*{{ $message }}</span>
-                                @enderror
                             </div>
-                            <div class="col-md-6">
-                                <div class="input-group input-group-outline is-valid my-3">
-                                    <label class="form-label">Current Balance</label>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <label class="form-label">Current Balance</label>
+                                <div class="input-group input-group-outline is-valid mb-3">
                                     <input type="text" class="form-control" name="phone"
                                         value="{{ number_format($player->balanceFloat, 2) }}" readonly>
-
+                                    @error('phone')
+                                        <span class="d-block text-danger">*{{ $message }}</span>
+                                    @enderror
                                 </div>
-                                @error('phone')
-                                    <span class="d-block text-danger">*{{ $message }}</span>
-                                @enderror
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="input-group input-group-outline is-valid my-3">
-                                    <label class="form-label">Amount</label>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <label class="form-label">Amount</label>
+                                <div class="input-group input-group-outline is-valid mb-3">
                                     <input type="text" class="form-control" name="amount" required>
+                                    @error('amount')
+                                        <span class="d-block text-danger">*{{ $message }}</span>
+                                    @enderror
                                 </div>
-                                @error('amount')
-                                    <span class="d-block text-danger">*{{ $message }}</span>
-                                @enderror
                             </div>
-                            <div class="col-md-6">
-                                <div class="input-group input-group-outline is-valid my-3">
-                                    <label class="form-label">Addition Note (optional)</label>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <label class="form-label">Addition Note (optional)</label>
+                                <div class="input-group input-group-outline is-valid mb-3">
                                     <input type="text" class="form-control" name="note">
-
-                                </div>
                                 @error('note')
                                     <span class="d-block text-danger">*{{ $message }}</span>
                                 @enderror
+                                </div>
                             </div>
                         </div>
                         {{-- submit button --}}
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="input-group input-group-outline is-valid my-3">
-                                    <button type="submit" class="btn btn-primary">Confirm</button>
+                                <div class="input-group input-group-outline is-valid my-3 d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-success">Confirm</button>
                                 </div>
                             </div>
                         </div>

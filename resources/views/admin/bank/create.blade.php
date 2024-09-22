@@ -24,13 +24,14 @@
                 <div class="card-header mt-2">
                     <div class="card-title col-12">
                         <h3 class="d-inline">
-                            Create New Bank Account
+                            Create Bank
                         </h3>
                         <a href="{{ route('admin.bank.index') }}" class="btn btn-danger d-inline float-right">
                             <i class="fas fa-arrow-left mr-2"></i> Back
                         </a>
                     </div>
                 </div>
+              <div class="card-body col-lg-12 offset-lg-0 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1">
                 <form role="form" method="POST" class="text-start" action="{{ route('admin.bank.store') }}">
                     @csrf
                     <div class="form-group">
@@ -61,12 +62,13 @@
                             <span class="text-danger d-block">*{{ $message }}</span>
                         @enderror
                     </div>
-                    <div class="form-group">
-                        <button class="btn btn-info" type="button" id="resetFormButton">Cancel</button>
+                    <div class="form-group  d-flex justify-content-end">
+                        <button class="btn btn-danger mr-2" type="button" id="resetFormButton">Cancel</button>
 
-                        <button type="submit" class="btn btn-primary" type="button">Submit</button>
+                        <button type="submit" class="btn btn-success" type="button">Submit</button>
                     </div>
                 </form>
+              </div>
             </div>
 
         </div>

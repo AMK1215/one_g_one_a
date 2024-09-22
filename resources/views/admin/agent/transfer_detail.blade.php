@@ -69,44 +69,4 @@
         </div>
     </div>
 @endsection
-@section('scripts')
-    {{-- <script src="{{ asset('admin_app/assets/js/plugins/datatables.js') }}"></script> --}}
-    {{-- <script>
-    const dataTableSearch = new simpleDatatables.DataTable("#datatable-search", {
-      searchable: true,
-      fixedHeight: true
-    });
-  </script> --}}
-    <script>
-        if (document.getElementById('users-search')) {
-            const dataTableSearch = new simpleDatatables.DataTable("#users-search", {
-                searchable: true,
-                fixedHeight: false,
-                perPage: 7
-            });
 
-            document.querySelectorAll(".export").forEach(function(el) {
-                el.addEventListener("click", function(e) {
-                    var type = el.dataset.type;
-
-                    var data = {
-                        type: type,
-                        filename: "material-" + type,
-                    };
-
-                    if (type === "csv") {
-                        data.columnDelimiter = "|";
-                    }
-
-                    dataTableSearch.export(data);
-                });
-            });
-        };
-    </script>
-    <script>
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-        var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
-        })
-    </script>
-@endsection

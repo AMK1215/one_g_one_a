@@ -24,7 +24,7 @@
                         <h3 class="d-inline">
                             Edit Player
                         </h3>
-                        <a href="{{ route('admin.player.index') }}" class="btn btn-danger d-inline float-right">
+                        <a href="{{ route('admin.player.index') }}" class="btn btn-danger d-inline float-right" style="width: 100px">
                             <i class="fas fa-arrow-left mr-2"></i> Back
                         </a>
 
@@ -36,7 +36,7 @@
                         action="{{ route('admin.player.update', $player->id) }}">
                         @csrf
                         @method('PUT')
-                        <div class="custom-form-group">
+                        <div class="custom-form-group mb-3">
                             <label for="title">PlayerId <span class="text-danger">*</span></label>
                             <input type="text" name="user_name" class="form-control" value="{{ $player->name }}"
                                 readonly>
@@ -44,22 +44,22 @@
                                 <span class="text-danger d-block">*{{ $message }}</span>
                             @enderror
                         </div>
-                        <div class="custom-form-group">
+                        <div class="custom-form-group mb-3">
                             <label for="title">Name <span class="text-danger">*</span></label>
                             <input type="text" name="name" class="form-control" value="{{ $player->name }}">
                             @error('name')
                                 <span class="text-danger d-block">*{{ $message }}</span>
                             @enderror
                         </div>
-                        <div class="custom-form-group">
+                        <div class="custom-form-group mb-3">
                             <label for="title">Phone No</label>
                             <input type="text" name="phone" class="form-control" value="{{ $player->phone }}">
                             @error('phone')
                                 <span class="text-danger d-block">*{{ $message }}</span>
                             @enderror
                         </div>
-                        <div class="custom-form-group">
-                            <button class="btn btn-primary" type="submit">Update</button>
+                        <div class="custom-form-group mb-2 d-flex justify-content-end">
+                            <button class="btn btn-success" type="submit" style="width: 100px">Update</button>
                         </div>
                     </form>
                 </div>

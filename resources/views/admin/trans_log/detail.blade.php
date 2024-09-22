@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="card col-11 m-lg-5 m-md-5 m-sm-3 m-3 pb-3" style="border-radius: 20px;">
                 <!-- Card header -->
-                <div class="card-header pb-0">
+                <div class="card-header mb-2">
                     <div class="d-lg-flex">
                         <div>
                             <h3 class="mb-0 my-3 fw-bold">Transfer Log Detail</h3>

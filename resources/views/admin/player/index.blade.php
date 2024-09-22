@@ -6,7 +6,7 @@
                 <div class="col-12">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                        <li class="breadcrumb-item active">Player List</li>
+                        <li class="breadcrumb-item active">Player Lists</li>
                     </ol>
                 </div>
             </div>
@@ -100,14 +100,14 @@
                                                             data-bs-original-title="Deposit To Player"
                                                             class="btn btn-info btn-sm">
                                                             <i class="fas fa-plus text-white me-1"></i>
-                                                            Dep
+                                                            Deposit
                                                         </a>
                                                         <a href="{{ route('admin.player.getCashOut', $user->id) }}"
                                                             data-bs-toggle="tooltip"
                                                             data-bs-original-title="WithDraw To Player"
                                                             class="btn btn-info btn-sm">
                                                             <i class="fas fa-minus text-white me-1"></i>
-                                                            WDL
+                                                            Withdrawl
                                                         </a>
                                                         <a href="{{ route('admin.report.view', $user->user_name) }}"
                                                             data-bs-toggle="tooltip" data-bs-original-title="Reports"
