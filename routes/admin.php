@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\Admin\BankController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\Admin\BannerController;
@@ -11,11 +12,13 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\GameListController;
 use \App\Http\Controllers\Admin\SiteLogoController;
 use App\Http\Controllers\Admin\PromotionController;
+use App\Http\Controllers\Shan\ShanReportController;
 use App\Http\Controllers\Admin\BannerTextController;
 use App\Http\Controllers\Admin\Bonu\BonusController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\Agent\AgentController;
 use App\Http\Controllers\Admin\PaymentTypeController;
+use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Report\TestReportController;
 use App\Http\Controllers\Admin\GetBetDetailController;
 use App\Http\Controllers\Admin\Master\MasterController;
@@ -23,9 +26,9 @@ use App\Http\Controllers\Admin\Player\PlayerController;
 use App\Http\Controllers\Admin\GameTypeProductController;
 use App\Http\Controllers\Admin\BannerAds\BannerAdsController;
 use App\Http\Controllers\Admin\Deposit\DepositRequestController;
-use App\Http\Controllers\Admin\BankController;
 use App\Http\Controllers\Admin\TransferLog\TransferLogController;
 use App\Http\Controllers\Admin\WithDraw\WithDrawRequestController;
+
 
 Route::group([
     'prefix' => 'admin', 'as' => 'admin.',
@@ -77,6 +80,8 @@ Route::group([
     Route::get('gametypes', [GameTypeProductController::class, 'index'])->name('gametypes.index');
     Route::get('gametypes/{game_type_id}/product/{product_id}', [GameTypeProductController::class, 'edit'])->name('gametypes.edit');
     Route::post('gametypes/{game_type_id}/product/{product_id}', [GameTypeProductController::class, 'update'])->name('gametypes.update');
+
+    Route::get('transaction-list', [TransactionController::class, 'index'])->name('transaction');
      // game list start
     Route::get('all-game-lists', [GameListController::class, 'index'])->name('gameLists.index');
     Route::get('all-game-lists/{id}', [GameListController::class, 'edit'])->name('gameLists.edit');
@@ -124,6 +129,8 @@ Route::group([
     Route::post('withdraw/{withdraw}', [WithDrawRequestController::class, 'statusChangeIndex'])->name('agent.withdrawStatusUpdate');
     Route::post('withdraw/reject/{withdraw}', [WithDrawRequestController::class, 'statusChangeReject'])->name('agent.withdrawStatusreject');
 
+     Route::get('shan-report', [ShanReportController::class, 'index'])->name('shan.reports.index');
+     Route::get('shan-reports/{user_id}', [ShanReportController::class, 'show'])->name('shanreport.show');
     Route::get('deposit', [DepositRequestController::class, 'index'])->name('agent.deposit');
     Route::get('deposit/{deposit}', [DepositRequestController::class, 'view'])->name('agent.depositView');
     Route::post('deposit/{deposit}', [DepositRequestController::class, 'statusChangeIndex'])->name('agent.depositStatusUpdate');
@@ -137,6 +144,7 @@ Route::group([
         Route::get('view/{user_id}', [ReportController::class, 'view'])->name('report.view');
         Route::get('show/{proudct_code}', [ReportController::class, 'show'])->name('report.show');
         Route::get('detail/{user_id}', [ReportController::class, 'detail'])->name('report.detail');
+
     });
 
     Route::group(['prefix' => 'bonu'], function () {

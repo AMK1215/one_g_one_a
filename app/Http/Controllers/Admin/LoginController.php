@@ -10,6 +10,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\RedirectResponse;
 
 class LoginController extends Controller
 {
@@ -18,36 +19,51 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function login(LoginRequest $request)
+    public function login(Request $request): RedirectResponse
     {
-        $user = User::where('name', $request->name)->first();
+        $request->validate([
+            'user_name' => 'required|string',
+            'password' => 'required|string',
+        ]);
+        $credentials = $this->credentials($request);
 
-        if (! $user || ! Hash::check($request->password, $user->password)) {
-            return back()->with('error', 'Invalid credentials. Please try again.');
+        if (! Auth::attempt($credentials)) {
+            return back()->with('error', 'The credentials does not match our records.');
         }
 
-        if ($user->is_changed_password == 0) {
-            return view('auth.passwords.index', compact('user'));
-        }
-
-        if (Auth::attempt($request->only('name', 'password'))) {
-            // Check for unauthorized roles
-            if ($request->user()->hasRole('Player')) {
-                return redirect()->back()->with('error', 'You do not have permissions');
-            }
-
-            // Log user activity (assuming UserLog model)
-            UserLog::create([
-                'ip_address' => $request->ip(),
-                'user_id' => Auth::id(), // Use Auth::id() for logged in user
-                'user_agent' => $request->userAgent(),
-            ]);
-
-            return redirect()->route('home');
-        }
-
-        return redirect()->back()->with('error', 'Invalid credentials. Please try again.');
+        return redirect()->route('home');
     }
+
+    // public function login(LoginRequest $request)
+    // {
+    //     $user = User::where('name', $request->name)->first();
+
+    //     if (! $user || ! Hash::check($request->password, $user->password)) {
+    //         return back()->with('error', 'Invalid credentials. Please try again.');
+    //     }
+
+    //     if ($user->is_changed_password == 0) {
+    //         return view('auth.passwords.index', compact('user'));
+    //     }
+
+    //     if (Auth::attempt($request->only('name', 'password'))) {
+    //         // Check for unauthorized roles
+    //         if ($request->user()->hasRole('Player')) {
+    //             return redirect()->back()->with('error', 'You do not have permissions');
+    //         }
+
+    //         // Log user activity (assuming UserLog model)
+    //         UserLog::create([
+    //             'ip_address' => $request->ip(),
+    //             'user_id' => Auth::id(), // Use Auth::id() for logged in user
+    //             'user_agent' => $request->userAgent(),
+    //         ]);
+
+    //         return redirect()->route('home');
+    //     }
+
+    //     return redirect()->back()->with('error', 'Invalid credentials. Please try again.');
+    // }
 
     public function logout(Request $request)
     {
@@ -73,5 +89,10 @@ class LoginController extends Controller
 
             return redirect()->back()->with('error', $e->getMessage());
         }
+    }
+
+    protected function credentials(Request $request)
+    {
+        return $request->only('user_name', 'password');
     }
 }
