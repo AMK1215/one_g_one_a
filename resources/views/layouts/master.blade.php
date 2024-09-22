@@ -230,9 +230,23 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="{{ route('admin.paymentTypes.index') }}" class="nav-link">
+                                        <a href="{{ route('admin.banners.index') }}" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Payment Type</p>
+                                            <p>Banner</p>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="{{ route('admin.text.index') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>BannerText</p>
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="{{ route('admin.adsbanners.index') }}" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Banner Ads</p>
                                         </a>
                                     </li>
                                 </ul>
