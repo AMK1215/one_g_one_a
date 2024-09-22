@@ -1,4 +1,4 @@
-@extends('admin_layouts.app')
+@extends('layouts.master')
 @section('styles')
 <style>
   .transparent-btn {
@@ -60,15 +60,15 @@
 @endsection
 @section('content')
 <div class="row justify-content-center">
-  <div class="col-10">
-    <div class="container mt-0">
-      <div class="d-flex justify-content-between">
-        <h4>Banner Text's Detail</h4>
-        <a class="btn btn-icon btn-2 btn-primary" href="{{ route('admin.text.index') }}">
-          <span class="btn-inner--icon mt-1"><i class="material-icons">arrow_back</i>Back</span>
-        </a>
-      </div>
-      <div class="card p-4">
+  <div class="col-10 ">
+    <div class="container mt-5">
+      <div class="card col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-8 offset-sm-2 col-10 offset-1" style="border-radius: 15px;">
+            <div class="card-title col-12 mt-3">
+                <h3 class="d-inline fw-bold">Banner Text Detail </h3>
+                <a href="{{ route('admin.text.index') }}" class="btn btn-danger float-right"><i
+                    class="fas fa-arrow-left text-white  "></i>Back</a>
+           </div>
+        <div class="card-body col-lg-12 offset-lg-0 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1"> </div>
         <div class="table-responsive">
           <table class="table align-items-center mb-0">
             <tbody>
@@ -77,7 +77,7 @@
                 <td>{!! $text->id !!}</td>
               </tr>
               <tr>
-                <td class="text-right">Banner Text</td>
+                <td>Banner Text</td>
                 <td>
                   {{ $text->text }}
                 </td>

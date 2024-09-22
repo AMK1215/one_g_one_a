@@ -19,7 +19,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <div class="card col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1" >
+            <div class="card col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1" style="border-radius: 15px;" >
                 <div class="card-header mt-2">
                     <div class="card-title col-12">
                            <h3 class="d-inline">

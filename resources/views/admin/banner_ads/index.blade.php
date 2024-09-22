@@ -19,13 +19,13 @@
             <div class="row">
                 <div class="col-12">
                     <div class="d-flex justify-content-end mb-3">
-                        <a href="{{ route('admin.adsbanners.create') }}" class="btn bg-gradient-primary btn-sm mb-0">+&nbsp;
+                        <a href="{{ route('admin.adsbanners.create') }}" class="btn bg-gradient-success btn-sm mb-0">+&nbsp;
                             New
                             Banner Ads</a>
                     </div>
                     <div class="card " style="border-radius: 20px;">
                         <div class="card-header">
-                            <h3>Banner Ads </h3>
+                            <h3>Banner Ads Lists </h3>
                         </div>
                         <div class="card-body">
                             <table id="mytable" class="table table-bordered table-hover">
@@ -52,22 +52,20 @@
                                                 {{ $banner->updated_at->format('F j, Y') }}</td>
                                             <td>
                                                 <a href="{{ route('admin.adsbanners.edit', $banner->id) }}"
-                                                    data-bs-toggle="tooltip" data-bs-original-title="Edit Banner"><i
-                                                        class="material-icons-round text-secondary position-relative text-lg">mode_edit</i></a>
+                                                    data-bs-toggle="tooltip" data-bs-original-title="Edit Banner"><i class="fas fa-edit text-info mr-2"
+                                                    style="font-size: 20px;"></i></a>
                                                 <a href="{{ route('admin.adsbanners.show', $banner->id) }}"
                                                     data-bs-toggle="tooltip" data-bs-original-title="Preview Banner Detail">
-                                                    <i
-                                                        class="material-icons text-secondary position-relative text-lg">visibility</i>
+                                                    <i class="fa-solid fa-eye  text-success " style="font-size: 20px;"></i>
                                                 </a>
                                                 <form class="d-inline"
                                                     action="{{ route('admin.adsbanners.destroy', $banner->id) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="transparent-btn" data-bs-toggle="tooltip"
+                                                    <button type="submit" class="btn transparent-btn" data-bs-toggle="tooltip"
                                                         data-bs-original-title="Delete Banner">
-                                                        <i
-                                                            class="material-icons text-secondary position-relative text-lg">delete</i>
+                                                        <i class="fa-solid fa-trash  text-danger"  style="font-size: 20px;"></i>
                                                     </button>
                                                 </form>
                                             </td>

@@ -18,16 +18,15 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <div class="d-flex justify-content-end mb-3">
-                        <a class="btn btn-icon btn-2 btn-primary float-end me-5" href="{{ route('admin.text.index') }}">
-                            <span class="btn-inner--icon mt-1"><i class="material-icons">arrow_back</i>Back</span>
-                        </a>
-                    </div>
-                    <div class="card " style="border-radius: 20px;">
+                    <div class="card col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1" style="border-radius: 15px;">
                         <div class="card-header">
-                            <h3>Banner Text Edit </h3>
+                            <div class="card-title col-12">
+                                <h3 class="d-inline fw-bold">Banner Text Edit </h3>
+                                <a href="{{ route('admin.text.index') }}" class="btn btn-danger float-right"><i
+                                    class="fas fa-arrow-left text-white  "></i>Back</a>
+                           </div>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body  col-lg-12 offset-lg-0 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1">
                             <form role="form" class="text-start" action="{{ route('admin.text.update', $text->id) }}"
                                 method="post">
                                 @csrf
@@ -42,7 +41,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <button class="btn btn-primary" type="submit">Edit</button>
+                                    <button class="btn btn-success float-right" type="submit" style="width:70px;">Edit</button>
                                 </div>
                             </form>
                         </div>

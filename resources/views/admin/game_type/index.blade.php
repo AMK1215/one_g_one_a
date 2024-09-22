@@ -40,14 +40,14 @@
                                     @foreach ($gameTypes as $gameType)
                                         @foreach ($gameType->products as $product)
                                             <tr>
-                                                <td>{{ $gameType->name }}</td>
-                                                <td>{{ $product->name }}</td>
-                                                <td><img src="{{ $product->getImgUrlAttribute() }}" alt=""
+                                                <td class="text-center">{{ $gameType->name }}</td>
+                                                <td class="text-center">{{ $product->name }}</td>
+                                                <td class="text-center"><img src="{{ $product->getImgUrlAttribute() }}" alt=""
                                                         width="100px">
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <a href="{{ route('admin.gametypes.edit', [$gameType->id, $product->id]) }}"
-                                                        class="btn btn-info btn-sm">Edit</a>
+                                                        class="btn btn-info" style="width: 120px;">Edit</a>
                                                 </td>
                                             </tr>
                                         @endforeach
