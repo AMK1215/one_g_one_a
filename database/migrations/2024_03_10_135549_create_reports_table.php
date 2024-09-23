@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
-            $table->string('member_name');
+            $table->text('member_name');
             $table->string('wager_id');
             $table->unsignedBigInteger('product_code');
             $table->unsignedBigInteger('game_type_id');

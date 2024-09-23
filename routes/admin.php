@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\GameListController;
 use \App\Http\Controllers\Admin\SiteLogoController;
+use App\Http\Controllers\Admin\GSCReportController;
 use App\Http\Controllers\Admin\PromotionController;
 use App\Http\Controllers\Shan\ShanReportController;
 use App\Http\Controllers\Admin\BannerTextController;
@@ -129,6 +130,18 @@ Route::group([
     Route::post('withdraw/{withdraw}', [WithDrawRequestController::class, 'statusChangeIndex'])->name('agent.withdrawStatusUpdate');
     Route::post('withdraw/reject/{withdraw}', [WithDrawRequestController::class, 'statusChangeReject'])->name('agent.withdrawStatusreject');
 
+    //Route::group(['prefix' => 'report'], function () {
+        Route::get('slot-win-lose', [GSCReportController::class, 'index'])->name('GscReport.index');
+        // web.php
+
+        Route::get('/win-lose/details/{product_name}', [GSCReportController::class, 'ReportDetails'])->name('Reportproduct.details');
+
+        //Route::get('view/{user_id}', [ReportController::class, 'view'])->name('report.view');
+        //Route::get('show/{proudct_code}', [ReportController::class, 'show'])->name('report.show');
+       // Route::get('detail/{user_id}', [ReportController::class, 'detail'])->name('report.detail');
+
+   // });
+
      Route::get('shan-report', [ShanReportController::class, 'index'])->name('shan.reports.index');
      Route::get('shan-reports/{user_id}', [ShanReportController::class, 'show'])->name('shanreport.show');
     Route::get('deposit', [DepositRequestController::class, 'index'])->name('agent.deposit');
@@ -139,13 +152,15 @@ Route::group([
     Route::get('transer-log', [TransferLogController::class, 'index'])->name('transferLog');
     Route::get('transferlog/{id}', [TransferLogController::class, 'transferLog'])->name('transferLogDetail');
 
-    Route::group(['prefix' => 'report'], function () {
-        Route::get('index', [ReportController::class, 'index'])->name('report.index');
-        Route::get('view/{user_id}', [ReportController::class, 'view'])->name('report.view');
-        Route::get('show/{proudct_code}', [ReportController::class, 'show'])->name('report.show');
-        Route::get('detail/{user_id}', [ReportController::class, 'detail'])->name('report.detail');
+    // Route::group(['prefix' => 'report'], function () {
+    //     Route::get('index', [ReportController::class, 'index'])->name('report.index');
+    //     Route::get('view/{user_id}', [ReportController::class, 'view'])->name('report.view');
+    //     Route::get('show/{proudct_code}', [ReportController::class, 'show'])->name('report.show');
+    //     Route::get('detail/{user_id}', [ReportController::class, 'detail'])->name('report.detail');
 
-    });
+    // });
+
+
 
     Route::group(['prefix' => 'bonu'], function () {
         Route::get('countindex', [BonusController::class, 'index'])->name('bonu_count.index');

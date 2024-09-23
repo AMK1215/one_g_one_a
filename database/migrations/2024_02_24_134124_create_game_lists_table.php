@@ -24,9 +24,6 @@ return new class extends Migration
 
             $table->timestamps();
 
-            // $table->foreign('game_type_id')->references('id')->on('game_types')->onDelete('cascade');
-            // $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-
         });
     }
 
