@@ -66,7 +66,8 @@ class DatabaseSeeder extends Seeder
             Live22SMTablesSeeder::class,
             BannerAdsSeeder::class,
             BankTableSeeder::class,
-            ReportTransactionsSeeder::class
+            ReportTransactionsSeeder::class,
+            //GSCReportSeeder::class
         ]);
 
     }

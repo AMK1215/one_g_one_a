@@ -31,7 +31,7 @@ use App\Http\Controllers\Api\V1\Player\PlayerTransactionLogController;
 
 //login route post
 Route::post('/login', [AuthController::class, 'login']);
-Route::post('/register', [AuthController::class, 'register']);
+//Route::post('/register', [AuthController::class, 'register']);
 Route::post('/player-change-password', [AuthController::class, 'playerChangePassword']);
 
 // logout
@@ -42,7 +42,7 @@ Route::get('banner', [BannerController::class, 'index']);
 Route::get('bannerText', [BannerController::class, 'bannerText']);
 Route::get('popup-ads-banner', [BannerController::class, 'AdsBannerIndex']);
 
-Route::get('v1/validate', [AuthController::class, 'callback']);
+//Route::get('v1/validate', [AuthController::class, 'callback']);
 Route::get('gameTypeProducts/{id}', [GameController::class, 'gameTypeProducts']);
 Route::get('allGameProducts', [GameController::class, 'allGameProducts']);
 Route::get('gameType', [GameController::class, 'gameType']);
@@ -54,7 +54,6 @@ Route::post('transactions', [ShanTransactionController::class, 'index'])->middle
 
 Route::group(['prefix' => 'Seamless'], function () {
     Route::post('GetBalance', [GetBalanceController::class, 'getBalance']);
-
     // Route::group(["middleware" => ["webhook_log"]], function(){
     Route::post('GetGameList', [LaunchGameController::class, 'getGameList']);
     Route::post('GameResult', [GameResultController::class, 'gameResult']);
@@ -71,8 +70,8 @@ Route::group(['prefix' => 'Seamless'], function () {
 });
 
 Route::group(['middleware' => ['auth:sanctum', 'checkBanned']], function () {
-    Route::get('wager-logs', [WagerController::class, 'index']);
-    Route::get('transactions', [TransactionController::class, 'index']);
+    Route::get('wager-logs', [WagerController::class, 'index']); //GSC
+    //Route::get('transactions', [TransactionController::class, 'index']);
     //Route::get('payment-type', [PaymentTypeController::class, 'get']);
     //logout
     Route::get('user', [AuthController::class, 'getUser']);
@@ -80,14 +79,14 @@ Route::group(['middleware' => ['auth:sanctum', 'checkBanned']], function () {
     Route::post('logout', [AuthController::class, 'logout']);
     Route::post('changePassword', [AuthController::class, 'changePassword']);
     Route::post('profile', [AuthController::class, 'profile']);
-    Route::get('logo', [AgentLogoController::class, 'index']);
-    Route::group(['prefix' => 'transaction'], function () {
+    //Route::get('logo', [AgentLogoController::class, 'index']);
+    //Route::group(['prefix' => 'transaction'], function () {
         //Route::post('withdraw', [WithDrawRequestController::class, 'withdraw']);
         //Route::get('withdraw-log', [WithDrawRequestController::class, 'log']);
         //Route::post('deposit', [DepositRequestController::class, 'deposit']);
-        Route::get('deposit-log', [DepositRequestController::class, 'log']);
-        Route::get('player-transactionlog', [PlayerTransactionLogController::class, 'index']);
-    });
+        //Route::get('deposit-log', [DepositRequestController::class, 'log']);
+        //Route::get('player-transactionlog', [PlayerTransactionLogController::class, 'index']);
+   // });
 
     Route::group(['prefix' => 'game'], function () {
         Route::post('Seamless/LaunchGame', [LaunchGameController::class, 'launchGame']);
