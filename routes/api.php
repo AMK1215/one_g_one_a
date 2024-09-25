@@ -44,7 +44,7 @@ Route::get('popup-ads-banner', [BannerController::class, 'AdsBannerIndex']);
 
 //Route::get('v1/validate', [AuthController::class, 'callback']);
 Route::get('gameTypeProducts/{id}', [GameController::class, 'gameTypeProducts']);
-Route::get('gamelist/{provider_id}/{game_type_id}', [GameController::class, 'gameList']);
+Route::get('game/gamelist/{provider_id}/{game_type_id}', [GameController::class, 'gameList']);
 Route::get('allGameProducts', [GameController::class, 'allGameProducts']);
 Route::get('gameType', [GameController::class, 'gameType']);
 //Route::get('hotgamelist', [GameController::class, 'HotgameList']);
