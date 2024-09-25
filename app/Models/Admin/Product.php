@@ -2,8 +2,9 @@
 
 namespace App\Models\Admin;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Admin\GameList;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Product extends Model
 {
@@ -17,6 +18,11 @@ class Product extends Model
     public function gameTypes()
     {
         return $this->belongsToMany(GameType::class)->withPivot('image');
+    }
+
+    public function gameLists()
+    {
+        return $this->hasMany(GameList::class);
     }
 
     public function getImgUrlAttribute()
