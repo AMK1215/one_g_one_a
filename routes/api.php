@@ -71,10 +71,13 @@ Route::group(['prefix' => 'Seamless'], function () {
 });
 
 Route::group(['middleware' => ['auth:sanctum', 'checkBanned']], function () {
+    Route::get('home', [AuthController::class, 'home']);
+
     Route::get('wager-logs', [WagerController::class, 'index']); //GSC
     //Route::get('transactions', [TransactionController::class, 'index']);
     //Route::get('payment-type', [PaymentTypeController::class, 'get']);
     //logout
+    
     Route::get('user', [AuthController::class, 'getUser']);
     Route::get('agent', [AuthController::class, 'getAgent']);
     Route::post('logout', [AuthController::class, 'logout']);

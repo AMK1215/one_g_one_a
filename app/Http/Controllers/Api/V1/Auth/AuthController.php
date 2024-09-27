@@ -7,17 +7,21 @@ use App\Enums\UserType;
 use Illuminate\Http\Request;
 use App\Models\Admin\UserLog;
 use App\Traits\HttpResponses;
+use App\Models\Admin\BannerText;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\HomeResource;
 use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Resources\PlayerResource;
 use App\Http\Resources\AgentResource;
+use App\Http\Resources\PlayerResource;
 use App\Http\Requests\Api\LoginRequest;
 use App\Http\Resources\RegisterResource;
 use App\Http\Requests\Api\ProfileRequest;
 use App\Http\Requests\Api\RegisterRequest;
 use App\Http\Requests\Api\ChangePasswordRequest;
+use Illuminate\Http\JsonResponse;
+
 
 class AuthController extends Controller
 {
@@ -156,5 +160,15 @@ class AuthController extends Controller
     private function isExistingUserForAgent($phone, $agent_id)
     {
         return User::where('phone', $phone)->where('agent_id', $agent_id)->first();
+    }
+
+    public function home(): JsonResponse
+    {
+        $user = Auth::user();
+        $bannerText = BannerText::latest()->first();
+
+        $result = ['user' => $user, 'bannerText' => $bannerText];
+
+        return $this->success(new HomeResource($result), 'User Success');
     }
 }
