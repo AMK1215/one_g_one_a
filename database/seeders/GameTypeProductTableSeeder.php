@@ -38,20 +38,20 @@ class GameTypeProductTableSeeder extends Seeder
                 'image' => 'pg_soft.png',
                 'rate' => '1.0000',
             ],
+            // [
+            //     'product_id' => 4,
+            //     'game_type_id' => 1,
+            //     'image' => 'cq_9.jpeg',
+            //     'rate' => '1.0000',
+            // ],
             [
                 'product_id' => 4,
-                'game_type_id' => 1,
-                'image' => 'cq_9.jpeg',
-                'rate' => '1.0000',
-            ],
-            [
-                'product_id' => 5,
                 'game_type_id' => 1,
                 'image' => 'jili.png',
                 'rate' => '1.0000',
             ],
             [
-                'product_id' => 6,
+                'product_id' => 5,
                 'game_type_id' => 1,
                 'image' => 'live22sm.jpeg',
                 'rate' => '1.0000',

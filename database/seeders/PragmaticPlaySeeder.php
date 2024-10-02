@@ -3269,7 +3269,7 @@ class PragmaticPlaySeeder extends Seeder
                 'product_id' => 1,
                 'image_url' => 'https://api-sg57.ppgames.net/game_pic/square/200/vs10snakeeyes.png',
             ],
-            
+
         ];
 
         foreach ($data as $gameData) {
