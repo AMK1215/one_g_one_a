@@ -6,7 +6,7 @@ enum UserType: int
 {
     case Admin = 10;
     case Agent = 20;
-    case Player = 30;
+    case Player = 40;
 
     public static function usernameLength(UserType $type)
     {

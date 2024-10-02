@@ -95,21 +95,31 @@ class AuthController extends Controller
         return $this->success(new PlayerResource(Auth::user()), 'User Success');
     }
 
-    public function changePassword(ChangePasswordRequest $request)
+    public function changePassword(ChangePasswordRequest $request, User $player): JsonResponse
     {
-        $player = Auth::user();
-
-        if (!Hash::check($request->current_password, $player->password)) {
-            return $this->error('', 'Old Password is incorrect', 401);
+        if (! Hash::check($request->get('current_password'), $player->password)) {
+            return $this->error('', 'Current Password is Invalid', 401);
         }
+        $player->update(['password' => Hash::make($request->get('new_password'))]);
 
-        $player->update([
-            'password' => Hash::make($request->password),
-            'status' => 1,
-        ]);
-
-        return $this->success($player, 'Password has been changed successfully.');
+        return $this->success('', 'Password changed successfully.');
     }
+
+    // public function changePassword(ChangePasswordRequest $request)
+    // {
+    //     $player = Auth::user();
+
+    //     if (!Hash::check($request->current_password, $player->password)) {
+    //         return $this->error('', 'Old Password is incorrect', 401);
+    //     }
+
+    //     $player->update([
+    //         'password' => Hash::make($request->password),
+    //         'status' => 1,
+    //     ]);
+
+    //     return $this->success($player, 'Password has been changed successfully.');
+    // }
 
     public function playerChangePassword(Request $request)
     {

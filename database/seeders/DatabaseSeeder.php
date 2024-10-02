@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
             JDBTablesSeeder::class,
             JiliTablesSeeder::class,
             Live22SMTablesSeeder::class,
-            CQ9GameListTableSeeder::class,
+            //CQ9GameListTableSeeder::class,
             //CQ9FishingTablesSeeder::class,
             //EvolutionGamingTableSeeder::class,
             //JokerGameListSeeder::class,

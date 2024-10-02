@@ -77,11 +77,12 @@ Route::group(['middleware' => ['auth:sanctum', 'checkBanned']], function () {
     //Route::get('transactions', [TransactionController::class, 'index']);
     //Route::get('payment-type', [PaymentTypeController::class, 'get']);
     //logout
-    
+
     Route::get('user', [AuthController::class, 'getUser']);
     Route::get('agent', [AuthController::class, 'getAgent']);
     Route::post('logout', [AuthController::class, 'logout']);
-    Route::post('changePassword', [AuthController::class, 'changePassword']);
+    Route::post('change-password/{player}', [AuthController::class, 'changePassword']);
+    // Route::post('changePassword', [AuthController::class, 'changePassword']);
     Route::post('profile', [AuthController::class, 'profile']);
     //Route::get('logo', [AgentLogoController::class, 'index']);
     //Route::group(['prefix' => 'transaction'], function () {
