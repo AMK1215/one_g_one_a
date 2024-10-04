@@ -37,7 +37,7 @@ Route::post('/player-change-password', [AuthController::class, 'playerChangePass
 // logout
 
 Route::post('/logout', [AuthController::class, 'logout']);
-//Route::get('promotion', [PromotionController::class, 'index']);
+Route::get('promotion', [PromotionController::class, 'index']);
 Route::get('banner', [BannerController::class, 'index']);
 Route::get('bannerText', [BannerController::class, 'bannerText']);
 Route::get('popup-ads-banner', [BannerController::class, 'AdsBannerIndex']);
