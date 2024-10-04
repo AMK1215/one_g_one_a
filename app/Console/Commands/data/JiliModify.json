@@ -9,7 +9,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "4",
@@ -20,18 +20,18 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
-            "GameCode": "5",
+            "GameCode": "4",
             "GameName": "Hot Chilli",
             "GameType": 1,
             "Category": "Games",
-            "ImageUrl": "http://prodmd.9977997.com/Image/Jili/en/5.png",
+            "ImageUrl": "http://prodmd.9977997.com/Image/Jili/en/4.png",
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "6",
@@ -42,7 +42,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "9",
@@ -53,7 +53,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "10",
@@ -64,7 +64,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "13",
@@ -75,7 +75,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "14",
@@ -86,7 +86,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "16",
@@ -97,7 +97,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "17",
@@ -108,7 +108,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "21",
@@ -119,7 +119,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "23",
@@ -130,7 +130,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "26",
@@ -141,7 +141,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "27",
@@ -152,7 +152,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "30",
@@ -163,7 +163,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "33",
@@ -174,18 +174,18 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
-            "GameCode": "5",
+            "GameCode": "4",
             "GameName": "Crazy777",
             "GameType": 1,
             "Category": "Games",
-            "ImageUrl": "http://prodmd.9977997.com/Image/Jili/en/5.png",
+            "ImageUrl": "http://prodmd.9977997.com/Image/Jili/en/4.png",
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "36",
@@ -196,7 +196,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "37",
@@ -207,7 +207,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "38",
@@ -218,7 +218,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "40",
@@ -229,7 +229,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "43",
@@ -240,7 +240,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "44",
@@ -251,7 +251,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "45",
@@ -262,7 +262,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "46",
@@ -273,7 +273,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "47",
@@ -284,7 +284,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "48",
@@ -295,7 +295,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "49",
@@ -306,7 +306,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "51",
@@ -317,7 +317,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "58",
@@ -328,7 +328,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "61",
@@ -339,7 +339,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "62",
@@ -350,7 +350,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "63",
@@ -361,7 +361,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "64",
@@ -372,7 +372,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "66",
@@ -383,7 +383,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "67",
@@ -394,7 +394,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "76",
@@ -405,7 +405,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "77",
@@ -416,7 +416,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "78",
@@ -427,7 +427,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "85",
@@ -438,7 +438,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "87",
@@ -449,7 +449,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "91",
@@ -460,7 +460,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "92",
@@ -471,7 +471,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "100",
@@ -482,7 +482,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "101",
@@ -493,7 +493,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "102",
@@ -504,7 +504,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "103",
@@ -515,7 +515,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "106",
@@ -526,7 +526,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "108",
@@ -537,7 +537,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "109",
@@ -548,7 +548,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "110",
@@ -559,7 +559,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "115",
@@ -570,7 +570,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "116",
@@ -581,7 +581,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "126",
@@ -592,7 +592,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "130",
@@ -603,7 +603,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "134",
@@ -614,7 +614,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "15",
@@ -625,7 +625,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "136",
@@ -636,7 +636,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "137",
@@ -647,7 +647,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "142",
@@ -658,7 +658,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "144",
@@ -669,7 +669,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "145",
@@ -680,7 +680,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "146",
@@ -691,7 +691,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "153",
@@ -702,7 +702,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "164",
@@ -713,7 +713,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "166",
@@ -724,7 +724,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "171",
@@ -735,7 +735,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "172",
@@ -746,7 +746,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "176",
@@ -757,7 +757,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "180",
@@ -768,7 +768,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "181",
@@ -779,7 +779,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "183",
@@ -790,7 +790,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "191",
@@ -801,7 +801,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "193",
@@ -812,7 +812,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "198",
@@ -823,7 +823,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "208",
@@ -834,7 +834,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "209",
@@ -845,7 +845,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "214",
@@ -856,7 +856,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "223",
@@ -867,7 +867,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "225",
@@ -878,7 +878,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "226",
@@ -889,7 +889,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "228",
@@ -900,7 +900,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "230",
@@ -911,7 +911,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "238",
@@ -922,7 +922,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "239",
@@ -933,7 +933,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "252",
@@ -944,7 +944,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "258",
@@ -955,7 +955,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "259",
@@ -966,7 +966,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "263",
@@ -977,7 +977,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "299",
@@ -988,7 +988,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "300",
@@ -999,7 +999,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "301",
@@ -1010,7 +1010,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "303",
@@ -1021,7 +1021,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "399",
@@ -1032,7 +1032,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         },
         {
             "GameCode": "420",
@@ -1043,7 +1043,7 @@
             "ProviderGameType": null,
             "ProviderCode": null,
             "game_type_id": 1,
-            "product_id": 5
+            "product_id": 4
         }
     ],
     "GamesList": null,

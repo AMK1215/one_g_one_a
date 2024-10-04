@@ -299,7 +299,7 @@
                             </li>
                         @endcan
 
-                        @can('admin_access')
+                        {{-- @can('admin_access')
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-tools"></i>
@@ -323,7 +323,7 @@
                                     </li>
                                 </ul>
                             </li>
-                        @endcan
+                        @endcan --}}
 
                         {{-- for agent --}}
                         @can('deposit')

@@ -36,13 +36,7 @@ class ProductTableSeeder extends Seeder
                 'order' => 3,
                 'status' => 1
             ],
-            // [
-            //     'code' => '1009',
-            //     'name' => 'CQ9',
-            //     'short_name' => 'CQ9',
-            //     'order' => 4,
-            //     'status' => 1
-            // ],
+
 
             [
                 'code' => '1091',
