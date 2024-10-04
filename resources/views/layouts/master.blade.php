@@ -152,7 +152,7 @@
                         @endcan
                         @can('deposit')
                             <li class="nav-item">
-                                <a href="{{ route('admin.deposit.index') }}" class="nav-link">
+                                <a href="{{ route('admin.agent.deposit') }}" class="nav-link">
                                     <i class="fas fa-exchange-alt"></i>
                                     <p>
                                         Deposit Request
@@ -162,7 +162,7 @@
                         @endcan
                         @can('withdraw')
                             <li class="nav-item">
-                                <a href="{{ route('admin.withdraw.index') }}" class="nav-link">
+                                <a href="{{ route('admin.agent.withdraw') }}" class="nav-link">
                                     <i class="fas fa-exchange-alt"></i>
                                     <p>
                                         Withdraw Request

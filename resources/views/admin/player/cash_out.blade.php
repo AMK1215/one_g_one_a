@@ -6,7 +6,7 @@
             <div class="mt-2">
                 <div
                     class="d-flex justify-content-end col-lg-8 col-md-8 col-sm-10 col-10  offset-lg-2 offset-md-2 offset-sm-1 offset-1 pb-3 pt-3">
-                    <a href="{{ route('admin.player.index') }}" class="btn btn-danger" style="width: 100px;font-size: 16px;">
+                    <a href="{{ route('admin.player.index') }}" class="btn btn-primary" style="width: 100px;font-size: 16px;">
                         <i class="fas fa-arrow-left"></i> Back
                     </a>
                 </div>

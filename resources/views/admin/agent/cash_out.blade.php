@@ -20,7 +20,7 @@
                 <div class="card-header">
                     <div class="card-title col-12">
                         <h4 class="d-inline fw-bold">Withdrawl</h4>
-                        <a href="{{ route('admin.agent.index') }}" class="btn btn-danger float-right">
+                        <a href="{{ route('admin.agent.index') }}" class="btn btn-primary float-right">
                             <i class="fas fa-arrow-left" style="font-size: 20px;"></i> Back
                         </a>
 

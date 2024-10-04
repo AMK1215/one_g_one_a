@@ -3,77 +3,57 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                {{-- <div class="col-sm-6">
-                    <h1>Create Agent</h1>
-                </div> --}}
                 <div class="col-12">
-                    <ol class="breadcrumb  float-right">
+                    <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                        <li class="breadcrumb-item active">Withdraw Requested Lists</li>
+                        <li class="breadcrumb-item active">Withdraw Request Lists</li>
                     </ol>
                 </div>
             </div>
-        </div><!-- /.container-fluid -->
+        </div>
     </section>
 
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <div class="card col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1"
-                style="border-radius: 20px;">
-                <div class="card-header mt-2">
-                    <div class="card-title col-12">
-                        <h3 class="d-inline">
-                            Withdraw Requested Lists
-                        </h3>
-                        <a href="{{ route('home') }}" class="btn btn-danger d-inline float-right">
-                            <i class="fas fa-arrow-left mr-2"></i> Back
-                        </a>
-                    </div>
-                </div>
-                <form action="{{ route('admin.agent.withdraw') }}" method="GET">
-                    <div class="row mt-3">
-                        <div class="col-md-3">
-                            <div class="input-group input-group-static mb-4">
-                                <label for="exampleFormControlSelect1" class="ms-0">Select Status</label>
-                                <select class="form-control" id="" name="status">
-                                    <option value="all" {{ request()->get('status') == 'all' ? 'selected' : '' }}>All
-                                    </option>
-                                    <option value="0" {{ request()->get('status') == '0' ? 'selected' : '' }}>Pending
-                                    </option>
-                                    <option value="1" {{ request()->get('status') == '1' ? 'selected' : '' }}>Approved
-                                    </option>
-                                    <option value="2" {{ request()->get('status') == '2' ? 'selected' : '' }}>Rejected
-                                    </option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <button class="btn btn-sm btn-primary" id="search" type="submit">Search</button>
-                            <a href="{{ route('admin.agent.withdraw') }}" class="btn btn-link text-primary ms-auto border-0"
-                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Refresh">
-                                <i class="material-icons text-lg">refresh</i>
-                            </a>
-                        </div>
-                    </div>
-                </form>
-
-            </div>
-
-        </div>
-        </div>
-    </section>
-
-
-    <section class="content">
-        <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-
+                    <div class="d-flex justify-content-end mb-3">
+                        <a href="{{ route('admin.agent.withdraw') }}" class="btn btn-primary " style="width: 100px;"> <i class="fas fa-arrow-left mr-2"></i>Back</a>
+                    </div>
                     <div class="card " style="border-radius: 20px;">
+                        <div class="card-header">
+                            <h3>Withdraw Request Lists</h3>
+                        </div>
 
                         <div class="card-body">
-                            <table id="mytable" class="table table-bordered table-hover">
+                        <form action="{{ route('admin.agent.withdraw') }}" method="GET">
+                            <div class="row mt-3">
+                                <div class="col-md-3">
+                                    <div class="input-group input-group-static mb-4">
+                                        <label for="exampleFormControlSelect1" class="ms-0">Select Status</label>
+                                        <select class="form-control" id="" name="status">
+                                            <option value="all" {{ request()->get('status') == 'all' ? 'selected' : '' }}>All
+                                            </option>
+                                            <option value="0" {{ request()->get('status') == '0' ? 'selected' : '' }}>Pending
+                                            </option>
+                                            <option value="1" {{ request()->get('status') == '1' ? 'selected' : '' }}>Approved
+                                            </option>
+                                            <option value="2" {{ request()->get('status') == '2' ? 'selected' : '' }}>Rejected
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <button class="btn btn-sm btn-primary" id="search" type="submit">Search</button>
+                                    <a href="{{ route('admin.agent.withdraw') }}" class="btn btn-link text-primary ms-auto border-0"
+                                        data-bs-toggle="tooltip" data-bs-placement="bottom" title="Refresh">
+                                        <i class="material-icons text-lg">refresh</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                        <table id="mytable" class="table table-bordered table-hover">
                                 <thead>
                                     <th>#</th>
                                     <th>PlayerName</th>
@@ -150,6 +130,4 @@
             </div>
         </div>
     </section>
-@endsection
-@section('scripts')
 @endsection
