@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\TransactionMiddleware;
 use App\Http\Middleware\WebhookLogMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -68,5 +69,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'checkBanned' => \App\Http\Middleware\CheckBanned::class,
         'webhook_log' => WebhookLogMiddleware::class,
+        'transaction' => TransactionMiddleware::class,
+
     ];
 }
