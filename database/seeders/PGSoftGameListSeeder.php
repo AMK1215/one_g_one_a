@@ -908,7 +908,7 @@ class PGSoftGameListSeeder extends Seeder
                 'code' => '1529867',
                 'name' => 'Ninja Raccoon Frenzy',
                 'game_type_id' => 1,
-                'product_id' => 31,
+                'product_id' => 3,
                 'image_url' => 'http://prodmd.9977997.com/Image/PGSoft/en/1529867.png',
             ],
             [

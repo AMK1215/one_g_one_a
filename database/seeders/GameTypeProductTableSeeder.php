@@ -20,12 +20,6 @@ class GameTypeProductTableSeeder extends Seeder
                 'image' => 'pragmatic_play.jpeg',
                 'rate' => '1.0000',
             ],
-            // [
-            //     'product_id' => 1,
-            //     'game_type_id' => 2,
-            //     'image' => 'pragmatic_casino.png',
-            //     'rate' => '1.0000',
-            // ],
             [
                 'product_id' => 2,
                 'game_type_id' => 1,
@@ -38,12 +32,6 @@ class GameTypeProductTableSeeder extends Seeder
                 'image' => 'pg_soft.png',
                 'rate' => '1.0000',
             ],
-            // [
-            //     'product_id' => 4,
-            //     'game_type_id' => 1,
-            //     'image' => 'cq_9.jpeg',
-            //     'rate' => '1.0000',
-            // ],
             [
                 'product_id' => 4,
                 'game_type_id' => 1,
