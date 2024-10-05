@@ -48,7 +48,7 @@
                                         <tr>
                                             {{-- <td>{{ $detail->wager_id }}</td> --}}
                                             <td>
-                                                <a href="https://prodmd.9977997.com/Report/BetDetail?agentCode=E823&WagerID={{ $detail->wager_id }}"
+                                                <a href="https://prodmd.9977997.com/Report/BetDetail?agentCode=E780&WagerID={{ $detail->wager_id }}"
                                                     target="_blank"
                                                     style="color: blueviolet; text-decoration: underline;">{{ $detail->wager_id }}</a>
                                             </td>
