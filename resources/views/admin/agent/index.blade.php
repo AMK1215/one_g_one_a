@@ -21,7 +21,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="d-flex justify-content-end mb-3">
-                        <a href="{{ route('admin.agent.create') }}" class="btn btn-success " style="width: 100px;"><i class="fas fa-plus text-white  mr-2"></i>Create</a>
+                        <a href="{{ route('admin.agent.create') }}" class="btn btn-success " style="width: 100px;"><i
+                                class="fas fa-plus text-white  mr-2"></i>Create</a>
                     </div>
                     <div class="card">
                         <div class="card-body">
@@ -30,7 +31,7 @@
                                     <th>#</th>
                                     <th>AgentName</th>
                                     <th>AgentID</th>
-                                    <th>ReferralCode</th>
+                                    {{-- <th>ReferralCode</th> --}}
                                     <th>Phone</th>
                                     <th>Status</th>
                                     <th>Balance</th>
@@ -50,7 +51,7 @@
                                                     <td>
                                                         <span class="d-block">{{ $user->user_name }}</span>
                                                     </td>
-                                                    <td>{{ $user->referral_code }}</td>
+                                                    {{-- <td>{{ $user->referral_code }}</td> --}}
                                                     <td>{{ $user->phone }}</td>
                                                     <td>
                                                         <small
@@ -90,8 +91,7 @@
                                                         </a>
                                                         <a class="me-1" href="{{ route('admin.agent.edit', $user->id) }}"
                                                             data-bs-toggle="tooltip" data-bs-original-title="Edit Agent">
-                                                            <i class="fas fa-edit text-info"
-                                                                style="font-size: 20px;"></i>
+                                                            <i class="fas fa-edit text-info" style="font-size: 20px;"></i>
                                                         </a>
                                                     </td>
                                                     <td>
