@@ -72,6 +72,46 @@ class GSCReportController extends Controller
 }
 
 
+    public function AgentWinLoseindex()
+    {
+        // Call the private function to get the joined table data
+        $data = $this->AgentmakeJoinTable();
+
+        // Pass the data to the view
+        return view('admin.gsc.report.agent_index', compact('data'));
+    }
+
+    private function AgentmakeJoinTable()
+{
+    $agentId = auth()->id(); // Get the authenticated agent's ID
+
+    $query = DB::table('reports')
+        ->select([
+            'products.name as product_name',
+            DB::raw('COUNT(reports.id) as total_record'), // Total Record
+            DB::raw('SUM(reports.bet_amount) as total_bet'), // Total Bet
+            DB::raw('SUM(reports.valid_bet_amount) as total_valid_bet'), // Total Valid Bet
+            DB::raw('SUM(reports.jp_bet) as total_prog_jp'), // Total Progressive JP Bet
+            DB::raw('SUM(reports.payout_amount) as total_payout'), // Total Payout
+            DB::raw('SUM(reports.payout_amount - reports.valid_bet_amount) as total_win_lose'), // Total Win/Loss
+
+            // Member-related columns
+            DB::raw('SUM(reports.agent_commission) as member_comm'), // Member Commission
+
+            // Upline-related columns
+            DB::raw('SUM(reports.agent_commission) as upline_comm'), // Upline Commission
+            DB::raw('SUM(reports.payout_amount - reports.valid_bet_amount) as upline_total'), // Upline Win/Loss
+        ])
+        ->join('products', 'reports.product_code', '=', 'products.code') // Joining reports with products
+        ->where('reports.status', '101') // Filter by status '101'
+        ->where('reports.agent_id', $agentId) // Filter by authenticated agent ID
+        ->groupBy('products.name'); // Group by product name
+
+    return $query->get();
+}
+
+
+
     // public function ReportDetails($productName)
     // {
     //     // Fetch detailed information about the selected product

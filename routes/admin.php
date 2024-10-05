@@ -127,9 +127,11 @@ Route::group([
 
     //Route::group(['prefix' => 'report'], function () {
         Route::get('slot-win-lose', [GSCReportController::class, 'index'])->name('GscReport.index');
-        // web.php
+
 
         Route::get('/win-lose/details/{product_name}', [GSCReportController::class, 'ReportDetails'])->name('Reportproduct.details');
+
+         Route::get('agent-slot-win-lose', [GSCReportController::class, 'AgentWinLoseindex'])->name('GscReport.AgentWLindex');
 
         //Route::get('view/{user_id}', [ReportController::class, 'view'])->name('report.view');
         //Route::get('show/{proudct_code}', [ReportController::class, 'show'])->name('report.show');

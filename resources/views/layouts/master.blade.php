@@ -331,13 +331,13 @@
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-tools"></i>
                                     <p>
-                                        Live22
+                                        GSC
                                         <i class="fas fa-angle-left right"></i>
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="{{ url('admin/live22/agent-win-lose-report') }}" class="nav-link">
+                                        <a href="{{ url('admin/agent-slot-win-lose') }}" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Win/Lose Report</p>
                                         </a>
