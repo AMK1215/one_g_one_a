@@ -2,15 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ReportController;
 use App\Http\Controllers\Admin\BankController;
-use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\Admin\BannerController;
-use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\GameListController;
-use \App\Http\Controllers\Admin\SiteLogoController;
 use App\Http\Controllers\Admin\GSCReportController;
 use App\Http\Controllers\Admin\PromotionController;
 use App\Http\Controllers\Shan\ShanReportController;
@@ -20,7 +16,6 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\Agent\AgentController;
 use App\Http\Controllers\Admin\PaymentTypeController;
 use App\Http\Controllers\Admin\TransactionController;
-use App\Http\Controllers\Report\TestReportController;
 use App\Http\Controllers\Admin\GetBetDetailController;
 use App\Http\Controllers\Admin\Master\MasterController;
 use App\Http\Controllers\Admin\Player\PlayerController;

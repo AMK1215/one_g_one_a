@@ -37,7 +37,7 @@ Route::post('/player-change-password', [AuthController::class, 'playerChangePass
 // logout
 
 Route::post('/logout', [AuthController::class, 'logout']);
-//Route::get('promotion', [PromotionController::class, 'index']);
+Route::get('promotion', [PromotionController::class, 'index']);
 Route::get('banner', [BannerController::class, 'index']);
 Route::get('bannerText', [BannerController::class, 'bannerText']);
 Route::get('popup-ads-banner', [BannerController::class, 'AdsBannerIndex']);
@@ -74,7 +74,7 @@ Route::group(['middleware' => ['auth:sanctum', 'checkBanned']], function () {
     Route::get('home', [AuthController::class, 'home']);
 
     Route::get('wager-logs', [WagerController::class, 'index']); //GSC
-    //Route::get('transactions', [TransactionController::class, 'index']);
+    Route::get('transactions', [TransactionController::class, 'index'])->middleware('transaction');
     //Route::get('payment-type', [PaymentTypeController::class, 'get']);
     //logout
 
