@@ -141,7 +141,66 @@
                     </div>
                     <!-- /.card -->
                 </div>
+                <div class="modal fade" id="credentialsModal" tabindex="-1" role="dialog" aria-labelledby="credentialsModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="credentialsModalLabel">Your Credentials</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>Username:</strong> <span id="modal-username"></span></p>
+                            <p><strong>Password:</strong> <span id="modal-password"></span></p>
+                            <p><strong>Amount:</strong> <span id="modal-amount"></span></p>
+                            <p><strong>URL:</strong> <span id="modal-url"></span></p>
+                            <button class="btn btn-success" onclick="copyToClipboard()">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
     </section>
+@endsection
+@section('script')
+<script>
+    var successMessage = @json(session('successMessage'));
+    var username = @json(session('username'));
+    var password = @json(session('password'));
+    var amount = @json(session('amount'));
+
+    @if (session()->has('successMessage'))
+    toastr.success(successMessage +
+        `
+    <div>
+        <button class="btn btn-primary btn-sm" data-toggle="modal"
+            data-username="${username}"
+            data-password="${password}"
+            data-amount="${amount}" 
+            data-url="https://pandashan.online/login" 
+            onclick="copyToClipboard(this)">Copy</button>
+    </div>`, {
+        allowHtml: true
+    });
+    @endif
+
+    function copyToClipboard(button) {
+        var username = $(button).data('username');
+        var password = $(button).data('password');
+        var amount = $(button).data('amount');
+        var url = $(button).data('url');
+
+        var textToCopy = "Username: " + username + "\nPassword: " + password + "\nAmount: " + amount + "\nURL: " + url;
+
+        navigator.clipboard.writeText(textToCopy).then(function() {
+            toastr.success("Credentials copied to clipboard!");
+        }).catch(function(err) {
+            toastr.error("Failed to copy text: " + err);
+        });
+    }
+</script>
+
+
 @endsection

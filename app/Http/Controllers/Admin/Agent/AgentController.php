@@ -61,10 +61,9 @@ class AgentController extends Controller
         }
 
         $agent_name = $this->generateRandomString();
-        $referral_code = $this->generateReferralCode();
         $paymentTypes = PaymentType::all();
 
-        return view('admin.agent.create', compact('agent_name', 'referral_code', 'paymentTypes'));
+        return view('admin.agent.create', compact('agent_name', 'paymentTypes'));
     }
 
     /**
@@ -103,8 +102,8 @@ class AgentController extends Controller
             app(WalletService::class)->transfer($master, $agent, $inputs['amount'], TransactionName::CreditTransfer);
         }
 
-        return redirect()->back()
-            ->with('success', 'Agent created successfully')
+        return redirect()->route('admin.agent.index')
+            ->with('successMessage', 'Agent created successfully')
             ->with('password', $request->password)
             ->with('username', $agent->user_name)
             ->with('amount', $transfer_amount);
@@ -134,15 +133,11 @@ class AgentController extends Controller
             abort(403);
         }
 
-        $param = $request->validate([
-            'name' => ['required', 'string', 'unique:users,name,'.$id],
-        ]);
-
         $user = User::find($id);
 
-        $user->update($param);
+        $user->update($request->all());
 
-        return redirect()->back()
+        return redirect()->route('admin.agent.index')
             ->with('success', 'Agent Updated successfully');
     }
 
@@ -287,24 +282,12 @@ class AgentController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect()->back()
-            ->with('success', 'Agent Change Password successfully')
+        return redirect()->route('admin.agent.index')
+            ->with('successMessage', 'Agent Change Password successfully')
             ->with('password', $request->password)
             ->with('username', $agent->user_name);
     }
 
-    private function generateReferralCode($length = 8)
-    {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $charactersLength = strlen($characters);
-        $randomString = '';
-
-        for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[rand(0, $charactersLength - 1)];
-        }
-
-        return $randomString;
-    }
 
     public function showAgentLogin($id)
     {

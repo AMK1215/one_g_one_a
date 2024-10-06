@@ -23,11 +23,10 @@ class AgentRequest extends FormRequest
     {
         return [
             'user_name' => ['required', 'string', 'unique:users,user_name'],
-            'name' => ['required', 'string', 'unique:users,name'],
+            'name' => ['required', 'string'],
             'phone' => ['required', 'regex:/^[0-9]+$/', 'unique:users,phone'],
             'password' => 'required|min:6',
-            'amount' => 'nullable|numeric',
-            'referral_code' => ['required', 'string', 'unique:users,referral_code'],
+            'amount' => 'nullable|numeric'
         ];
     }
 }
