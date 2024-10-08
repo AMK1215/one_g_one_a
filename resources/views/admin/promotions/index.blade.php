@@ -29,6 +29,8 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
                                         <th>Image</th>
                                         <th>Created At</th>
                                         <th>Action</th>
@@ -38,6 +40,8 @@
                                 @foreach($promotions as $key => $promotion)
                                 <tr>
                                             <td class="text-sm font-weight-normal">{{ ++$key }}</td>
+                                            <td>{{$promotion->title}}</td>
+                                            <td>{{$promotion->description}}</td>
                                             <td>
                                                 <img width="100px" class="img-thumbnail" src="{{ $promotion->img_url }}"
                                                     alt="">

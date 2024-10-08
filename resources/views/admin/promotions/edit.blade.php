@@ -31,6 +31,15 @@
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
+                                <div class="custom-form-group mb-3">
+                                    <label for="title mb-2">Title</label>
+                                    <input type="text" class="form-control" id="" name="title" value="{{$promotion->title}}">
+                                </div>
+                                <div class="custom-form-group mb-3">
+                                <label for="title mb-2">Description</label>
+                                    <textarea type="text" class="form-control" id="" name="description">
+                                        {{$promotion->description}}</textarea>
+                                </div>
                                 <div class="custom-form-group">
                                     <label for="title"> Image</label>
                                     <input type="file" class="form-control" id="inputEmail3" name="image">

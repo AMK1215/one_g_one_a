@@ -21,7 +21,7 @@
                     <div class="card col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1" style="border-radius: 15px;">
                         <div class="card-header">
                            <div class="card-title col-12">
-                                <h3 class="d-inline fw-bold">Promotion Create </h3>
+                                <h3 class="d-inline fw-bold">Create Promotion</h3>
                               
                            </div>
                         </div>
@@ -30,8 +30,16 @@
                                 method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="custom-form-group mb-3">
+                                    <label for="title mb-2">Title</label>
+                                    <input type="text" class="form-control" id="" name="title">
+                                </div>
+                                <div class="custom-form-group mb-3">
                                     <label for="title mb-2">Image</label>
                                     <input type="file" class="form-control" id="inputEmail3" name="image">
+                                </div>
+                                <div class="custom-form-group mb-3">
+                                    <label for="title mb-2">Description</label>
+                                   <textarea name="description" id="" class="form-control"></textarea>
                                 </div>
                                 <div class="custom-form-group ">
                                     <button class="btn btn-success float-right" type="submit">Create</button>
