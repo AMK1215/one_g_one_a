@@ -42,18 +42,22 @@
                                             <td>{{ $log->targetUser->name }}</td>
                                             <td>
                                                 <div
-                                                    class="d-flex align-items-center text-{{ $log->type == 'deposit' ? 'success' : 'danger' }} text-gradient text-sm font-weight-bold ms-auto">
-                                                    {{ $log->type == 'deposit' ? '+' : '' }}{{ number_format($log->amountFloat) }}
+                                                    class="d-flex align-items-center text-{{ $log->type == 'withdraw' ? 'success' : 'danger' }} text-gradient text-sm font-weight-bold ms-auto">
+                                                    {{ number_format(abs($log->amountFloat)) }}
                                                 </div>
                                             </td>
                                             <td>
-                                                @if ($log->type == 'withdraw')
+                                                @if ($log->type == 'deposit')
                                                     <p class="text-danger font-weight-bold">Withdraw</p>
                                                 @else
                                                     <p class="text-success font-weight-bold">Deposit</p>
                                                 @endif
                                             </td>
-                                            <td>{{ $log->note }}</td>
+                                            @if($log->note == "null")
+                                            <td></td>
+                                            @else
+                                            <td>{{$log->note}}</td>
+                                            @endif
                                         </tr>
                                     @endforeach
                                 </tbody>

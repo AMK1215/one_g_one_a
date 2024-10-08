@@ -86,11 +86,9 @@
                                                             data-bs-original-title="Change Password">
                                                             <i class="fas fa-lock text-info" style="font-size: 20px;"></i>
                                                         </a>
-                                                        <a class="me-1"
-                                                            href="{{ route('admin.player.edit', $user->id) }}"
-                                                            data-bs-toggle="tooltip" data-bs-original-title="Edit Player">
-                                                            <i class="fas fa-pen-to-square text-info"
-                                                                style="font-size: 20px;"></i>
+                                                        <a class="me-1" href="{{ route('admin.player.edit', $user->id) }}"
+                                                            data-bs-toggle="tooltip" data-bs-original-title="Edit Agent">
+                                                            <i class="fas fa-edit text-info" style="font-size: 20px;"></i>
                                                         </a>
 
                                                     </td>

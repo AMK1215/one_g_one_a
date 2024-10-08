@@ -3,14 +3,10 @@
 namespace App\Http\Controllers\Admin\TransferLog;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin\TransferLog;
-use App\Models\Transaction;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Log;
 
 class TransferLogController extends Controller
 {
@@ -22,7 +18,7 @@ class TransferLogController extends Controller
             ->whereIn('transactions.name', ['credit_transfer', 'debit_transfer'])
             ->latest()->paginate();
 
-        return view('admin.trans_log.index', compact('transferLogs'));
+            return view('admin.trans_log.index', compact('transferLogs'));
     }
 
     public function transferLog($id)

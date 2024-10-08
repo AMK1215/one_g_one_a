@@ -26,7 +26,7 @@
                         <h3 class="d-inline">
                             Create Bank
                         </h3>
-                        <a href="{{ route('admin.bank.index') }}" class="btn btn-danger d-inline float-right">
+                        <a href="{{ route('admin.bank.index') }}" class="btn btn-primary d-inline float-right">
                             <i class="fas fa-arrow-left mr-2"></i> Back
                         </a>
                     </div>
@@ -36,7 +36,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="title">Payment Type <span class="text-danger">*</span></label>
-                        <select name="payment_type_id" id="">
+                        <select name="payment_type_id" id="" class="form-control">
                             <option value="">Select Payment Type</option>
                             @foreach ($paymentTypes as $paymentType)
                                 <option value="{{ $paymentType->id }}">{{ $paymentType->name }}</option>
@@ -63,8 +63,6 @@
                         @enderror
                     </div>
                     <div class="form-group  d-flex justify-content-end">
-                        <button class="btn btn-danger mr-2" type="button" id="resetFormButton">Cancel</button>
-
                         <button type="submit" class="btn btn-success" type="button">Submit</button>
                     </div>
                 </form>
@@ -74,24 +72,4 @@
         </div>
         </div>
     </section>
-@endsection
-
-
-@section('scripts')
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('resetFormButton').addEventListener('click', function() {
-                var form = this.closest('form');
-                form.querySelectorAll('input[type="text"]').forEach(input => {
-                    // Resets input fields to their default values
-                    input.value = '';
-                });
-                form.querySelectorAll('select').forEach(select => {
-                    // Resets select fields to their default selected option
-                    select.selectedIndex = 0;
-                });
-                // Add any additional field resets here if necessary
-            });
-        });
-    </script>
 @endsection

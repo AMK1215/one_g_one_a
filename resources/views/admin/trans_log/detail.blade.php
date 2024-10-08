@@ -25,43 +25,20 @@
                                 <th>Type</th>
                             </tr>
                         </thead>
-                        {{-- <tbody>
-    @foreach ($transferLogs as $log)
-        <tr>
-            <td>{{ $log->created_at }}</td>
-            <td>{{ $log->targetUser->name }}</td>
-            <td>
-                <div class="d-flex align-items-center text-{{ $log->type == 'deposit' ? 'danger' : 'success' }} text-gradient text-sm font-weight-bold ms-auto">
-                    {{ $log->type == 'deposit'}}{{ $log->amountFloat }}
-                </div>
-            </td>
-            <td>
-                @if ($log->type == 'withdraw')
-                    <p class="text-success">Deposit</p>
-                @else
-                    <p class="text-danger">Withdraw</p>
-                @endif
-            </td>
-        </tr>
-    @endforeach
-</tbody> --}}
-
                         <tbody>
                             @foreach ($transferLogs as $log)
                                 <tr>
                                     <td>{{ $log->created_at }}</td>
                                     <td>{{ $log->targetUser->name }}</td>
                                     <td>
-                                        @if ($log->type == 'deposit')
-                                            <p class="text-success font-weight-bold"> +{{ abs($log->amountFloat) }}</p>
-                                        @elseif($log->type == 'withdraw')
-                                            <p class="text-danger font-weight-bold"> -{{ abs($log->amountFloat) }}</p>
+                                        @if ($log->type == 'withdraw')
+                                            <p class="text-success font-weight-bold"> {{ abs($log->amountFloat) }}</p>
                                         @else
-                                            <p>No data Fount</p>
+                                            <p class="text-danger font-weight-bold"> {{ abs($log->amountFloat) }}</p>
                                         @endif
                                     </td>
                                     <td>
-                                        @if ($log->type == 'withdraw')
+                                        @if ($log->type == 'deposit')
                                             <p class="text-danger font-weight-bold">Withdraw</p>
                                         @else
                                             <p class="text-success font-weight-bold">Deposit</p>

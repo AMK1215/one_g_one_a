@@ -45,17 +45,12 @@
                                             <td>{{ $bank->account_number }}</td>
                                             <td>{{ $bank->paymentType->name }}</td>
                                             <td>
-                                                <a href="{{ route('admin.bank.edit', $bank->id) }}" data-bs-toggle="tooltip"
-                                                    data-bs-original-title="Edit Bank" ><i class="material-icons-round text-secondary position-relative text-lg mr-2"  >mode_edit</i></a>
+                                                <a href="{{ route('admin.bank.edit', $bank->id) }}" class="btn btn-primary btn-sm">Edit</a>
                                                 <form class="d-inline" action="{{ route('admin.bank.destroy', $bank->id) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class=" btn btn-transparent" data-bs-toggle="tooltip"
-                                                        data-bs-original-title="Delete Bank">
-                                                        <i
-                                                            class="material-icons text-danger position-relative  text-lg  ">delete</i>
-                                                    </button>
+                                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                                                 </form>
                                             </td>
                                         </tr>
