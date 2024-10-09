@@ -115,13 +115,13 @@ class PlayerController extends Controller
             }
 
             return redirect()->back()
-                ->with('success', 'Player created successfully')
+                ->with('successMessage', 'Player created successfully')
                 ->with('url', env('APP_URL'))
                 ->with('password', $request->password)
                 ->with('username', $user->user_name);
         } catch (\Exception $e) {
             Log::error('Error creating user: ' . $e->getMessage());
-
+            dd($e->getMessage());
             return redirect()->back()->with('error', 'An error occurred while creating the player.');
         }
     }

@@ -222,13 +222,6 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="{{ route('admin.banners.index') }}" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Banner</p>
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-item">
                                         <a href="{{ route('admin.text.index') }}" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>BannerText</p>

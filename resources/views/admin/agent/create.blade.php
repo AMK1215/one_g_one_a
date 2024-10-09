@@ -81,8 +81,46 @@
                     </div>
                 </form>
             </div>
-
         </div>
         </div>
     </section>
+@endsection
+@section('script')
+<script>
+    var successMessage = @json(session('successMessage'));
+    var userName = @json(session('user_name'));
+    var password = @json(session('password'));
+    var amount = @json(session('amount'));
+
+    @if(session()->has('successMessage'))
+    toastr.success(successMessage +
+        `
+    <div>
+        <button class="btn btn-primary btn-sm" data-toggle="modal"
+            data-username="${userName}"
+            data-password="${password}"
+            data-amount="${amount}" 
+            data-url="https://pandashan.online/login" 
+            onclick="copyToClipboard(this)">Copy</button>
+    </div>`, {
+        allowHtml: true
+    });
+    @endif
+
+    function copyToClipboard(button) {
+        var username = $(button).data('username');
+        var password = $(button).data('password');
+        var amount = $(button).data('amount');
+        var url = $(button).data('url');
+
+        var textToCopy = "Username: " + username + "\nPassword: " + password + "\nAmount: " + amount + "\nURL: " + url;
+
+        navigator.clipboard.writeText(textToCopy).then(function() {
+            toastr.success("Credentials copied to clipboard!");
+        }).catch(function(err) {
+            toastr.error("Failed to copy text: " + err);
+        });
+    }
+</script>
+
 @endsection
