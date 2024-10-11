@@ -88,7 +88,7 @@
 @section('script')
 <script>
     var successMessage = @json(session('successMessage'));
-    var userName = @json(session('user_name'));
+    var userName = @json(session('username'));
     var password = @json(session('password'));
     var amount = @json(session('amount'));
 

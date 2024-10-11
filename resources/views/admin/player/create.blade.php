@@ -87,7 +87,7 @@
 @section('script')
 <script>
     var successMessage = @json(session('successMessage'));
-    var userName = @json(session('user_name'));
+    var phone = @json(session('phone'));
     var password = @json(session('password'));
     var amount = @json(session('amount'));
 
@@ -96,7 +96,7 @@
         `
     <div>
         <button class="btn btn-primary btn-sm" data-toggle="modal"
-            data-username="${userName}"
+            data-phone="${phone}"
             data-password="${password}"
             data-amount="${amount}" 
             data-url="https://pandashan.online/login" 
@@ -107,12 +107,12 @@
     @endif
 
     function copyToClipboard(button) {
-        var username = $(button).data('username');
+        var phone = $(button).data('phone');
         var password = $(button).data('password');
         var amount = $(button).data('amount');
         var url = $(button).data('url');
 
-        var textToCopy = "Username: " + username + "\nPassword: " + password + "\nAmount: " + amount + "\nURL: " + url;
+        var textToCopy = "Phone: " + phone + "\nPassword: " + password + "\nAmount: " + amount + "\nURL: " + url;
 
         navigator.clipboard.writeText(textToCopy).then(function() {
             toastr.success("Credentials copied to clipboard!");
