@@ -3269,6 +3269,13 @@ class PragmaticPlaySeeder extends Seeder
                 'product_id' => 1,
                 'image_url' => 'https://api-sg57.ppgames.net/game_pic/square/200/vs10snakeeyes.png',
             ],
+            [
+                'code' => '1320',
+                'name' => 'Big Bass Crash',
+                'game_type_id' => 2,
+                'product_id' => 1,
+                'image_url' => 'https://api-sg57.ppgames.net/game_pic/square/200/1320.png',
+            ],
 
         ];
 
