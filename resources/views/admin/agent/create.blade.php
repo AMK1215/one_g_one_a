@@ -3,10 +3,7 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Create Agent</h1>
-                </div>
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
                         <li class="breadcrumb-item active">create Agent</li>
@@ -19,21 +16,22 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <div class="card">
+            <div class="card  col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1" style="border-radius: 15px;">
                 <div class="card-header">
-                    <h3 class="card-title">
-                    <span>
-                       <a href="{{ route('admin.agent.index') }}" class="btn btn-success">
-                           <i class="fas fa-arrow-left" style="font-size: 20px;"></i> Back
-                       </a>
-                    </span>
-                    </h3>
+                    <div class="card-title col-12">
+                        <h5 class="d-inline fw-bold">
+                             Create Agent
+                        </h5>
+                         <a href="{{ route('admin.agent.index') }}" class="btn btn-danger d-inline float-right">
+                             <i class="fas fa-arrow-left mr-2" ></i> Back
+                         </a>
+                   </div>
                 </div>
                 <form action="{{route('admin.agent.store')}}" method="POST">
                     @csrf
                     <div class="card-body mt-2">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-lg-12 offset-lg-0 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1">
                                 <div class="form-group">
                                     <label>AgentId<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="user_name" value="{{$agent_name}}" readonly>
@@ -57,7 +55,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-lg-12 offset-lg-0 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1">
                                 <div class="form-group">
                                     <label>Password<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="password" value="{{old('password')}}">
@@ -68,7 +66,7 @@
                                 <div class="form-group">
                                     <label>Amount</label>
                                     <span
-                                        class="badge badge-success">Max:{{ number_format(optional(auth()->user()->wallet)->balance, 2) }}</span>
+                                        class="badge badge-success">Max:{{ number_format(optional(auth()->user()->wallet)->balanceFloat, 2) }}</span>
                                     <input type="text" class="form-control" name="amount" value="{{old('amount')}}">
                                 </div>
 
@@ -76,8 +74,8 @@
                         </div>
 
                     </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="card-footer col-12 bg-white">
+                        <button type="submit" class="btn btn-success float-right">Submit</button>
                     </div>
                 </form>
             </div>
@@ -99,8 +97,8 @@
         <button class="btn btn-primary btn-sm" data-toggle="modal"
             data-username="${userName}"
             data-password="${password}"
-            data-amount="${amount}" 
-            data-url="https://pandashan.online/login" 
+            data-amount="${amount}"
+            data-url="https://pandashan.online/login"
             onclick="copyToClipboard(this)">Copy</button>
     </div>`, {
         allowHtml: true

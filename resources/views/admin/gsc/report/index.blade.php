@@ -19,7 +19,6 @@
         <div class="row">
             <div class="col-12">
                 <div class="d-flex justify-content-end mb-3">
-
                 </div>
                 <div class="card " style="border-radius: 20px;">
                     <div class="card-header">

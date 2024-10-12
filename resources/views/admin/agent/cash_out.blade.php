@@ -15,21 +15,20 @@
         <!-- Main content -->
         <section class="content">
         <div class="container-fluid">
-            <div class="card">
+            <div class="card col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1" style="border-radius: 15px;">
                 <div class="card-header">
-                    <h3 class="card-title">
-                    <span>
-                   <a href="{{ route('admin.agent.index') }}" class="btn btn-success">
-                       <i class="fas fa-arrow-left" style="font-size: 20px;"></i> Back
-                   </a>
-            </span>
-                    </h3>
+                    <div class="card-title col-12">
+                        <h5 class="d-inline fw-bold">Withdrawl</h5>
+                        <a href="{{ route('admin.agent.index') }}" class="btn btn-danger float-right">
+                            <i class="fas fa-arrow-left" style="font-size: 20px;"></i> Back
+                        </a>
+                    </div>
                 </div>
                 <form action="{{route('admin.agent.makeCashOut', $agent->id)}}" method="POST">
                     @csrf
                     <div class="card-body mt-2">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-lg-12 offset-lg-0 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-10 offset-1">
                                 <div class="form-group">
                                     <label>AgentId<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="" value="{{$agent->user_name}}" readonly>
@@ -56,10 +55,9 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="card-footer col-12 bg-white">
+                        <button type="submit" class="btn btn-success float-right">Submit</button>
                     </div>
                 </form>
             </div>
