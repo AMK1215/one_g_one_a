@@ -54,6 +54,22 @@ class ProductTableSeeder extends Seeder
                 'status' => 1
             ],
 
+            [
+                'code' => '1009',
+                'name' => 'CQ9',
+                'short_name' => 'CQ9',
+                'order' => 6,
+                'status' => 0
+            ],
+
+            [
+                'code' => '1022',
+                'name' => 'SexyGaming',
+                'short_name' => 'SexyGaming',
+                'order' => 7,
+                'status' => 0
+            ],
+
         ];
 
         //Product::insert($data);

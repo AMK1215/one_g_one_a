@@ -44,18 +44,18 @@ class GameTypeProductTableSeeder extends Seeder
                 'image' => 'live22sm.jpeg',
                 'rate' => '1.0000',
             ],
-            // [
-            //     'product_id' => 6,
-            //     'game_type_id' => 1,
-            //     'image' => 'yggdrasil.png',
-            //     'rate' => '1.0000',
-            // ],
-            // [
-            //     'product_id' => 7,
-            //     'game_type_id' => 1,
-            //     'image' => 'spade_gaming.jpeg',
-            //     'rate' => '1.0000',
-            // ],
+            [
+                'product_id' => 6,
+                'game_type_id' => 4,
+                'image' => 'cq9.png',
+                'rate' => '1.0000',
+            ],
+            [
+                'product_id' => 7,
+                'game_type_id' => 2,
+                'image' => 'sexy_gaming.jpeg',
+                'rate' => '1.0000',
+            ],
             // [
             //     'product_id' => 7,
             //     'game_type_id' => 4,
