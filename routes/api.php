@@ -24,6 +24,7 @@ use App\Http\Controllers\Api\V1\Webhook\GameResultController;
 use App\Http\Controllers\Api\V1\Webhook\GetBalanceController;
 use App\Http\Controllers\Api\V1\Webhook\MobileLoginController;
 use App\Http\Controllers\Api\V1\Game\DirectLaunchGameController;
+use App\Http\Controllers\Api\V1\Webhook\NewRedisPlaceBetController;
 
 //login route post
 Route::post('/login', [AuthController::class, 'login']);
