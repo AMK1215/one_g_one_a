@@ -81,9 +81,7 @@ class AgentController extends Controller
         $inputs = $request->validated();
 
         if (isset($inputs['amount']) && $inputs['amount'] > $master->balanceFloat) {
-            throw ValidationException::withMessages([
-                'amount' => 'Insufficient balance for transfer.',
-            ]);
+            return redirect()->back()->with('error', 'Balance Insufficient');
         }
         $transfer_amount = $inputs['amount'];
         $userPrepare = array_merge(

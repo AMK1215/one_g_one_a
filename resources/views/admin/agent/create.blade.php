@@ -66,7 +66,7 @@
                                 <div class="form-group">
                                     <label>Amount</label>
                                     <span
-                                        class="badge badge-success">Max:{{ number_format(optional(auth()->user()->wallet)->balance, 2) }}</span>
+                                        class="badge badge-success">Max:{{ number_format(optional(auth()->user()->wallet)->balanceFloat, 2) }}</span>
                                     <input type="text" class="form-control" name="amount" value="{{old('amount')}}">
                                 </div>
 

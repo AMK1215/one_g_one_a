@@ -96,7 +96,7 @@ class PlayerController extends Controller
 
         try {
             if (isset($inputs['amount']) && $inputs['amount'] > $agent->balanceFloat) {
-                throw new \Exception('Insufficient balance for transfer.');
+                return redirect()->back()->with('error', 'Balance Insufficient');
             }
 
             $user = User::create([
