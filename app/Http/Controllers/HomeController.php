@@ -3,19 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Enums\UserType;
-use Carbon\Carbon;
 use Exception;
 use App\Models\User;
 use App\Models\Transaction;
 use Illuminate\Support\Str;
-use App\Settings\AppSetting;
 use Illuminate\Http\Request;
 use App\Models\Admin\UserLog;
 use App\Enums\TransactionName;
 use App\Services\WalletService;
 use Illuminate\Support\Facades\DB;
-use App\Models\SeamlessTransaction;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
@@ -28,6 +24,9 @@ class HomeController extends Controller
      *
      * @return void
      */
+
+    private const AGENT_ROLE = 2;
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -53,9 +52,21 @@ class HomeController extends Controller
             })
             ->count();
 
-        $totalBalance  = DB::table('users')->join('wallets', 'wallets.holder_id', '=', 'users.id')
-            ->where('agent_id', Auth::id())->select(DB::raw('SUM(wallets.balance) as balance'))->first();
+        $totalBalance = DB::table('users')
+            ->join('role_user', 'role_user.user_id', '=', 'users.id')
+            ->join('roles', 'roles.id', '=', 'role_user.role_id')
+            ->join('wallets', 'wallets.holder_id', '=', 'users.id')
+            ->when($role[0] === 'Admin', function ($query) {
+                return $query->where('users.agent_id', Auth::id());
+            })
+            ->when($role[0] === 'Agent', function ($query) use ($user) {
+                return $query->where('users.agent_id', $user->id);
+            })
+            ->where('roles.id', self::AGENT_ROLE)
+            ->select(DB::raw('SUM(wallets.balance) as balance'))
+            ->first();
 
+            
         return view('admin.dashboard', compact(
             'agent_count',
             'player_count',

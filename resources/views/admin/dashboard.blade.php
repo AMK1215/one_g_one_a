@@ -54,7 +54,7 @@
 
             <div class="col-lg-4 col-6">
                 <!-- small box -->
-                <div class="small-box bg-warning">
+                <div class="small-box bg-success">
                     <div class="inner">
                         <h3>{{ number_format($totalBalance->balance / 100, 2) }}</h3>
                         <p>Agent Total Balance</p>
