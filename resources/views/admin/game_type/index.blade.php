@@ -18,10 +18,6 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <div class="d-flex justify-content-end mb-3">
-                        {{-- <a href="{{ route('admin.player.create') }}" class="btn btn-success " style="width: 100px;"><i
-                                class="fas fa-plus text-white  mr-2"></i>Back</a> --}}
-                    </div>
                     <div class="card " style="border-radius: 20px;">
                         <div class="card-header">
                             <h3>GSC Game Provider List</h3>
@@ -48,6 +44,7 @@
                                                 <td class="text-center">
                                                     <a href="{{ route('admin.gametypes.edit', [$gameType->id, $product->id]) }}"
                                                         class="btn btn-info" style="width: 120px;">Edit</a>
+                                                    
                                                 </td>
                                             </tr>
                                         @endforeach

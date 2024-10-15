@@ -69,7 +69,7 @@
         <form action="{{ route('admin.agent.depositStatus',$deposit->id) }}" method="POST">
           @csrf
           <div class="row">
-          <input type="text" class="form-control" name="player" value="{{ $deposit->user->id }}" readonly>
+            <input type="text" class="form-control" name="player" value="{{ $deposit->user->id }}" readonly>
 
             <div class="col-md-6">
               <div class="input-group input-group-outline is-valid my-3">
@@ -120,14 +120,14 @@
             <div class="col-md-6">
               <div class="input-group input-group-outline is-valid my-3">
                 <select name="status" id="" class="form-control">
-                <option value="0" {{ $deposit->status == 0 ? 'selected' : '' }}>Pending</option>
-                <option value="1" {{ $deposit->status == 1 ? 'selected' : '' }}>Approved</option>
-                <option value="2" {{ $deposit->status == 2 ? 'selected' : '' }}>Rejected</option>
+                  <option value="0" {{ $deposit->status == 0 ? 'selected' : '' }}>Pending</option>
+                  <option value="1" {{ $deposit->status == 1 ? 'selected' : '' }}>Approved</option>
+                  <option value="2" {{ $deposit->status == 2 ? 'selected' : '' }}>Rejected</option>
 
                 </select>
                 @error('status')
-              <span class="d-block text-danger">*{{ $message }}</span>
-              @enderror
+                <span class="d-block text-danger">*{{ $message }}</span>
+                @enderror
               </div>
             </div>
             <div class="col-md-6">
@@ -158,11 +158,11 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    var errorMessage =  @json(session('error'));
-    var successMessage =  @json(session('success'));
+    var errorMessage = @json(session('error'));
+    var successMessage = @json(session('success'));
 
 
-    @if(session()->has('success'))
+    @if(session() - > has('success'))
     Swal.fire({
       icon: 'success',
       title: successMessage,
@@ -172,7 +172,7 @@
       timer: 3000,
       showConfirmButton: false
     });
-    @elseif(session()->has('error'))
+    @elseif(session() - > has('error'))
     Swal.fire({
       icon: 'error',
       title: '',

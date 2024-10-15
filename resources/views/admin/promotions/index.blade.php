@@ -60,7 +60,7 @@
                                                     @method('DELETE')
                                                     <button type="submit" class="btn transparent-btn" data-bs-toggle="tooltip"
                                                         data-bs-original-title="Delete Banner">
-                                                        <i class="fa-solid fa-trash  text-danger"  style="font-size: 20px;"></i>
+                                                        <i class="fa fa-trash  text-danger"  style="font-size: 20px;"></i>
                                                     </button>
                                                 </form>
                                             </td>
@@ -87,7 +87,6 @@
                     title: 'Are you sure?',
                     text: "You won't be able to revert this!",
                     icon: 'warning',
-                    background: 'hsl(230, 40%, 10%)',
                     showCancelButton: true,
                     confirmButtonText: 'Yes, delete it!',
                     cancelButtonText: 'No, cancel!'
@@ -103,10 +102,8 @@
         <script>
             Swal.fire({
                 icon: 'success',
-                title: '{{ session('
-                                    success ') }}',
+                title: '{{ session('success ') }}',
                 showConfirmButton: false,
-                background: 'hsl(230, 40%, 10%)',
                 timer: 1500
             })
         </script>

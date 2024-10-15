@@ -19,7 +19,7 @@
                 <div class="card-header">
                     <div class="card-title col-12">
                         <h5 class="d-inline fw-bold">Withdrawl</h5>
-                        <a href="{{ route('admin.agent.index') }}" class="btn btn-danger float-right">
+                        <a href="{{ route('admin.agent.index') }}" class="btn btn-primary float-right">
                             <i class="fas fa-arrow-left" style="font-size: 20px;"></i> Back
                         </a>
                     </div>
@@ -43,7 +43,6 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Amount<span class="text-danger">*</span></label>
-                                    <span class="badge badge-success">Max:{{ number_format(optional($agent->wallet)->balanceFloat, 2) }}</span>
                                     <input type="text" class="form-control" name="amount">
                                     @error('amount')
                                     <div class="text-danger">{{ $message }}</div>

@@ -48,18 +48,13 @@ class HomeController extends Controller
         })->count();
 
         $player_count = User::where('type', UserType::Player)
-            ->when($role[0] === 'Master', function ($query) use ($user) {
-                $agentIds = User::where('type', UserType::Agent)
-                    ->where('agent_id', $user->id)
-                    ->pluck('id');
-
-                return $query->whereIn('agent_id', $agentIds);
-            })->when($role[0] === 'Agent', function ($query) use ($user) {
+            ->when($role[0] === 'Agent', function ($query) use ($user) {
                 return $query->where('agent_id', $user->id);
             })
             ->count();
 
-        $totalBalance = $user->balanceFloat;
+        $totalBalance  = DB::table('users')->join('wallets', 'wallets.holder_id', '=', 'users.id')
+            ->where('agent_id', Auth::id())->select(DB::raw('SUM(wallets.balance) as balance'))->first();
 
         return view('admin.dashboard', compact(
             'agent_count',
@@ -112,10 +107,40 @@ class HomeController extends Controller
     }
 
 
+    public function changePassword(Request $request, User $user)
+    {
+        return view('admin.change_password', compact('user'));
+    }
+
+    public function updatePassword(Request $request, User $user)
+    {
+        $request->validate([
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+        $user->update([
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()->route('home')->with('success', 'Password has been changed Successfully.');
+    }
+
     public function logs($id)
     {
         $logs = UserLog::with('user')->where('user_id', $id)->get();
 
         return view('admin.logs', compact('logs'));
+    }
+
+    public function playerList()
+    {
+        $user = Auth::user();
+        $role = $user->roles->pluck('title');
+        $users = User::where('type', UserType::Player)
+            ->when($role[0] === 'Agent', function ($query) use ($user) {
+                return $query->where('agent_id', $user->id);
+            })
+            ->get();
+
+        return view('admin.player_list', compact('users'));
     }
 }
