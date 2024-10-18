@@ -27,13 +27,18 @@ use App\Http\Controllers\Admin\WithDraw\WithDrawRequestController;
 
 
 Route::group([
-    'prefix' => 'admin', 'as' => 'admin.',
+    'prefix' => 'admin',
+    'as' => 'admin.',
     'middleware' => ['auth', 'checkBanned']
 ], function () {
 
     Route::post('balance-up', [HomeController::class, 'balanceUp'])->name('balanceUp');
     Route::get('logs/{id}', [HomeController::class, 'logs'])
         ->name('logs');
+    Route::get('/changePassword/{user}', [HomeController::class, 'changePassword'])->name('changePassword');
+    Route::post('/updatePassword/{user}', [HomeController::class, 'updatePassword'])->name('updatePassword');
+    Route::get('/player-list', [HomeController::class, 'playerList'])->name('playerList');
+
     // Permissions
     Route::resource('permissions', PermissionController::class);
     // Roles
@@ -55,18 +60,6 @@ Route::group([
     Route::get('/players-list', [PlayerController::class, 'player_with_agent'])->name('playerListForAdmin');
 
 
-
-    Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
-    Route::post('profile/change-password/{user}', [ProfileController::class, 'updatePassword'])
-        ->name('profile.updatePassword');
-
-
-    // user profile route get method
-    Route::put('/change-password', [ProfileController::class, 'newPassword'])->name('changePassword');
-    // PhoneAddressChange route with auth id route with put method
-    Route::put('/change-phone-address', [ProfileController::class, 'PhoneAddressChange'])->name('changePhoneAddress');
-    Route::put('/change-kpay-no', [ProfileController::class, 'KpayNoChange'])->name('changeKpayNo');
-    Route::put('/change-join-date', [ProfileController::class, 'JoinDate'])->name('addJoinDate');
     Route::resource('banners', BannerController::class);
     Route::resource('adsbanners', BannerAdsController::class);
     Route::resource('text', BannerTextController::class);
@@ -78,7 +71,7 @@ Route::group([
     Route::post('gametypes/{game_type_id}/product/{product_id}', [GameTypeProductController::class, 'update'])->name('gametypes.update');
 
     Route::get('transaction-list', [TransactionController::class, 'index'])->name('transaction');
-     // game list start
+    // game list start
     Route::get('all-game-lists', [GameListController::class, 'index'])->name('gameLists.index');
     Route::get('all-game-lists/{id}', [GameListController::class, 'edit'])->name('gameLists.edit');
     Route::post('all-game-lists/{id}', [GameListController::class, 'update'])->name('gameLists.update');
@@ -97,17 +90,17 @@ Route::group([
     Route::get('agent-changepassword/{id}', [AgentController::class, 'getChangePassword'])->name('agent.getChangePassword');
     Route::post('agent-changepassword/{id}', [AgentController::class, 'makeChangePassword'])->name('agent.makeChangePassword');
 
-     Route::get('agent-to-player-deplogs', [AgentController::class, 'AgentToPlayerDepositLog'])->name('agent.AgentToPlayerDepLog');
+    Route::get('agent-to-player-deplogs', [AgentController::class, 'AgentToPlayerDepositLog'])->name('agent.AgentToPlayerDepLog');
 
-     Route::get('agent-win-lose-report', [AgentController::class, 'AgentWinLoseReport'])->name('agent.AgentWinLose');
+    Route::get('agent-win-lose-report', [AgentController::class, 'AgentWinLoseReport'])->name('agent.AgentWinLose');
 
-     Route::get('/agent/wldetails/{agent_id}/{month}', [AgentController::class, 'AgentWinLoseDetails'])->name('agent_winLdetails');
+    Route::get('/agent/wldetails/{agent_id}/{month}', [AgentController::class, 'AgentWinLoseDetails'])->name('agent_winLdetails');
 
-     Route::get('auth-agent-win-lose-report', [AgentController::class, 'AuthAgentWinLoseReport'])->name('AuthAgentWinLose');
+    Route::get('auth-agent-win-lose-report', [AgentController::class, 'AuthAgentWinLoseReport'])->name('AuthAgentWinLose');
 
-     Route::get('/authagent/wldetails/{agent_id}/{month}', [AgentController::class, 'AuthAgentWinLoseDetails'])->name('authagent_winLdetails');
+    Route::get('/authagent/wldetails/{agent_id}/{month}', [AgentController::class, 'AuthAgentWinLoseDetails'])->name('authagent_winLdetails');
 
-     Route::get('/agent-to-player-detail/{agent_id}/{player_id}', [AgentController::class, 'AgentToPlayerDetail'])->name('agent.to.player.detail');
+    Route::get('/agent-to-player-detail/{agent_id}/{player_id}', [AgentController::class, 'AgentToPlayerDetail'])->name('agent.to.player.detail');
 
 
     Route::resource('master', MasterController::class);
@@ -126,18 +119,18 @@ Route::group([
     Route::post('withdraw/reject/{withdraw}', [WithDrawRequestController::class, 'statusChangeReject'])->name('agent.withdrawStatusreject');
 
     //Route::group(['prefix' => 'report'], function () {
-        Route::get('slot-win-lose', [GSCReportController::class, 'index'])->name('GscReport.index');
+    Route::get('slot-win-lose', [GSCReportController::class, 'index'])->name('GscReport.index');
 
 
-        Route::get('/win-lose/details/{product_name}', [GSCReportController::class, 'ReportDetails'])->name('Reportproduct.details');
+    Route::get('/win-lose/details/{product_name}', [GSCReportController::class, 'ReportDetails'])->name('Reportproduct.details');
 
-         Route::get('agent-slot-win-lose', [GSCReportController::class, 'AgentWinLoseindex'])->name('GscReport.AgentWLindex');
+    Route::get('agent-slot-win-lose', [GSCReportController::class, 'AgentWinLoseindex'])->name('GscReport.AgentWLindex');
 
-        //Route::get('view/{user_id}', [ReportController::class, 'view'])->name('report.view');
-        //Route::get('show/{proudct_code}', [ReportController::class, 'show'])->name('report.show');
-       // Route::get('detail/{user_id}', [ReportController::class, 'detail'])->name('report.detail');
+    //Route::get('view/{user_id}', [ReportController::class, 'view'])->name('report.view');
+    //Route::get('show/{proudct_code}', [ReportController::class, 'show'])->name('report.show');
+    // Route::get('detail/{user_id}', [ReportController::class, 'detail'])->name('report.detail');
 
-   // });
+    // });
 
     Route::get('shan-report', [ShanReportController::class, 'index'])->name('shan.reports.index');
     Route::get('shan-reports/{user_id}', [ShanReportController::class, 'show'])->name('shanreport.show');

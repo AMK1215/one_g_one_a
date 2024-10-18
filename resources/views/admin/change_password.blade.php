@@ -1,63 +1,58 @@
-@include('user.layouts.head')
-<body>
-  <div class=" container-fluid" id="main">
-    <div class="login-card pt-5">
-      <div class="row">
-        <div class="col-md-6 offset-md-3">
-          <div class="p-3 shadow bg-transparent border border-1 border-light rounded-4">
-            <div class="text-center mt-3">
-              <img src="{{ asset('/assets/img/main_logo.png') }}" alt="" style="width: 120px; height: auto" />
+@extends('layouts.master')
+@section('content')
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Change Password</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+                        <li class="breadcrumb-item active">Change Password</li>
+                    </ol>
+                </div>
             </div>
-            <h5 class="text-center mt-3 text-white">Change Password</h5>
+        </div><!-- /.container-fluid -->
+    </section>
 
-            <form action="" method="POST">
-                @csrf
-              <div class="mb-3">
-                <label for="login" class="form-label text-white">New Password</label>
-                <input type="text" name="password" id="password" class="form-control" placeholder="Enter new password">
-                @error('password')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
-              </div>
-
-              <div class="mb-3">
-                <label for="login" class="form-label text-white">Confirm Password</label>
-                <input type="text" name="password_confirmation" id="login" class="form-control" placeholder="Enter confirmation password ">
-                @error('password')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
-              </div>
-
-              <div class="mb-3">
-                <button type="submit" class="btn btn-primary w-100">Save</button>
-              </div>
-            </form>
-          </div>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                    <span >
+                   <a href="{{ route('home') }}" class="btn btn-primary">
+                       <i class="fas fa-arrow-left" style="font-size: 20px;"></i> Back
+                   </a>
+                </span>
+                    </h3>
+                </div>
+                <form method="POST" action="{{ route('admin.updatePassword',$user->id) }}">
+                    @csrf
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>New Password<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="password">
+                                </div>
+                                <div class="form-group">
+                                    <label>Confirm Password<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="password_confirmation">
+                                    @error('password')
+                                    <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-success">Update</button>
+                    </div>
+                </form>
+            </div>
         </div>
-      </div>
-    </div>
-
-
-  </div>
-
-
-
-</body>
-@include('user.layouts.js')
-@yield('script')
-<script>
-  function PwdView() {
-    var x = document.getElementById("password");
-    var y = document.getElementById("eye");
-
-    if (x.type === "password") {
-      x.type = "text";
-      y.classList.remove('fa-eye');
-      y.classList.add('fa-eye-slash');
-    } else {
-      x.type = "password";
-      y.classList.remove('fa-eye-slash');
-      y.classList.add('fa-eye');
-    }
-  }
-</script>
+    </section>
+@endsection

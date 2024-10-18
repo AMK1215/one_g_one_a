@@ -57,7 +57,7 @@
                                                     @method('DELETE')
                                                     <button type="submit" class="btn transparent-btn" data-bs-toggle="tooltip"
                                                         data-bs-original-title="Delete Banner">
-                                                        <i class="fa-solid fa-trash  text-danger"  style="font-size: 20px;"></i>
+                                                        <i class="fa fa-trash  text-danger"  style="font-size: 20px;"></i>
                                                     </button>
                                                 </form>
                                             </td>

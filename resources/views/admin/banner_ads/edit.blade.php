@@ -23,7 +23,7 @@
                         <div class="card-header">
                             <div class="card-title col-12">
                                 <h3 class="d-inline fw-bold">Banner Ads Edit </h3>
-                                <a href="{{ route('admin.adsbanners.index') }}" class="btn btn-danger float-right"><i
+                                <a href="{{ route('admin.adsbanners.index') }}" class="btn btn-primary float-right"><i
                                     class="fas fa-arrow-left text-white  "></i>Back</a>
                            </div>
                         </div>

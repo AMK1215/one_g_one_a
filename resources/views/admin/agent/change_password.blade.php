@@ -20,7 +20,7 @@
                 <div class="card-header">
                     <div class="card-title col-12">
                         <h5 class="d-inline fw-bold">Change Password</h5>
-                        <a href="{{ route('admin.agent.index') }}" class="btn btn-danger d-inline float-right ">
+                        <a href="{{ route('admin.agent.index') }}" class="btn btn-primary d-inline float-right ">
                             <i class="fas fa-arrow-left" style="font-size: 20px;"></i> Back
                         </a>
                     </div>

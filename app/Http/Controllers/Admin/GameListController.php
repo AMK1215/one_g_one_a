@@ -13,7 +13,6 @@ class GameListController extends Controller
 
     public function index(Request $request)
     {
-        $games = GameList::with(['gameType', 'product'])->get();
         if ($request->ajax()) {
             $data = GameList::with(['gameType', 'product']);
 
@@ -49,7 +48,7 @@ class GameListController extends Controller
                 ->make(true);
         }
 
-        return view('admin.game_list.paginate_index', compact('games'));
+        return view('admin.game_list.paginate_index');
     }
 
     public function edit($gameTypeId, $productId)

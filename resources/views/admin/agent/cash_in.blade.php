@@ -20,7 +20,7 @@
                 <div class="card-header">
                     <div class="card-title col-12">
                         <h5 class="d-inline fw-bold">Deposit</h5>
-                        <a href="{{ route('admin.agent.index') }}" class="btn btn-danger float-right">
+                        <a href="{{ route('admin.agent.index') }}" class="btn btn-primary float-right">
                             <i class="fas fa-arrow-left" style="font-size: 20px;"></i> Back
                         </a>
                     </div>
@@ -40,11 +40,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Current Balance<span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="" value="{{number_format($agent->wallet->balance, 2)}}" readonly>
+                                    <input type="text" class="form-control" name="" value="{{number_format($agent->wallet->balanceFloat, 2)}}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label>Amount<span class="text-danger">*</span></label>
-                                    <span class="badge badge-success">Max:{{ number_format(optional(auth()->user()->wallet)->balance, 2) }}</span>
+                                    <span class="badge badge-success">Max:{{ number_format(optional(auth()->user()->wallet)->balanceFloat, 2) }}</span>
                                     <input type="text" class="form-control" name="amount">
                                     @error('amount')
                                     <div class="text-danger">{{ $message }}</div>
