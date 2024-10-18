@@ -63,9 +63,9 @@ class ProductTableSeeder extends Seeder
             ],
 
             [
-                'code' => '1022',
-                'name' => 'SexyGaming',
-                'short_name' => 'SexyGaming',
+                'code' => '1013',
+                'name' => 'Joker',
+                'short_name' => 'Joker',
                 'order' => 7,
                 'status' => 0
             ],

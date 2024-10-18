@@ -25,6 +25,8 @@ use App\Http\Controllers\Api\V1\Webhook\GetBalanceController;
 use App\Http\Controllers\Api\V1\Webhook\MobileLoginController;
 use App\Http\Controllers\Api\V1\Game\DirectLaunchGameController;
 use App\Http\Controllers\Api\V1\Webhook\NewRedisPlaceBetController;
+use App\Http\Controllers\Api\V1\Webhook\VersionNewPlaceBetController;
+
 
 //login route post
 Route::post('/login', [AuthController::class, 'login']);
@@ -54,7 +56,9 @@ Route::group(['prefix' => 'Seamless'], function () {
     Route::post('GameResult', [GameResultController::class, 'gameResult']);
     Route::post('Rollback', [RollbackController::class, 'rollback']);
     //Route::post('PlaceBet', [PlaceBetController::class, 'placeBet']);
-    Route::post('PlaceBet', [NewRedisPlaceBetController::class, 'placeBetNew']);
+    //Route::post('PlaceBet', [NewRedisPlaceBetController::class, 'placeBetNew']);
+    Route::post('PlaceBet', [VersionNewPlaceBetController::class, 'placeBetNew']);
+
 
     Route::post('CancelBet', [CancelBetController::class, 'cancelBet']);
     Route::post('BuyIn', [BuyInController::class, 'buyIn']);
