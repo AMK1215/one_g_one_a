@@ -19,13 +19,34 @@
             <div class="row">
                 <div class="col-12">
                     <div class="d-flex justify-content-end mb-3">
-                        {{-- <a href="{{ route('admin.player.create') }}" class="btn btn-success " style="width: 100px;"><i
-                                class="fas fa-plus text-white  mr-2"></i>Back</a> --}}
+                        
                     </div>
                     <div class="card " style="border-radius: 20px;">
                         <div class="card-header">
                             <h3>Shan Win / Lose </h3>
                         </div>
+                        <form role="form" class="text-start" action="{{ route('admin.shan.reports.index') }}" method="GET">
+                        <div class="row ml-5">
+                            <div class="col-lg-3">
+                                <div class="mb-3">
+                                    <label class="form-label text-dark fw-bold" for="inputEmail1">From Date</label>
+                                    <input type="date" class="form-control border border-1 border-secondary px-2"
+                                        id="inputEmail1" name="start_date">
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="mb-3">
+                                    <label class="form-label text-dark fw-bold" for="inputEmail1">To Date</label>
+                                    <input type="date" class="form-control border border-1 border-secondary px-2"
+                                        id="inputEmail1" name="end_date">
+                                </div>
+                            </div>
+                            <div class="col-log-3">
+                                <button type="submit" class="btn btn-primary" style="margin-top: 32px;">Search</button>
+                                <a href="{{ route('admin.shan.reports.index') }}" class="btn btn-warning" style="margin-top: 32px;">Refresh</a>
+                            </div>
+                        </div>
+                    </form>
                         <div class="card-body">
                             <table id="mytable" class="table table-bordered table-hover">
                                 <thead>

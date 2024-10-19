@@ -9,23 +9,8 @@ use App\Models\Admin\ReportTransaction;
 
 class ShanReportController extends Controller
 {
-    // public function index()
-    // {
-    //     $reportTransactions = ReportTransaction::select(
-    //     'report_transactions.user_id',
-    //     'users.name',
-    //     DB::raw('COUNT(report_transactions.id) AS transaction_count'),
-    //     DB::raw('SUM(report_transactions.transaction_amount) AS total_transaction_amount'),
-    //     DB::raw('MAX(report_transactions.created_at) AS latest_transaction_date') // Use MAX or MIN for created_at
-    // )
-    // ->join('users', 'report_transactions.user_id', '=', 'users.id')
-    // ->groupBy('report_transactions.user_id', 'users.name')
-    // ->orderByDesc('latest_transaction_date') // Now ordering by the alias of the aggregate function
-    // ->get();
-    //     return view('admin.shan.reports.index', compact('reportTransactions'));
-    // }
 
-    public function index()
+    public function index(Request $request)
 {
     $authUser = auth()->user(); // Get the authenticated admin
 
@@ -43,6 +28,9 @@ class ShanReportController extends Controller
     ->where('agents.agent_id', $authUser->id) // Filter agents by the authenticated admin's ID
     ->groupBy('report_transactions.user_id', 'users.name', 'agents.name') // Group by player and agent names
     ->orderByDesc('latest_transaction_date') // Order by latest transaction date
+    ->when(isset($request->start_date) && isset($request->end_date) , function($query) use($request) {
+        $query->whereBetween('report_transactions.created_at', [$request->start_date.' 00:00:00', $request->end_date.' 23:59:59']);
+    })
     ->get();
 
     return view('admin.shan.reports.index', compact('reportTransactions'));
