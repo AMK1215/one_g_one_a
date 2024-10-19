@@ -9,21 +9,45 @@ use App\Models\Admin\ReportTransaction;
 
 class ShanReportController extends Controller
 {
+    // public function index()
+    // {
+    //     $reportTransactions = ReportTransaction::select(
+    //     'report_transactions.user_id',
+    //     'users.name',
+    //     DB::raw('COUNT(report_transactions.id) AS transaction_count'),
+    //     DB::raw('SUM(report_transactions.transaction_amount) AS total_transaction_amount'),
+    //     DB::raw('MAX(report_transactions.created_at) AS latest_transaction_date') // Use MAX or MIN for created_at
+    // )
+    // ->join('users', 'report_transactions.user_id', '=', 'users.id')
+    // ->groupBy('report_transactions.user_id', 'users.name')
+    // ->orderByDesc('latest_transaction_date') // Now ordering by the alias of the aggregate function
+    // ->get();
+    //     return view('admin.shan.reports.index', compact('reportTransactions'));
+    // }
+
     public function index()
-    {
-        $reportTransactions = ReportTransaction::select(
+{
+    $authUser = auth()->user(); // Get the authenticated admin
+
+    // Fetch transactions of players related to agents managed by the authenticated admin
+    $reportTransactions = ReportTransaction::select(
         'report_transactions.user_id',
-        'users.name',
+        'users.name as player_name', // The player's name
+        'agents.name as agent_name', // The agent's name
         DB::raw('COUNT(report_transactions.id) AS transaction_count'),
         DB::raw('SUM(report_transactions.transaction_amount) AS total_transaction_amount'),
         DB::raw('MAX(report_transactions.created_at) AS latest_transaction_date') // Use MAX or MIN for created_at
     )
-    ->join('users', 'report_transactions.user_id', '=', 'users.id')
-    ->groupBy('report_transactions.user_id', 'users.name')
-    ->orderByDesc('latest_transaction_date') // Now ordering by the alias of the aggregate function
+    ->join('users', 'report_transactions.user_id', '=', 'users.id') // Join users to get player data
+    ->join('users as agents', 'users.agent_id', '=', 'agents.id') // Join to get the agent data
+    ->where('agents.agent_id', $authUser->id) // Filter agents by the authenticated admin's ID
+    ->groupBy('report_transactions.user_id', 'users.name', 'agents.name') // Group by player and agent names
+    ->orderByDesc('latest_transaction_date') // Order by latest transaction date
     ->get();
-        return view('admin.shan.reports.index', compact('reportTransactions'));
-    }
+
+    return view('admin.shan.reports.index', compact('reportTransactions'));
+}
+
 
     public function show($user_id)
     {

@@ -31,6 +31,41 @@
                                 <thead>
                                     <tr>
                                         <th>User ID</th>
+                                        <th>Agent Name</th> <!-- Display the agent's name -->
+                                        <th>Player Name</th>
+                                        <th>Transaction Count</th>
+                                        <th>Total Transaction Amount</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if ($reportTransactions->isEmpty())
+                                        <tr>
+                                            <td colspan="6" class="text-center">No transaction data available.</td>
+                                        </tr>
+                                    @else
+                                        @foreach ($reportTransactions as $transaction)
+                                            <tr>
+                                                <td>{{ $transaction->user_id }}</td>
+                                                <td>{{ $transaction->agent_name }} @ </td> <!-- Display agent name -->
+
+                                                <td>{{ $transaction->player_name }}</td> <!-- Display player name -->
+                                                <td>{{ $transaction->transaction_count }}</td>
+                                                <td>{{ number_format($transaction->total_transaction_amount, 2) }}</td>
+                                                <td>
+                                                    <a href="{{ route('admin.shanreport.show', $transaction->user_id) }}"
+                                                        class="btn btn-info">Detail</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @endif
+                                </tbody>
+                            </table>
+
+                            {{-- <table id="mytable" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>User ID</th>
                                         <th>User Name</th>
                                         <th>Transaction Count</th>
                                         <th>Total Transaction Amount</th>
@@ -51,7 +86,7 @@
                                         </tr>
                                     @endforeach
                                 </tbody>
-                            </table>
+                            </table> --}}
                         </div>
                         <!-- /.card-body -->
                     </div>
