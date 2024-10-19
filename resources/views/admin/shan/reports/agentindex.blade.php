@@ -26,6 +26,28 @@
                         <div class="card-header">
                             <h3>Shan Win / Lose </h3>
                         </div>
+                        <form role="form" class="text-start" action="{{ route('admin.shanreports_index') }}" method="GET">
+                        <div class="row ml-5">
+                            <div class="col-lg-3">
+                                <div class="mb-3">
+                                    <label class="form-label text-dark fw-bold" for="inputEmail1">From Date</label>
+                                    <input type="date" class="form-control border border-1 border-secondary px-2"
+                                        id="inputEmail1" name="start_date">
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="mb-3">
+                                    <label class="form-label text-dark fw-bold" for="inputEmail1">To Date</label>
+                                    <input type="date" class="form-control border border-1 border-secondary px-2"
+                                        id="inputEmail1" name="end_date">
+                                </div>
+                            </div>
+                            <div class="col-log-3">
+                                <button type="submit" class="btn btn-primary" style="margin-top: 32px;">Search</button>
+                                <a href="{{ route('admin.shanreports_index') }}" class="btn btn-warning" style="margin-top: 32px;">Refresh</a>
+                            </div>
+                        </div>
+                    </form>
                         <div class="card-body">
                             <table id="mytable" class="table table-bordered table-hover">
                                 <thead>
