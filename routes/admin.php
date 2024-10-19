@@ -134,6 +134,9 @@ Route::group([
 
     Route::get('shan-report', [ShanReportController::class, 'index'])->name('shan.reports.index');
     Route::get('shan-reports/{user_id}', [ShanReportController::class, 'show'])->name('shanreport.show');
+    // for agent shan report
+    Route::get('agent-shan-report', [ShanReportController::class, 'ShanAgentReportIndex'])->name('shanreports_index');
+
     Route::get('deposit', [DepositRequestController::class, 'index'])->name('agent.deposit');
     Route::get('deposit/{deposit}', [DepositRequestController::class, 'view'])->name('agent.depositView');
     Route::post('deposit/{deposit}', [DepositRequestController::class, 'statusChangeIndex'])->name('agent.depositStatusUpdate');
