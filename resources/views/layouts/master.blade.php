@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Panda666 | Dashboard</title>
+    <title>ShanKoMee | Dashboard</title>
 
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -33,7 +33,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="{{ asset('img/logo_bg.png') }}" alt="AdminLTELogo" width="200px"
+            <img class="animation__shake" src="{{ asset('img/shan_logo.png') }}" alt="ShanKoMee" width="200px"
                 width="60">
         </div>
 
@@ -86,9 +86,9 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="{{ route('home') }}" class="brand-link">
-                <img src="{{ asset('img/logo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                <img src="{{ asset('img/logo_text.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                     style="opacity: .8">
-                <span class="brand-text font-weight-light">Panda666</span>
+                <span class="brand-text font-weight-light" style="font-size : 18px">ShanKoMee</span>
             </a>
 
             <!-- Sidebar -->
