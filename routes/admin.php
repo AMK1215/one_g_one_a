@@ -1,35 +1,34 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\Agent\AgentController;
 use App\Http\Controllers\Admin\BankController;
-use App\Http\Controllers\Admin\RolesController;
+use App\Http\Controllers\Admin\BannerAds\BannerAdsController;
 use App\Http\Controllers\Admin\BannerController;
-use App\Http\Controllers\Admin\ProfileController;
-use App\Http\Controllers\Admin\GameListController;
-use App\Http\Controllers\Admin\GSCReportController;
-use App\Http\Controllers\Admin\PromotionController;
-use App\Http\Controllers\Shan\ShanReportController;
 use App\Http\Controllers\Admin\BannerTextController;
 use App\Http\Controllers\Admin\Bonu\BonusController;
-use App\Http\Controllers\Admin\PermissionController;
-use App\Http\Controllers\Admin\Agent\AgentController;
-use App\Http\Controllers\Admin\PaymentTypeController;
-use App\Http\Controllers\Admin\TransactionController;
-use App\Http\Controllers\Admin\GetBetDetailController;
-use App\Http\Controllers\Admin\Master\MasterController;
-use App\Http\Controllers\Admin\Player\PlayerController;
-use App\Http\Controllers\Admin\GameTypeProductController;
-use App\Http\Controllers\Admin\BannerAds\BannerAdsController;
 use App\Http\Controllers\Admin\Deposit\DepositRequestController;
+use App\Http\Controllers\Admin\GameListController;
+use App\Http\Controllers\Admin\GameTypeProductController;
+use App\Http\Controllers\Admin\GetBetDetailController;
+use App\Http\Controllers\Admin\GSCReportController;
+use App\Http\Controllers\Admin\Master\MasterController;
+use App\Http\Controllers\Admin\PaymentTypeController;
+use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\Player\PlayerController;
+use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\PromotionController;
+use App\Http\Controllers\Admin\RolesController;
+use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\TransferLog\TransferLogController;
 use App\Http\Controllers\Admin\WithDraw\WithDrawRequestController;
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Shan\ShanReportController;
+use Illuminate\Support\Facades\Route;
 
 Route::group([
     'prefix' => 'admin',
     'as' => 'admin.',
-    'middleware' => ['auth', 'checkBanned']
+    'middleware' => ['auth', 'checkBanned'],
 ], function () {
 
     Route::post('balance-up', [HomeController::class, 'balanceUp'])->name('balanceUp');
@@ -58,7 +57,6 @@ Route::group([
     Route::post('player-changepassword/{id}', [PlayerController::class, 'makeChangePassword'])->name('player.makeChangePassword');
 
     Route::get('/players-list', [PlayerController::class, 'player_with_agent'])->name('playerListForAdmin');
-
 
     Route::resource('banners', BannerController::class);
     Route::resource('adsbanners', BannerAdsController::class);
@@ -102,7 +100,6 @@ Route::group([
 
     Route::get('/agent-to-player-detail/{agent_id}/{player_id}', [AgentController::class, 'AgentToPlayerDetail'])->name('agent.to.player.detail');
 
-
     Route::resource('master', MasterController::class);
     Route::get('master-cash-in/{id}', [MasterController::class, 'getCashIn'])->name('master.getCashIn');
     Route::post('master-cash-in/{id}', [MasterController::class, 'makeCashIn'])->name('master.makeCashIn');
@@ -113,14 +110,12 @@ Route::group([
     Route::get('master-changepassword/{id}', [MasterController::class, 'getChangePassword'])->name('master.getChangePassword');
     Route::post('master-changepassword/{id}', [MasterController::class, 'makeChangePassword'])->name('master.makeChangePassword');
 
-
     Route::get('withdraw', [WithDrawRequestController::class, 'index'])->name('agent.withdraw');
     Route::post('withdraw/{withdraw}', [WithDrawRequestController::class, 'statusChangeIndex'])->name('agent.withdrawStatusUpdate');
     Route::post('withdraw/reject/{withdraw}', [WithDrawRequestController::class, 'statusChangeReject'])->name('agent.withdrawStatusreject');
 
     //Route::group(['prefix' => 'report'], function () {
     Route::get('slot-win-lose', [GSCReportController::class, 'index'])->name('GscReport.index');
-
 
     Route::get('/win-lose/details/{product_name}', [GSCReportController::class, 'ReportDetails'])->name('Reportproduct.details');
 
@@ -152,8 +147,6 @@ Route::group([
     //     Route::get('detail/{user_id}', [ReportController::class, 'detail'])->name('report.detail');
 
     // });
-
-
 
     Route::group(['prefix' => 'bonu'], function () {
         Route::get('countindex', [BonusController::class, 'index'])->name('bonu_count.index');

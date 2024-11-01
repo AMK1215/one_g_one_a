@@ -18,13 +18,13 @@ class TransferLogController extends Controller
             ->whereIn('transactions.name', ['credit_transfer', 'debit_transfer'])
             ->latest()->paginate();
 
-            return view('admin.trans_log.index', compact('transferLogs'));
+        return view('admin.trans_log.index', compact('transferLogs'));
     }
 
     public function transferLog($id)
     {
         abort_if(
-Gate::denies('make_transfer') || !$this->ifChildOfParent(request()->user()->id, $id),
+            Gate::denies('make_transfer') || ! $this->ifChildOfParent(request()->user()->id, $id),
             Response::HTTP_FORBIDDEN,
             '403 Forbidden | You cannot access this page because you do not have permission'
         );

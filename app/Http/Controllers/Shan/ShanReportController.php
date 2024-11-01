@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Shan;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\ReportTransaction;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ShanReportController extends Controller
 {
-
     public function index(Request $request)
     {
         $authUser = auth()->user(); // Get the authenticated admin
@@ -29,13 +28,12 @@ class ShanReportController extends Controller
             ->groupBy('report_transactions.user_id', 'users.name', 'agents.name') // Group by player and agent names
             ->orderByDesc('latest_transaction_date') // Order by latest transaction date
             ->when(isset($request->start_date) && isset($request->end_date), function ($query) use ($request) {
-                $query->whereBetween('report_transactions.created_at', [$request->start_date . ' 00:00:00', $request->end_date . ' 23:59:59']);
+                $query->whereBetween('report_transactions.created_at', [$request->start_date.' 00:00:00', $request->end_date.' 23:59:59']);
             })
             ->get();
 
         return view('admin.shan.reports.index', compact('reportTransactions'));
     }
-
 
     public function show($user_id)
     {
@@ -65,7 +63,7 @@ class ShanReportController extends Controller
             ->groupBy('report_transactions.user_id', 'users.name')
             ->orderByDesc('latest_transaction_date') // Now ordering by the alias of the aggregate function
             ->when(isset($request->start_date) && isset($request->end_date), function ($query) use ($request) {
-                $query->whereBetween('report_transactions.created_at', [$request->start_date . ' 00:00:00', $request->end_date . ' 23:59:59']);
+                $query->whereBetween('report_transactions.created_at', [$request->start_date.' 00:00:00', $request->end_date.' 23:59:59']);
             })
             ->get();
 

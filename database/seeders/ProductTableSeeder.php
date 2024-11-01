@@ -18,7 +18,7 @@ class ProductTableSeeder extends Seeder
                 'name' => 'Pragmatic Play',
                 'short_name' => 'PP',
                 'order' => 1,
-                'status' => 1
+                'status' => 1,
             ],
 
             [
@@ -26,7 +26,7 @@ class ProductTableSeeder extends Seeder
                 'name' => 'JDB',
                 'short_name' => 'JDB',
                 'order' => 2,
-                'status' => 1
+                'status' => 1,
             ],
 
             [
@@ -34,16 +34,15 @@ class ProductTableSeeder extends Seeder
                 'name' => 'PG Soft',
                 'short_name' => 'PGSoft',
                 'order' => 3,
-                'status' => 1
+                'status' => 1,
             ],
-
 
             [
                 'code' => '1091',
                 'name' => 'Jili',
                 'short_name' => 'JILI',
                 'order' => 4,
-                'status' => 1
+                'status' => 1,
             ],
 
             [
@@ -51,7 +50,7 @@ class ProductTableSeeder extends Seeder
                 'name' => 'Live22SM',
                 'short_name' => 'Live22',
                 'order' => 5,
-                'status' => 1
+                'status' => 1,
             ],
 
             [
@@ -59,7 +58,7 @@ class ProductTableSeeder extends Seeder
                 'name' => 'CQ9',
                 'short_name' => 'CQ9',
                 'order' => 6,
-                'status' => 0
+                'status' => 0,
             ],
 
             [
@@ -67,7 +66,7 @@ class ProductTableSeeder extends Seeder
                 'name' => 'Joker',
                 'short_name' => 'Joker',
                 'order' => 7,
-                'status' => 0
+                'status' => 0,
             ],
 
         ];

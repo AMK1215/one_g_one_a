@@ -34,7 +34,7 @@ class UsersTableSeeder extends Seeder
             'agent_id' => $parent_id,
             'status' => 1,
             'is_changed_password' => 1,
-            'type' => $type->value
+            'type' => $type->value,
         ]);
     }
 }

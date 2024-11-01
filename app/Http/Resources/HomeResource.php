@@ -14,7 +14,7 @@ class HomeResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-         $user = $this['user'];
+        $user = $this['user'];
         $marquee_text = $this['bannerText'];
 
         return [

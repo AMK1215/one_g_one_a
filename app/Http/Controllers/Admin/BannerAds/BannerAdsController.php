@@ -38,7 +38,7 @@ class BannerAdsController extends Controller
         // image
         $image = $request->file('image');
         $ext = $image->getClientOriginalExtension();
-        $filename = uniqid('banner') . '.' . $ext; // Generate a unique filename
+        $filename = uniqid('banner').'.'.$ext; // Generate a unique filename
         $image->move(public_path('assets/img/banners_ads/'), $filename); // Save the file
         BannerAds::create([
             'image' => $filename,
@@ -77,12 +77,12 @@ class BannerAdsController extends Controller
         ]);
 
         // Remove banner from local storage
-        File::delete(public_path('assets/img/banners_ads/' . $adsbanner->image));
+        File::delete(public_path('assets/img/banners_ads/'.$adsbanner->image));
 
         // image
         $image = $request->file('image');
         $ext = $image->getClientOriginalExtension();
-        $filename = uniqid('banner') . '.' . $ext; // Generate a unique filename
+        $filename = uniqid('banner').'.'.$ext; // Generate a unique filename
         $image->move(public_path('assets/img/banners_ads/'), $filename); // Save the file
 
         $adsbanner->update([
@@ -103,7 +103,7 @@ class BannerAdsController extends Controller
             return redirect()->back()->with('error', 'Banner Not Found');
         }
         //remove banner from localstorage
-        File::delete(public_path('assets/img/banners_ads/' . $banner->image));
+        File::delete(public_path('assets/img/banners_ads/'.$banner->image));
         $banner->delete();
 
         return redirect()->back()->with('success', 'Ads Banner Deleted.');

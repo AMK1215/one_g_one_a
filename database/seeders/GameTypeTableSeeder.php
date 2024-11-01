@@ -49,7 +49,7 @@ class GameTypeTableSeeder extends Seeder
                 'img' => 'other.png',
             ],
 
-             [
+            [
                 'name' => 'Other11',
                 'code' => '11',
                 'order' => '6',
@@ -57,7 +57,7 @@ class GameTypeTableSeeder extends Seeder
                 'img' => 'other.png',
             ],
 
-             [
+            [
                 'name' => 'Other12',
                 'code' => '12',
                 'order' => '7',

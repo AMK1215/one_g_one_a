@@ -10,7 +10,7 @@ class Promotion extends Model
     use HasFactory;
 
     protected $fillable = [
-        'image', 'title' , 'description'
+        'image', 'title', 'description',
     ];
 
     protected $appends = ['img_url'];
