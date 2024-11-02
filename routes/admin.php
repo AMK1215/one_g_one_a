@@ -21,7 +21,9 @@ use App\Http\Controllers\Admin\Master\MasterController;
 use App\Http\Controllers\Admin\Player\PlayerController;
 use App\Http\Controllers\Admin\GameTypeProductController;
 use App\Http\Controllers\Admin\BannerAds\BannerAdsController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\Deposit\DepositRequestController;
+use App\Http\Controllers\Admin\Owner\OwnerController;
 use App\Http\Controllers\Admin\TransferLog\TransferLogController;
 use App\Http\Controllers\Admin\WithDraw\WithDrawRequestController;
 
@@ -63,6 +65,7 @@ Route::group([
     Route::resource('banners', BannerController::class);
     Route::resource('adsbanners', BannerAdsController::class);
     Route::resource('text', BannerTextController::class);
+    Route::resource('contact', ContactController::class);
     Route::resource('/promotions', PromotionController::class);
     Route::resource('paymentTypes', PaymentTypeController::class);
     Route::resource('bank', BankController::class);
@@ -103,15 +106,15 @@ Route::group([
     Route::get('/agent-to-player-detail/{agent_id}/{player_id}', [AgentController::class, 'AgentToPlayerDetail'])->name('agent.to.player.detail');
 
 
-    Route::resource('master', MasterController::class);
-    Route::get('master-cash-in/{id}', [MasterController::class, 'getCashIn'])->name('master.getCashIn');
-    Route::post('master-cash-in/{id}', [MasterController::class, 'makeCashIn'])->name('master.makeCashIn');
-    Route::get('master/cash-out/{id}', [MasterController::class, 'getCashOut'])->name('master.getCashOut');
-    Route::post('master/cash-out/update/{id}', [MasterController::class, 'makeCashOut'])
-        ->name('master.makeCashOut');
-    Route::put('master/{id}/ban', [MasterController::class, 'banMaster'])->name('master.ban');
-    Route::get('master-changepassword/{id}', [MasterController::class, 'getChangePassword'])->name('master.getChangePassword');
-    Route::post('master-changepassword/{id}', [MasterController::class, 'makeChangePassword'])->name('master.makeChangePassword');
+    Route::resource('owner', OwnerController::class);
+    Route::get('owner-cash-in/{id}', [OwnerController::class, 'getCashIn'])->name('owner.getCashIn');
+    Route::post('owner-cash-in/{id}', [OwnerController::class, 'makeCashIn'])->name('owner.makeCashIn');
+    Route::get('mastownerer/cash-out/{id}', [OwnerController::class, 'getCashOut'])->name('owner.getCashOut');
+    Route::post('owner/cash-out/update/{id}', [OwnerController::class, 'makeCashOut'])
+        ->name('owner.makeCashOut');
+    Route::put('owner/{id}/ban', [OwnerController::class, 'banOwner'])->name('owner.ban');
+    Route::get('owner-changepassword/{id}', [OwnerController::class, 'getChangePassword'])->name('owner.getChangePassword');
+    Route::post('owner-changepassword/{id}', [OwnerController::class, 'makeChangePassword'])->name('owner.makeChangePassword');
 
 
     Route::get('withdraw', [WithDrawRequestController::class, 'index'])->name('agent.withdraw');

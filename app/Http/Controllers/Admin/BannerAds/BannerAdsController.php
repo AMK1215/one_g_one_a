@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\BannerAds;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\BannerAds;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class BannerAdsController extends Controller
@@ -14,7 +15,7 @@ class BannerAdsController extends Controller
      */
     public function index()
     {
-        $banners = BannerAds::latest()->get();
+        $banners = BannerAds::where('agent_id', Auth::id())->latest()->get();
 
         return view('admin.banner_ads.index', compact('banners'));
     }
@@ -42,6 +43,7 @@ class BannerAdsController extends Controller
         $image->move(public_path('assets/img/banners_ads/'), $filename); // Save the file
         BannerAds::create([
             'image' => $filename,
+            'agent_id' => Auth::id()
         ]);
 
         return redirect(route('admin.adsbanners.index'))->with('success', 'New Ads Banner Image Added.');

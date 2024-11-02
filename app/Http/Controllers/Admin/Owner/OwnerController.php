@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Master;
+namespace App\Http\Controllers\Admin\Owner;
 
 use App\Enums\TransactionName;
 use App\Enums\UserType;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MasterRequest;
+use App\Http\Requests\OwnerRequest;
 use App\Http\Requests\TransferLogRequest;
 use App\Models\Admin\TransferLog;
 use App\Models\User;
@@ -18,40 +18,40 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\Response;
 
-class MasterController extends Controller
+class OwnerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    private const MASTER_ROLE = 2;
+    private const OWNER_ROLE = 2;
 
     public function index()
     {
         abort_if(
-            Gate::denies('master_index'),
+            Gate::denies('owner_index'),
             Response::HTTP_FORBIDDEN,
             '403 Forbidden |You cannot  Access this page because you do not have permission'
         );
         //kzt
         $users = User::with('roles')
             ->whereHas('roles', function ($query) {
-                $query->where('role_id', self::MASTER_ROLE);
+                $query->where('role_id', self::OWNER_ROLE);
             })
             ->where('agent_id', auth()->id())
             ->orderBy('id', 'desc')
             ->get();
 
         //kzt
-        return view('admin.master.index', compact('users'));
+        return view('admin.owner.index', compact('users'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(MasterRequest $request)
+    public function store(OwnerRequest $request)
     {
         abort_if(
-            Gate::denies('master_store'),
+            Gate::denies('owner_create'),
             Response::HTTP_FORBIDDEN,
             '403 Forbidden |You cannot  Access this page because you do not have permission'
         );
@@ -72,12 +72,12 @@ class MasterController extends Controller
                 'user_name' => $user_name,
                 'password' => Hash::make($inputs['password']),
                 'agent_id' => Auth()->user()->id,
-                'type' => UserType::Master,
+                'type' => UserType::Owner,
             ]
         );
 
         $user = User::create($userPrepare);
-        $user->roles()->sync(self::MASTER_ROLE);
+        $user->roles()->sync(self::OWNER_ROLE);
 
         if (isset($inputs['amount'])) {
             app(WalletService::class)->transfer($admin, $user, $inputs['amount'], TransactionName::CreditTransfer);
@@ -85,7 +85,7 @@ class MasterController extends Controller
         session()->forget('user_name');
 
         return redirect()->back()
-            ->with('success', 'Master created successfully')
+            ->with('success', 'Owner created successfully')
             ->with('password', $request->password)
             ->with('username', $user->user_name);
     }
@@ -96,7 +96,7 @@ class MasterController extends Controller
     public function create()
     {
         abort_if(
-            Gate::denies('master_create'),
+            Gate::denies('owner_create'),
             Response::HTTP_FORBIDDEN,
             '403 Forbidden |You cannot  Access this page because you do not have permission'
         );
@@ -104,7 +104,7 @@ class MasterController extends Controller
 
         session()->put('user_name', $user_name);
 
-        return view('admin.master.create', compact('user_name', 'user_name'));
+        return view('admin.owner.create', compact('user_name', 'user_name'));
     }
 
     private function generateRandomString()
@@ -120,14 +120,14 @@ class MasterController extends Controller
     public function show(string $id)
     {
         abort_if(
-            Gate::denies('master_show'),
+            Gate::denies('owner_show'),
             Response::HTTP_FORBIDDEN,
             '403 Forbidden |You cannot  Access this page because you do not have permission'
         );
 
         $master = User::find($id);
 
-        return view('admin.master.show', compact('master'));
+        return view('admin.owner.show', compact('master'));
     }
 
     /**
@@ -136,14 +136,14 @@ class MasterController extends Controller
     public function edit(string $id)
     {
         abort_if(
-            Gate::denies('master_edit'),
+            Gate::denies('owner_edit'),
             Response::HTTP_FORBIDDEN,
             '403 Forbidden |You cannot  Access this page because you do not have permission'
         );
 
         $master = User::find($id);
 
-        return view('admin.master.edit', compact('master'));
+        return view('admin.owner.edit', compact('master'));
     }
 
     /**
@@ -157,9 +157,9 @@ class MasterController extends Controller
             '403 Forbidden |You cannot  Access this page because you do not have permission'
         );
 
-        $master = User::find($id);
+        $owner = User::find($id);
 
-        return view('admin.master.cash_in', compact('master'));
+        return view('admin.owner.cash_in', compact('owner'));
     }
 
     public function getCashOut(string $id)
@@ -171,9 +171,9 @@ class MasterController extends Controller
         );
 
         // Assuming $id is the user ID
-        $master = User::findOrFail($id);
+        $owner = User::findOrFail($id);
 
-        return view('admin.master.cash_out', compact('master'));
+        return view('admin.owner.cash_out', compact('owner'));
     }
 
     public function makeCashIn(TransferLogRequest $request, $id)
@@ -254,10 +254,10 @@ class MasterController extends Controller
             ->orWhere('to_user_id', $id)
             ->get();
 
-        return view('admin.master.transfer_detail', compact('transfer_detail'));
+        return view('admin.owner.transfer_detail', compact('transfer_detail'));
     }
 
-    public function banMaster($id)
+    public function banOwner($id)
     {
         abort_if(
             ! $this->ifChildOfParent(request()->user()->id, $id),
@@ -280,7 +280,7 @@ class MasterController extends Controller
     public function update(Request $request, string $id)
     {
         abort_if(
-            Gate::denies('master_update') || ! $this->ifChildOfParent($request->user()->id, $id),
+            Gate::denies('owner_update') || ! $this->ifChildOfParent($request->user()->id, $id),
             Response::HTTP_FORBIDDEN,
             '403 Forbidden |You cannot  Access this page because you do not have permission'
         );
@@ -300,14 +300,14 @@ class MasterController extends Controller
         ]);
 
         return redirect()->back()
-            ->with('success', 'Master Updated successfully');
+            ->with('success', 'Owner Updated successfully');
     }
 
     public function getChangePassword($id)
     {
-        $master = User::find($id);
+        $owner = User::find($id);
 
-        return view('admin.master.change_password', compact('master'));
+        return view('admin.owner.change_password', compact('master'));
     }
 
     public function makeChangePassword($id, Request $request)

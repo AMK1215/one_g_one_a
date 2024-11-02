@@ -15,7 +15,12 @@ class PermissionsTableSeeder extends Seeder
     {
         $permissions = [
             [
-                'title' => 'admin_access',
+                'title' => 'owner_access',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'title' => 'senior_access',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -101,6 +106,26 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'title' => 'site_logo',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'title' => 'owner_index',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'title' => 'owner_create',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'title' => 'owner_edit',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'title' => 'owner_delete',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

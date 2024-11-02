@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\BannerText;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BannerTextController extends Controller
 {
@@ -13,7 +14,7 @@ class BannerTextController extends Controller
      */
     public function index()
     {
-        $texts = BannerText::latest()->get();
+        $texts = BannerText::where('agent_id', Auth::id())->latest()->get();
 
         return view('admin.banner_text.index', compact('texts'));
     }
@@ -36,6 +37,7 @@ class BannerTextController extends Controller
         ]);
         BannerText::create([
             'text' => $request->text,
+            'agent_id' => Auth::id()
         ]);
 
         return redirect(route('admin.text.index'))->with('success', 'New Text Created Successfully.');

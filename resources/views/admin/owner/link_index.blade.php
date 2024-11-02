@@ -21,61 +21,56 @@
       <div class="card-header pb-0">
         <div class="d-lg-flex">
           <div>
-            <h5 class="mb-0">Transfer Detail </h5>
+            <h5 class="mb-0">Agent List Dashboards</h5>
 
           </div>
-          
+          <div class="ms-auto my-auto mt-lg-0 mt-4">
+            <div class="ms-auto my-auto">
+              <a href="{{ route('admin.agent.create') }}" class="btn bg-gradient-primary btn-sm mb-0">+&nbsp; Create 
+                Agent</a>
+              <button class="btn btn-outline-primary btn-sm export mb-0 mt-sm-0 mt-1" data-type="csv" type="button" name="button">Export</button>
+            </div>
+          </div>
         </div>
       </div>
       <div class="table-responsive">
         <table class="table table-flush" id="users-search">
           <thead class="thead-light">
             <th>#</th>
-            <th>From</th>
-            <th>To</th>
-            <th>Cash In</th>
-            <th>Cash Out</th>
-            <th>Profit</th>
-            <th>CurrentCashBalance</th>
-            <th>Date</th>
-        
+            <th>AgentName</th>
+            <th>AgentID</th>
+            <th>ReferralCode</th>
+            <th>Phone</th>
+            <th>Agent Link</th>
           </thead>
-          
           <tbody>
-            @foreach ($transfer_detail as $index => $log)
+            {{-- kzt --}}
+            @if(isset($users))
+            @if(count($users)>0)
+            @foreach ($users as $user)
             <tr>
               <td>{{ $loop->iteration }}</td>
-              <td>{{ $log->fromUser->name }} </td>
-              <td>{{ $log->toUser->name }}</td>
               <td>
-                @if ($log->cash_in == null)
-                ----
-                @else
-                {{ $log->cash_in }}
-                @endif
+                <span class="d-block">{{ $user->name }}</span>
               </td>
               <td>
-                @if ($log->cash_out == null)
-                ----
-                @else
-                {{ $log->cash_out }}
-                @endif
+                <span class="d-block">{{ $user->user_name }}</span>
               </td>
+              <td>{{$user->referral_code}}</td>
+              <td>{{ $user->phone }}</td>
               <td>
-                @php
-
-                $profit = $log->cash_in - $log->cash_out;
-                @endphp
-                {{-- if profit value is -, show span red color. else profit value is +, show profit value with green color --}}
-                @if ($profit < 0) <span class="text-danger">{{ $profit }}</span>
-                  @else
-                  <span class="text-success">{{ $profit }}</span>
-                  @endif
+                <a href="{{ $user->agent_link }}" target="_blanck" style="text-decoration: blueviolet" >{{ $user->agent_link }}</a>
               </td>
-              <td>{{ $log->cash_balance }}</td>
-              <td>{{ $log->created_at->format('d-m-Y H:i:s') }}</td>
             </tr>
             @endforeach
+            @else
+            <tr>
+              <td col-span=8>
+                There was no Agents.
+              </td>
+            </tr>
+            @endif
+            @endif
           </tbody>
         </table>
       </div>

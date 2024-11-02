@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Promotion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class PromotionController extends Controller
@@ -14,7 +15,7 @@ class PromotionController extends Controller
      */
     public function index()
     {
-        $promotions = Promotion::latest()->get();
+        $promotions = Promotion::where('agent_id', Auth::id())->latest()->get();
 
         return view('admin.promotions.index', compact('promotions'));
     }
@@ -46,7 +47,8 @@ class PromotionController extends Controller
         $promotion = Promotion::create([
             'image' => $filename,
             'title' => $request->title,
-            'description' => $request->description
+            'description' => $request->description,
+            'agent_id' => Auth::id()
         ]);
 
         return redirect()->route('admin.promotions.index')->with('success', 'New Promotion Created Successfully.');

@@ -30,7 +30,7 @@ class AgentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    private const AGENT_ROLE = 2;
+    private const AGENT_ROLE = 3;
 
     public function index(): View
     {
@@ -89,7 +89,7 @@ class AgentController extends Controller
             [
                 'password' => Hash::make($inputs['password']),
                 'agent_id' => Auth::id(),
-                'type' => UserType::Admin,
+                'type' => UserType::Agent,
             ]
         );
 

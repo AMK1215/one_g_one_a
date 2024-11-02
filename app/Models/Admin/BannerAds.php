@@ -10,7 +10,7 @@ class BannerAds extends Model
     use HasFactory;
 
     protected $fillable = [
-        'image',
+        'image', 'agent_id'
     ];
 
     protected $appends = ['img_url'];
