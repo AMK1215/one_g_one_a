@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
 
 class ReportTransactionsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
-     public function run()
+    public function run()
     {
         // Sample data for seeding the report_transactions table
         DB::table('report_transactions')->insert([

@@ -284,7 +284,6 @@ class AgentController extends Controller
             ->with('username', $agent->user_name);
     }
 
-
     public function showAgentLogin($id)
     {
         $agent = User::findOrFail($id);
@@ -336,7 +335,6 @@ class AgentController extends Controller
 
         return view('admin.agent.agent_to_player_detail', compact('transactionDetails'));
     }
-
 
     public function AgentWinLoseReport(Request $request)
     {
@@ -445,4 +443,3 @@ class AgentController extends Controller
         return view('admin.agent.auth_win_lose_details', compact('details'));
     }
 }
-

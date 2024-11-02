@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\UserType;
-use Exception;
-use App\Models\User;
-use App\Models\Transaction;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
-use App\Models\Admin\UserLog;
 use App\Enums\TransactionName;
+use App\Enums\UserType;
+use App\Models\Admin\UserLog;
+use App\Models\Transaction;
+use App\Models\User;
 use App\Services\WalletService;
-use Illuminate\Support\Facades\DB;
+use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response;
 
 class HomeController extends Controller
@@ -24,7 +24,6 @@ class HomeController extends Controller
      *
      * @return void
      */
-
     private const AGENT_ROLE = 2;
 
     public function __construct()
@@ -66,7 +65,6 @@ class HomeController extends Controller
             ->select(DB::raw('SUM(wallets.balance) as balance'))
             ->first();
 
-            
         return view('admin.dashboard', compact(
             'agent_count',
             'player_count',
@@ -116,7 +114,6 @@ class HomeController extends Controller
 
         return back()->with('success', 'Add New Balance Successfully.');
     }
-
 
     public function changePassword(Request $request, User $user)
     {

@@ -16,7 +16,7 @@ use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redis;
 
-trait OptimizedBettingProcess
+trait NewVersionOptimizedBettingProcess
 {
     public function placeBet(SlotWebhookRequest $request)
     {
@@ -203,66 +203,54 @@ trait OptimizedBettingProcess
             }
         } while ($retryCount < $maxRetries);
     }
-    /**
-     * Create seamless transactions and handle deadlock retries.
-     */
-    // public function createWagerTransactions($requestTransactions, SeamlessEvent $event, bool $refund = false)
-    // {
-    //     $seamless_transactions = [];
-
-    //     foreach ($requestTransactions as $requestTransaction) {
-    //         DB::transaction(function () use (&$seamless_transactions, $event, $requestTransaction, $refund) {
-    //             // Lock for update first to avoid deadlock
-    //             $existingWager = Wager::where('seamless_wager_id', $requestTransaction->WagerID)
-    //                 ->lockForUpdate()
-    //                 ->first();
-
-    //             if (! $existingWager) {
-    //                 // Create a new wager if it does not exist
-    //                 $wager = Wager::create([
-    //                     'user_id' => $event->user_id,
-    //                     'seamless_wager_id' => $requestTransaction->WagerID,
-    //                 ]);
-    //             } else {
-    //                 $wager = $existingWager;
-    //             }
-
-    //             // Update wager status
-    //             if ($refund) {
-    //                 $wager->update(['status' => WagerStatus::Refund]);
-    //             } elseif (! $wager->wasRecentlyCreated) {
-    //                 $wager->update(['status' => $requestTransaction->TransactionAmount > 0 ? WagerStatus::Win : WagerStatus::Lose]);
-    //             }
-
-    //             // Retrieve game type and product
-    //             $game_type = GameType::where('code', $requestTransaction->GameType)->firstOrFail();
-    //             $product = Product::where('code', $requestTransaction->ProductID)->firstOrFail();
-    //             $rate = GameTypeProduct::where('game_type_id', $game_type->id)
-    //                 ->where('product_id', $product->id)
-    //                 ->firstOrFail()->rate;
-
-    //             // Create seamless transaction
-    //             $seamless_transactions[] = $event->transactions()->create([
-    //                 'user_id' => $event->user_id,
-    //                 'wager_id' => $wager->id,
-    //                 'game_type_id' => $game_type->id,
-    //                 'product_id' => $product->id,
-    //                 'seamless_transaction_id' => $requestTransaction->TransactionID,
-    //                 'rate' => $rate,
-    //                 'transaction_amount' => $requestTransaction->TransactionAmount,
-    //                 'bet_amount' => $requestTransaction->BetAmount,
-    //                 'valid_amount' => $requestTransaction->ValidBetAmount,
-    //                 'status' => $requestTransaction->Status,
-    //             ]);
-    //         });
-    //     }
-
-    //     return $seamless_transactions;
-    // }
 
     /**
      * Process the wallet transfer, handling deadlock retries.
      */
+    // public function processTransfer(User $from, User $to, TransactionName $transactionName, float $amount, int $rate, array $meta)
+    // {
+    //     $retryCount = 0;
+    //     $maxRetries = 5;
+
+    //     do {
+    //         try {
+    //             DB::transaction(function () use ($from, $to, $amount, $transactionName, $meta) {
+    //                 // Fetch the wallet and lock it for update
+    //                 $wallet = $from->wallet()->lockForUpdate()->firstOrFail();
+
+    //                 // Ensure the version matches for optimistic locking
+    //                 if ($wallet->version !== $from->wallet->version) {
+    //                     throw new \Exception('Version mismatch detected.');
+    //                 }
+
+    //                 // Update wallet balance
+    //                 $wallet->balance -= $amount;
+
+    //                 // Increment the version column
+    //                 $wallet->version += 1;
+
+    //                 // Save the changes to the wallet
+    //                 $wallet->save();
+
+    //                 // Perform the transfer
+    //                 app(WalletService::class)->transfer($from, $to, abs($amount), $transactionName, $meta);
+    //             });
+
+    //             break;  // Exit loop if successful
+    //         } catch (\Illuminate\Database\QueryException $e) {
+    //             if ($e->getCode() === '40001') {  // Deadlock error code
+    //                 $retryCount++;
+    //                 if ($retryCount >= $maxRetries) {
+    //                     throw $e;  // Max retries reached, fail
+    //                 }
+    //                 sleep(1);  // Wait before retrying
+    //             } else {
+    //                 throw $e;  // Rethrow non-deadlock exceptions
+    //             }
+    //         }
+    //     } while ($retryCount < $maxRetries);
+    // }
+
     public function processTransfer(User $from, User $to, TransactionName $transactionName, float $amount, int $rate, array $meta)
     {
         $retryCount = 0;
@@ -270,29 +258,26 @@ trait OptimizedBettingProcess
 
         do {
             try {
+                // Only lock the necessary rows inside the transaction
                 DB::transaction(function () use ($from, $to, $amount, $transactionName, $meta) {
-                    // Fetch the wallet and lock it for update
-                    $wallet = $from->wallet()->lockForUpdate()->firstOrFail();
+                    // Lock only the specific rows for the wallet that needs updating
+                    $walletFrom = $from->wallet()->lockForUpdate()->firstOrFail();
+                    $walletTo = $to->wallet()->lockForUpdate()->firstOrFail();
 
-                    // Ensure the version matches for optimistic locking
-                    if ($wallet->version !== $from->wallet->version) {
-                        throw new \Exception('Version mismatch detected.');
-                    }
+                    // Update wallet balances
+                    $walletFrom->balance -= $amount;
+                    $walletTo->balance += $amount;
 
-                    // Update wallet balance
-                    $wallet->balance -= $amount;
+                    // Save the updated balances
+                    $walletFrom->save();
+                    $walletTo->save();
 
-                    // Increment the version column
-                    $wallet->version += 1;
-
-                    // Save the changes to the wallet
-                    $wallet->save();
-
-                    // Perform the transfer
+                    // Perform the transfer in the wallet service (possibly outside the transaction)
                     app(WalletService::class)->transfer($from, $to, abs($amount), $transactionName, $meta);
                 });
 
                 break;  // Exit loop if successful
+
             } catch (\Illuminate\Database\QueryException $e) {
                 if ($e->getCode() === '40001') {  // Deadlock error code
                     $retryCount++;

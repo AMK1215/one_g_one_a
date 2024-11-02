@@ -36,7 +36,7 @@ class PromotionController extends Controller
         $request->validate([
             'image' => 'required',
             'title' => 'required',
-            'description' => 'nullable'
+            'description' => 'nullable',
         ]);
         // image
         $image = $request->file('image');
@@ -82,15 +82,16 @@ class PromotionController extends Controller
             $image->move(public_path('assets/img/promotions/'), $filename);
 
             $promotion->update([
-                'image' => $filename
+                'image' => $filename,
             ]);
 
             return redirect()->route('admin.promotions.index')->with('success', 'Promotion Updated');
         }
-            $promotion->update([
-                'title' => $request->title,
-                'description' => $request->description
-            ]);
+        $promotion->update([
+            'title' => $request->title,
+            'description' => $request->description,
+        ]);
+
         return redirect()->route('admin.promotions.index')->with('success', 'Promotion Updated');
 
     }
