@@ -216,7 +216,12 @@
                                         <p>BannerText</p>
                                     </a>
                                 </li>
-
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.banners.index') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Banner</p>
+                                    </a>
+                                </li>
                                 <li class="nav-item">
                                     <a href="{{ route('admin.adsbanners.index') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>

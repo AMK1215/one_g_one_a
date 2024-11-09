@@ -13,6 +13,7 @@ use App\Services\WalletService;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
@@ -65,6 +66,11 @@ class OwnerController extends Controller
                 'amount' => 'Insufficient balance for transfer.',
             ]);
         }
+        // image
+        $image = $request->file('agent_logo');
+        $ext = $image->getClientOriginalExtension();
+        $filename = uniqid('logo').'.'.$ext; // Generate a unique filename
+        $image->move(public_path('assets/img/logo/'), $filename); // Save the file
 
         $userPrepare = array_merge(
             $inputs,
@@ -73,6 +79,7 @@ class OwnerController extends Controller
                 'password' => Hash::make($inputs['password']),
                 'agent_id' => Auth()->user()->id,
                 'type' => UserType::Owner,
+                'agent_logo' => $filename
             ]
         );
 
@@ -141,9 +148,9 @@ class OwnerController extends Controller
             '403 Forbidden |You cannot  Access this page because you do not have permission'
         );
 
-        $master = User::find($id);
+        $owner = User::find($id);
 
-        return view('admin.owner.edit', compact('master'));
+        return view('admin.owner.edit', compact('owner'));
     }
 
     /**
@@ -280,23 +287,28 @@ class OwnerController extends Controller
     public function update(Request $request, string $id)
     {
         abort_if(
-            Gate::denies('owner_update') || ! $this->ifChildOfParent($request->user()->id, $id),
+            Gate::denies('owner_edit') || ! $this->ifChildOfParent($request->user()->id, $id),
             Response::HTTP_FORBIDDEN,
             '403 Forbidden |You cannot  Access this page because you do not have permission'
         );
 
-        $request->validate([
-            'name' => 'required|min:3|unique:users,name,'.$id,
-            'player_name' => 'required|string',
-            'phone' => ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'unique:users,phone,'.$id],
-            'password' => 'nullable|min:6|confirmed',
-        ]);
-
         $user = User::find($id);
+        if($request->file('agent_logo'))
+        {
+            File::delete(public_path('assets/img/logo/'.$user->agent_logo));
+            // image
+            $image = $request->file('agent_logo');
+            $ext = $image->getClientOriginalExtension();
+            $filename = uniqid('banner').'.'.$ext; // Generate a unique filename
+            $image->move(public_path('assets/img/logo/'), $filename); // Save the file
+            $request->agent_logo = $filename;
+        }
+      
         $user->update([
             'name' => $request->name,
             'phone' => $request->phone,
             'player_name' => $request->player_name,
+            'agent_logo' => $request->agent_logo
         ]);
 
         return redirect()->back()
@@ -307,7 +319,7 @@ class OwnerController extends Controller
     {
         $owner = User::find($id);
 
-        return view('admin.owner.change_password', compact('master'));
+        return view('admin.owner.change_password', compact('owner'));
     }
 
     public function makeChangePassword($id, Request $request)
@@ -328,7 +340,7 @@ class OwnerController extends Controller
         ]);
 
         return redirect()->back()
-            ->with('success', 'Master Change Password successfully')
+            ->with('success', 'Owner Change Password successfully')
             ->with('password', $request->password)
             ->with('username', $master->user_name);
     }

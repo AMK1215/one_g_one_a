@@ -20,13 +20,13 @@
                 <div class="card-header">
                     <div class="card-title col-12">
                         <h5 class="d-inline fw-bold">Change Password</h5>
-                        <a href="{{ route('admin.agent.index') }}" class="btn btn-primary d-inline float-right ">
+                        <a href="{{ route('admin.owner.index') }}" class="btn btn-primary d-inline float-right ">
                             <i class="fas fa-arrow-left" style="font-size: 20px;"></i> Back
                         </a>
                     </div>
                 </div>
 
-                <form method="POST" action="{{ route('admin.agent.makeChangePassword',$agent->id) }}">
+                <form method="POST" action="{{ route('admin.owner.makeChangePassword',$owner->id) }}">
                     @csrf
                     <div class="card-body">
                         <div class="row">
