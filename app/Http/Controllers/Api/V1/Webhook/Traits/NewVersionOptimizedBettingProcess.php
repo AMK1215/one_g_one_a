@@ -29,6 +29,9 @@ trait NewVersionOptimizedBettingProcess
             return response()->json(['message' => 'The wallet is currently being updated. Please try again later.'], 409);
         }
 
+        $event = $this->createEvent($request);
+
+
         DB::beginTransaction();
         try {
             // Validate the request
@@ -42,7 +45,7 @@ trait NewVersionOptimizedBettingProcess
             $before_balance = $request->getMember()->balanceFloat;
 
             // Create and store the event in the database
-            $event = $this->createEvent($request);
+            //$event = $this->createEvent($request);
 
             // Retry logic for creating wager transactions with exponential backoff
             $seamless_transactions = $this->retryOnDeadlock(function () use ($validator, $event) {
