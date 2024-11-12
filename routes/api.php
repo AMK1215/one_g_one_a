@@ -83,7 +83,6 @@ Route::group(['middleware' => ['auth:sanctum', 'checkBanned']], function () {
 
     Route::group(['prefix' => 'game'], function () {
         Route::post('Seamless/LaunchGame', [LaunchGameController::class, 'launchGame']);
-
     });
 
     Route::group(['prefix' => 'direct'], function () {

@@ -118,7 +118,7 @@ class OwnerController extends Controller
     {
         $randomNumber = mt_rand(10000000, 99999999);
 
-        return 'M'.$randomNumber;
+        return 'O'.$randomNumber;
     }
 
     /**
