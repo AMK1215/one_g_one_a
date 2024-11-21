@@ -71,7 +71,6 @@ Route::group(['prefix' => 'Seamless'], function () {
 
 Route::group(['middleware' => ['auth:sanctum', 'checkBanned']], function () {
     Route::get('home', [AuthController::class, 'home']);
-
     Route::get('wager-logs', [WagerController::class, 'index']); //GSC
     Route::get('transactions', [TransactionController::class, 'index'])->middleware('transaction');
 
